@@ -1,0 +1,87 @@
+#cadastro_card{
+    margin: 8.5% 10% 5% 10%;
+    border: 3px solid var(--branco);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    background: var(--preto);
+    box-shadow: 1px 1px 40px var(--aqua);
+}
+
+.imagem_card{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    background: var(--preto);
+    border-radius: 50px;
+    width: 50%;
+}
+
+.imagem{
+    width: 100%;
+    border-radius: 50px;
+    margin-top: 9%;
+
+}
+
+.inputs_card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.ipt_cadastro{
+    width: 300px;
+    text-align: center;
+    background-color: transparent;
+    color: var(--branco);
+    border: transparent;
+    border-bottom: 1px solid var(--aqua);
+    margin: 10px 0;
+}
+
+.texto_card{
+    color: var(--aqua);
+    font-family: var(--fonte);
+    margin: 0;
+}
+
+h1{
+    color: var(--letra);
+    font-family: monospace;
+    padding: 0;
+    font-size: 30px;
+    text-shadow: 1px 1px 0px var(--branco);
+}
+
+.btn_cadastrar{
+    color: var(--aqua);
+    width: 200px;
+    font-size: 20px;
+    background-color: transparent;
+    border: 2px solid rgb(0, 168, 246);
+    border-radius: 100px 0 100px 0;
+    margin: 10px;
+    font-family: monospace;
+    padding: 5px;
+}
+
+.btn_cadastrar:hover{
+    background: var(--branco);
+    color: black;
+    border: 2px solid var(--aqua);
+    text-shadow: 1px 1px 3px black;
+    cursor: pointer;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.validar{
+    color: white;
+    margin-bottom: 3%;
+}

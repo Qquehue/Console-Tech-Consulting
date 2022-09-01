@@ -1,0 +1,41 @@
+.rodape {
+    background: var(--preto);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    color: var(--branco);
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid var(--branco);
+}
+
+.logo_facebook {
+    width: 50px;
+}
+
+.logo_insta {
+    width: 50px;
+    margin-left: 10px;
+}
+
+.logo_twitter {
+    float: right;
+    width: 50px;
+    margin-left: 10px;
+    margin-right: 50px;
+}
+
+.logo_rodape{
+    width: 200px;
+}
+
+.texto_rodape{
+    color: var(--textoRodape);
+}
+
+.texto_rodape_index{
+    width: 100%;
+    text-align: center;
+}

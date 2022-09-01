@@ -1,0 +1,27 @@
+.corpo_sobre{
+    border: 3px solid var(--branco);
+    box-shadow: 1px 1px 40px var(--aqua);
+    background:var(--fundoCard);
+    margin: 10% 10% 0% 10%;
+    border-radius: 25px;
+    padding: 2%;
+}
+
+.texto_sobre{
+    color: var(--letra); 
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    font-size: 150%;
+    font-family: var(--fonte);
+    font-weight: bold;
+    text-indent: 3vw;
+}
+
+.titulo_sobre{
+    color: var(--aqua);
+    text-align: center;
+    font-size: 200%;
+    font-family: var(--fonte);
+    font-weight: bold;
+}

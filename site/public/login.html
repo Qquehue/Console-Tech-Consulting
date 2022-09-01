@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="css/img/logo2.png">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
+    <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/root.css">
+</head>
+<body>
+
+<!-- Início Cabeçalho -->
+
+    <div class="cabecalho">
+        <div class="container_cabecalho">
+            <a href="index.html"><img src="css/img/logo.png" alt="Logo do Site" class="logo_cabecalho"></a>
+                <ul class="itens_cabecalho">
+                    <li> <a href="index.html">Home</a></li>
+                    <!-- <li> <a href="curiosidades.html">Curiosidades</a></li> -->
+                    <li>|</li>
+                    <li> <a href="cadastro.html">Cadastro</a></li>
+                    <li> <a href="login.html">Login</a></li>                
+                </ul>
+        </div>
+    </div>
+
+<!-- Fim Cabeçalho -->
+
+<!-- --------------------------------------------------------------------------------------------------------- -->
+
+<!-- Início Login Card -->
+
+    <div class="login_card">
+        <div class="container_cardLogin">
+            <h1 class="titulo_card">Efetue login!</h1>
+            <p class="texto_card">Informe seu email:</p>
+            <input type="text" class="ipt_login" placeholder="Email" id="ipt_email">
+            <p class="texto_card">Informe sua senha:</p>
+            <input type="password" class="ipt_login" placeholder="Senha" id="ipt_senha">
+            <button onclick="logar()" class="btn_logar">Logar</button>
+            <div id="validar"></div>
+        </div>
+    </div>
+
+<!-- Fim Login Card -->
+
+<!-- --------------------------------------------------------------------------------------------------------- -->
+    
+<!--Inicio rodapé -->
+
+    <div class="rodape">
+        <img class="logo_rodape" src="css/img/logo.png" alt="">
+        <div class="texto_rodape_index">
+            <p class="texto_rodape">
+                feito por Yuri Leal Sapuppo
+            </p>
+            <p class="texto_rodape">
+                faculdade SPTech School
+            </p>
+        </div>
+        <img class="logo_facebook" src="css/img/logo face.png" alt="">
+        <img class="logo_insta" src="css/img/logo inst.png" alt="">
+        <img class="logo_twitter" src="css/img/logo tt.png" alt="">
+    </div>   
+</body>
+</html>
+
+<script>
+
+
+    function logar() {
+
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    setTimeout(function () {
+                        window.location = "curiosidades.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+                validar.innerHTML = '*Insira seus dados corretamente*'
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        validar.innerHTML = ""
+    }
+
+</script>

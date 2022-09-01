@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    background: var(--fundo);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+

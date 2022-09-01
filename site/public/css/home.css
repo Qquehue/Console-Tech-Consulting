@@ -1,0 +1,139 @@
+/* COMEÇO BANNER  */
+
+.banner{
+    border: 3px solid var(--branco);
+    box-shadow: 1px 1px 40px var(--aqua);
+    background:var(--fundoCard);
+    margin: 15% 10% 0% 10%;
+    border-radius: 25px;
+
+}
+
+.container_banner{
+    display: flex;
+    flex-direction: row;
+}
+
+.img_banner{
+    height: 72vh;
+    width: 50vw;
+    border-radius: 25px;
+
+}
+
+.caixa_texto_banner{
+    display: flex;
+    flex-direction: column;
+    padding: 1.3vh;
+    align-items: center;
+}
+
+.texto_banner{
+    color: var(--letra); 
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    font-size: 190%;
+    font-family: var(--fonte);
+    font-weight: bold;
+    text-indent: 3vw;
+}
+
+.titulo_banner{
+    color: var(--aqua);
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-size: 200%;
+    font-family: var(--fonte);
+    font-weight: bold;
+}
+
+#saiba_mais{
+    text-indent: 0;
+    text-decoration: underline;
+}
+
+.btn_banner{
+    background-color: var(--transparent);
+    text-align: center;
+    color: var(--aqua);
+    font-size: 150%;
+    font-family: var(--fonte);
+    font-weight: bold;
+    border: var(--transparent);
+}
+.btn_banner :hover{
+    background: rgb(0, 168, 246);
+    padding: 1vh;
+    border: var(--transparent);
+    border-radius: 2vw;
+    color: var(--preto);
+}
+
+/* FIM BANNER  */
+
+/* ---------------------------------------------------------------------------------------------------------- */
+
+/* COMEÇO EXPLICAÇÃO */
+
+.explicacao_zonaAbissal{
+    box-shadow: 1px 1px 40px var(--aqua);
+    border: 3px solid var(--branco);
+    margin: 0 10% 10% 10%;
+    background:var(--fundoCard);
+    padding: 30px;
+    border-radius: 25px;
+}
+
+.corpo_explicacao{
+    color:var(--branco);
+    text-align: center;
+    padding: 0 50px;
+    font-size: 80%;
+}
+
+#titulo_explicacao{
+    color: var(--aqua);
+    font-size: 200%;
+}
+
+.imagem_explicacao{
+    border-radius: 10px;
+    height: 30vw;
+}
+
+.texto_banner_explicacao{
+    color: var(--letra);
+    margin:20px 1px;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    font-size: 160%;
+    font-family: var(--fonte);
+    font-weight: bold;
+    text-indent: 70px;
+}
+
+.btn_cadastro_explicacao{
+    background-color: transparent;
+    text-align: center;
+    color: var(--aqua);
+    font-size: 20px;
+    font-family: var(--fonte);
+    font-weight: bold;
+    border: transparent;
+    margin-bottom: 10px;
+}
+.btn_cadastro_explicacao :hover{
+    background: rgb(0, 168, 246);
+    padding: 10px;
+    border: transparent;
+    border-radius: 50px;
+    color: black;
+}
+
+
+/* FIM EXPLICAÇÃO */
+
+/* ---------------------------------------------------------------------------------------------------------- */
