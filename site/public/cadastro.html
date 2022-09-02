@@ -18,10 +18,10 @@
 
 <div class="cabecalho">
     <div class="container_cabecalho">
-        <a href="index.html"><img src="css/img/logo.png" alt="Logo do Site" class="logo_cabecalho"></a>
+        <a href="home.html"><img src="css/img/logo.png" alt="Logo do Site" class="logo_cabecalho"></a>
             <ul class="itens_cabecalho">
-                <li> <a href="index.html">Home</a></li>
-                <!-- <li> <a href="curiosidades.html">Curiosidades</a></li> -->
+                <li> <a href="home.html">Home</a></li>
+                <li> <a href="sobre.html">Sobre</a></li>
                 <li>|</li>
                 <li> <a href="cadastro.html">Cadastro</a></li>
                 <li> <a href="login.html">Login</a></li>                
@@ -68,10 +68,10 @@
         <img class="logo_rodape" src="css/img/logo.png" alt="">
         <div class="texto_rodape_index">
             <p class="texto_rodape">
-                feito por Yuri Leal Sapuppo
+                Feito pela equipe CTC
             </p>
             <p class="texto_rodape">
-                faculdade SPTech School
+                Faculdade SPTech School
             </p>
         </div>
         <img class="logo_facebook" src="css/img/logo face.png" alt="">
@@ -84,12 +84,9 @@
 </body>
 </html>
 
-<script>
+<!-- <script>
     function btn_cadastrar() {
-        // aguardar();
 
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
         var nomeVar = ipt_nome.value;
         var emailVar = ipt_email.value;
         var telefoneVar = ipt_tel.value;
@@ -147,15 +144,13 @@
             div_validacao.innerHTML = ""
             alert('* Cadastrado com sucesso *')
             setInterval(sumirMensagem, 5000)
-        // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
+
                 nomeServer: nomeVar,
                 emailServer: emailVar,
                 telServer: telefoneVar,
@@ -167,9 +162,6 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                // cardErro.style.display = "block";
-
-                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                 setTimeout(() => {
                     window.location = "login.html";
@@ -193,6 +185,4 @@
     }
 
         }
-
-
-</script>
+</script> -->

@@ -8,15 +8,13 @@
 .container_cabecalho {
     display: flex;
     flex-direction: row;
-    border-bottom: 0.4vh solid var(--branco);
-    box-shadow: 0 0 2vh var(--preto);
-    background: var(--preto);
+    background: var(--azulclaro);
     align-items: center;
 }
 .itens_cabecalho{
     display: flex;
     flex-direction: row;
-    color: var(--letra);
+    color: var(--preto2);
     width: 50%;
     margin-left: 35vw;
     font-size: 170%;
@@ -31,6 +29,7 @@ a {
     text-decoration:none;
 }
 .logo_cabecalho{
+    margin: 1vh;
     height: 15vh;
     margin-left: 5vw;
 }
