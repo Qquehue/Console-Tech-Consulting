@@ -1,24 +1,11 @@
 /* COMEÇO BANNER  */
 
-.banner{
-    border: 3px solid var(--branco);
-    box-shadow: 1px 1px 40px var(--aqua);
+.texto_sobre{
+    border: 3px solid var(--preto);
     background:var(--fundoCard);
-    margin: 15% 10% 0% 10%;
-    border-radius: 25px;
-
-}
-
-.container_banner{
-    display: flex;
-    flex-direction: row;
-}
-
-.img_banner{
-    height: 72vh;
-    width: 50vw;
-    border-radius: 25px;
-
+    margin: 25vh 0% 0% 5vw;
+    width: 40vw;
+    height: 50vh;
 }
 
 .caixa_texto_banner{

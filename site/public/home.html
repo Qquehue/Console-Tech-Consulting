@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/cabecalho.css">
     <link rel="stylesheet" href="css/rodape.css">
     <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/reset.css">
     <title>CTC</title>
 </head>
 <body>
@@ -19,13 +20,10 @@
     <div class="cabecalho">
         <div class="container_cabecalho">
             <a href="home.html"><img src="css/img/logo.png" alt="Logo do Site" class="logo_cabecalho"></a>
-                <ul class="itens_cabecalho">
-                    <li> <a href="home.html">Home</a></li>
-                    <li> <a href="sobre.html">Sobre</a></li>
-                    <li>|</li>
-                    <li> <a href="cadastro.html">Cadastro</a></li>
-                    <li> <a href="login.html">Login</a></li>                
-                </ul>
+            <div class="itens_cabecalho">
+                <a href="cadastro.html"><button class="btn_cabecalho">Cadastro</button></a>
+                <a href="login.html"><button class="btn_cabecalho">Login</button></a>             
+            </div>
         </div>
     </div>
 
@@ -35,22 +33,15 @@
 
 <!-- Início Banner -->
 
-    <div class="banner">
-        <div class="container_banner">
-            <img src="css/img/imgBanner.jpeg" alt="" class="img_banner">
-                <div class="caixa_texto_banner">
-                    <h1 class="titulo_banner">
-                        Site de curiosidades sobre vida marinha na zona abissal e hadopelágica
-                    </h1>
-                    <p class="texto_banner">
-                        Descubra tudo sobre essas criaturas: como são, como vivem, tamanho, entre outras coisas.
-                    </p>
-                    <p class="texto_banner" id="saiba_mais">
-                        <a href="#explicacao">Saiba mais</a>
-                    </p>
-
-                    <button class="btn_banner"><a href="cadastro.html">Cadastre-se</a></button>
-                </div>
+    <div class="texto_sobre">
+        <div class="caixa_texto_banner">
+            <h1 class="titulo_banner">
+                Sobre nós
+            </h1>
+            <p class="texto_banner">
+                Somos a Console Tech Consulting
+            </p>
+            <a href="#explicacao">Saiba mais</a>
         </div>
     </div>
 
@@ -60,7 +51,7 @@
 
 <!-- Início Explicação -->
     
-    <div style="background: transparent; height: 120px;"id="explicacao"></div>
+    <!-- <div style="background: transparent; height: 120px;"id="explicacao"></div>
 
         <div class="explicacao_zonaAbissal"> 
 
@@ -103,7 +94,7 @@
                 <button class="btn_cadastro_explicacao"><a href="cadastro.html">Cadastre-se</a></button>
 
             </div>
-        </div>
+        </div> -->
     
 <!-- Fim Explicação -->
 
@@ -112,18 +103,19 @@
 <!--Inicio rodapé -->
 
         <div class="rodape">
-            <img class="logo_rodape" src="css/img/logo.png" alt="">
+            <div class="contato">
+                <p id="contato">Contatos:<p>
+                <p class="texto_rodape" id="email">E-mail: <br> consoletechconsulting@gmail.com</p>
+                <p class="texto_rodape">Celular: <br> +55 (11) 962741491</p>
+            </div>
             <div class="texto_rodape_index">
                 <p class="texto_rodape">
-                    Feito pela equipe CTC
+                    © 2022 Grupo 5 - 2ADSB
                 </p>
                 <p class="texto_rodape">
-                    Faculdade SPTech School
+                    Feito com carinho pelos alunos SPTech em SP-BR
                 </p>
             </div>
-            <img class="logo_facebook" src="css/img/logo face.png" alt="">
-            <img class="logo_insta" src="css/img/logo inst.png" alt="">
-            <img class="logo_twitter" src="css/img/logo tt.png" alt="">
         </div>
 </body>
 </html>
