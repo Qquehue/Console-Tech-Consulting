@@ -2,14 +2,14 @@
 
 .texto_sobre{
     /* border: 0.1vw solid var(--preto); */
-    margin: 21vh 0% 0% 5vw;
+    margin: 30vh 0% 0% 5vw;
     width: 45vw;
     height: 70vh;
 }
 
 .img_sobre{
     /* border: 0.1vw solid var(--preto); */
-    margin: 21vh 5vw 0% 0%;
+    margin: 30vh 5vw 0% 0%;
     width: 45vw;
     height: 70vh;
     background: url(../css/img/luz.jpg);
@@ -29,10 +29,10 @@
     display: flex;
     flex-direction: row;
     text-align: justify;
-    font-size: 1.7vw;
+    font-size: 1.8vw;
     font-family: var(--fonte);
     text-indent: 3vw;
-    padding: 0 1vw;
+    padding-right:4vw;
 }
 
 .titulo_banner{
@@ -55,70 +55,12 @@
     display: flex;
 }
 
-
-/* FIM BANNER  */
-
-/* ---------------------------------------------------------------------------------------------------------- */
-
-/* COMEÇO EXPLICAÇÃO */
-
-.explicacao_zonaAbissal{
-    box-shadow: 1px 1px 40px var(--aqua);
-    border: 3px solid var(--branco);
-    margin: 0 10% 10% 10%;
-    background:var(--fundoCard);
-    padding: 30px;
-    border-radius: 25px;
+.diagrama{
+    width: 90vw;
+    margin: 5vw;
 }
-
-.corpo_explicacao{
-    color:var(--branco);
-    text-align: center;
-    padding: 0 50px;
-    font-size: 80%;
+.img_diagrama{
+    margin-top: 2vw;
+    border: 1px solid black;
+    height: 68vh;
 }
-
-#titulo_explicacao{
-    color: var(--aqua);
-    font-size: 200%;
-}
-
-.imagem_explicacao{
-    border-radius: 10px;
-    height: 30vw;
-}
-
-.texto_banner_explicacao{
-    color: var(--letra);
-    margin:20px 1px;
-    display: flex;
-    flex-direction: row;
-    text-align: justify;
-    font-size: 160%;
-    font-family: var(--fonte);
-    font-weight: bold;
-    text-indent: 70px;
-}
-
-.btn_cadastro_explicacao{
-    background-color: transparent;
-    text-align: center;
-    color: var(--aqua);
-    font-size: 20px;
-    font-family: var(--fonte);
-    font-weight: bold;
-    border: transparent;
-    margin-bottom: 10px;
-}
-.btn_cadastro_explicacao :hover{
-    background: rgb(0, 168, 246);
-    padding: 10px;
-    border: transparent;
-    border-radius: 50px;
-    color: black;
-}
-
-
-/* FIM EXPLICAÇÃO */
-
-/* ---------------------------------------------------------------------------------------------------------- */

@@ -7,3 +7,11 @@ html{
     scroll-behavior: smooth;
 }
 
+body::-webkit-scrollbar {
+    width: 15px;
+    background: var(--azulclaro);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--branco);
+}
