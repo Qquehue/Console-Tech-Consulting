@@ -1,6 +1,6 @@
 .rodape {
     background: var(--preto2);
-    margin-top: 10vh;
+    margin-top: 5vh;
     display: flex;
     flex-direction: row;
     color: var(--branco);

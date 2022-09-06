@@ -32,7 +32,7 @@ a {
     width: 12vw;
     height: 6vh;
     border-radius: 10vw;
-    background-color: var(--transparente);
+    background-color: var(--preto2);
     color: var(--branco);
     font-size: 1.5vw;
     font-weight: bold;
@@ -41,6 +41,7 @@ a {
     text-align: center;
 }
 .btn_cabecalho:hover{
-    background-color: var(--preto2);
+    background-color: var(--branco);
+    color: var(--preto2);
     cursor: pointer;
 }
