@@ -10,8 +10,10 @@ html{
 body::-webkit-scrollbar {
     width: 15px;
     background: var(--azulclaro);
+    border-left: 1px solid black;
 }
 
 body::-webkit-scrollbar-thumb {
     background: var(--branco);
+    border: 1px solid black;
 }

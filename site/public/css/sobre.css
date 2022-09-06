@@ -1,3 +1,18 @@
+/* mobile */
+
+@media screen and (max-width:500px){
+
+}
+
+/* Tablet */
+
+@media screen and (max-width:820px){
+
+}
+
+/* Computador */
+
+@media screen and (min-width: 821px){
 .corpo_sobre{
     border: 3px solid var(--branco);
     box-shadow: 1px 1px 40px var(--aqua);
@@ -24,4 +39,5 @@
     font-size: 200%;
     font-family: var(--fonte);
     font-weight: bold;
+}
 }

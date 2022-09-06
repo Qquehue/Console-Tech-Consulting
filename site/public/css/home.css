@@ -1,14 +1,26 @@
-/* COMEÇO BANNER  */
+/* mobile */
+
+@media screen and (max-width:500px){
+
+}
+
+/* Tablet */
+
+@media screen and (max-width:820px){
+
+}
+
+/* Computador */
+
+@media screen and (min-width: 821px){
 
 .texto_sobre{
-    /* border: 0.1vw solid var(--preto); */
     margin: 30vh 0% 0% 5vw;
     width: 45vw;
     height: 70vh;
 }
 
 .img_sobre{
-    /* border: 0.1vw solid var(--preto); */
     margin: 30vh 5vw 0% 0%;
     width: 45vw;
     height: 70vh;
@@ -63,4 +75,5 @@
     margin-top: 2vw;
     border: 1px solid black;
     height: 68vh;
+}
 }

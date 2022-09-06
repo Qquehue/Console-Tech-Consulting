@@ -1,3 +1,19 @@
+/* mobile */
+
+@media screen and (max-width:500px){
+
+}
+
+/* Tablet */
+
+@media screen and (max-width:820px){
+
+}
+
+/* Computador */
+
+@media screen and (min-width: 821px){
+
 .rodape {
     background: var(--preto2);
     margin-top: 5vh;
@@ -36,4 +52,5 @@
 
 #email{
     margin-bottom: 2vh;
+}
 }
