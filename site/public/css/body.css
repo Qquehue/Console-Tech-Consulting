@@ -17,3 +17,8 @@ body::-webkit-scrollbar-thumb {
     background: var(--branco);
     border: 1px solid black;
 }
+
+p{
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}

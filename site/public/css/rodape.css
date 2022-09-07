@@ -1,7 +1,44 @@
 /* mobile */
 
 @media screen and (max-width:500px){
-
+    .rodape {
+        background: var(--preto2);
+        margin-top: 5vh;
+        display: flex;
+        flex-direction: row;
+        color: var(--branco);
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        height: 35vh;
+    }
+    
+    .texto_rodape{
+        font-family: var(--letra);
+        font-size: 5vw;
+    }
+    
+    .contato{
+        margin-left: 1.5vw;
+    }
+    
+    #contato{
+        font-weight: bold;
+        font-size: 6vw;
+        margin-top: 1vh;
+        margin-bottom: 1.5vh;
+    }
+    
+    .texto_rodape_index{
+        width: 100%;
+        text-align: center;
+        margin-top: 20vh;
+        position: absolute;
+    }
+    
+    #email{
+        margin-bottom: 2vh;
+    }
 }
 
 /* Tablet */
@@ -23,7 +60,7 @@
     width: 100%;
     bottom: 0;
     left: 0;
-    height: 21vh;
+    height: 26.3vh;
 }
 
 .texto_rodape{
@@ -46,7 +83,6 @@
     width: 100%;
     text-align: center;
     margin-top: 16vh;
-    text-align: center;
     position: absolute;
 }
 
