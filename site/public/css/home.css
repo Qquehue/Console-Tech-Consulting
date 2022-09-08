@@ -124,8 +124,8 @@
     margin: 5vw;
 }
 .img_diagrama{
-    margin-top: 2vw;
-    height: 90vh;
+    margin-top: 0vw;
+    height: 105vh;
     background-image: url(img/diagrama.png);
     background-size: cover;
 }
