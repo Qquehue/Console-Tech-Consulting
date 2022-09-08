@@ -4,8 +4,6 @@
     .rodape {
         background: var(--preto2);
         margin-top: 5vh;
-        display: flex;
-        flex-direction: row;
         color: var(--branco);
         width: 100%;
         bottom: 0;
@@ -32,8 +30,7 @@
     .texto_rodape_index{
         width: 100%;
         text-align: center;
-        margin-top: 20vh;
-        position: absolute;
+        background-color: var(--preto2);
     }
     
     #email{
@@ -41,26 +38,17 @@
     }
 }
 
-/* Tablet */
-
-@media screen and (max-width:820px){
-
-}
-
 /* Computador */
 
-@media screen and (min-width: 821px){
+@media screen and (min-width: 500px){
 
 .rodape {
     background: var(--preto2);
     margin-top: 5vh;
-    display: flex;
-    flex-direction: row;
     color: var(--branco);
-    width: 100%;
     bottom: 0;
     left: 0;
-    height: 26.3vh;
+    padding: 1vw;
 }
 
 .texto_rodape{
@@ -68,22 +56,13 @@
     font-size: 1vw;
 }
 
-.contato{
-    margin-left: 1.5vw;
-}
-
 #contato{
     font-weight: bold;
     font-size: 2vw;
-    margin-top: 1vh;
-    margin-bottom: 1.5vh;
 }
 
 .texto_rodape_index{
-    width: 100%;
     text-align: center;
-    margin-top: 16vh;
-    position: absolute;
 }
 
 #email{

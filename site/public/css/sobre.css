@@ -86,15 +86,9 @@
     }
 }
 
-/* Tablet */
-
-@media screen and (max-width:820px){
-
-}
-
 /* Computador */
 
-@media screen and (min-width: 821px){
+@media screen and (min-width: 500px){
 .corpo_sobre{
     margin: 8vw 10vw 0 10vw;
     padding: 2%;

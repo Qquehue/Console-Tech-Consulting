@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background: var(--fundo);
+    width: 100%;
 }
 
 html{
@@ -16,9 +17,4 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
     background: var(--branco);
     border: 1px solid black;
-}
-
-p{
-    margin-block-start: 1em;
-    margin-block-end: 1em;
 }

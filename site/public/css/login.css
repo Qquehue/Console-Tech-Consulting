@@ -1,33 +1,127 @@
 /* mobile */
 
 @media screen and (max-width:500px){
-
-}
-
-/* Tablet */
-
-@media screen and (max-width:820px){
-
+    .div_login{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100vh;
+        background-image: url(img/imagem\ login.jpg);
+        background-size: cover;
+        background-position: center;
+        align-items: center;
+    }
+    .login_card{
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 10%;
+        background: var(--branco);
+        padding: 1vw;
+        top:10%;
+    }
+    
+    .home {
+        display: flex;
+        height: 10vh;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .home a {
+        display: flex;
+        text-decoration: none;
+        font-family: var(--letra);
+        color: var(--preto2);
+        margin-left: 5%;
+    }
+    
+    .home img{
+        display: none;
+    }
+    
+    .container_cardLogin{
+        display: flex;
+        background-color: var(--branco);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .ipt_login{
+        width: 60vw;
+        height: 10vw;
+        text-align: left;
+        background-color: transparent;
+        color: var(--preto2);
+        border-radius: 4px;
+        border: 2px solid var(--preto2);
+        margin: 6vw 0;
+        font-size: 6vw;
+    }
+    
+    
+    .texto_card{
+        font-size: 6vw;
+        color: black;
+        font-family: var(--letra);
+        margin-top: 8vh;
+        text-align: center;
+    }
+    
+    h2{
+        color: var(--preto);
+        font-family: var(--letra);
+        font-size: 10vw;
+    }
+    
+    .btn_logar{
+        width: 30vw;
+        height: 6vh;
+        border-radius: 10vw;
+        background-color: var(--preto2);
+        color: var(--branco);
+        font-size: 3vw;
+        border-color: transparent;
+        font-family: var(--letra);
+        text-align: center;
+        transition: 0.3s;
+    }
+    
+    .btn_logar:hover{
+        font-size: 1.5vw;
+        background-color: var(--preto2);
+        color: var(--branco);
+        cursor: pointer;
+    }
+    
+    .imagem_login{
+        display: none;
+    }
+    
+    #validar{
+        color: white;
+    }
 }
 
 /* Computador */
 
-@media screen and (min-width: 821px){
-
-body{
+@media screen and (min-width: 500px){
+.div_login{
     display: flex;
-    width: 100%;
-    height: 100vh;
     flex-direction: row;
-}    
-
+    width: 100%;
+    height: 100%;
+}
 .login_card{
     display: flex;
     width: 40%;
-    height: 100vh;
     justify-content: center;
     flex-direction: column;
     background: var(--branco);
+    padding: 1vw;
 }
 
 .home {
@@ -50,16 +144,13 @@ body{
 
 .home img{
     display: flex;
-    width: 105px;
-    height: 105px;
+    width: 7vw;
     margin-right: 5%;
-    margin-top: 2%;
 }
 
 .container_cardLogin{
     display: flex;
     width: 100%;
-    height: 100vh;
     background-color: var(--branco);
     flex-direction: column;
     justify-content: center;
@@ -67,14 +158,14 @@ body{
 }
 
 .ipt_login{
-    width: 300px;
-    height: 26px;
+    width: 22vw;
+    height: 2vw;
     text-align: left;
     background-color: transparent;
     color: var(--preto2);
     border-radius: 4px;
     border: 2px solid var(--preto2);
-    margin: 10px 0;
+    margin: 1vw 0;
 }
 
 
@@ -83,6 +174,7 @@ body{
     color: black;
     font-family: var(--letra);
     margin-top: 20vh;
+    text-align: center;
 }
 
 h2{
@@ -115,24 +207,8 @@ h2{
 .imagem_login{
     background-color: var(--preto2);
     display: flex;
-    width: 60%;
     height: 100vh;
-    /* position: relative; */
 }
-
-/* .imagem_login img{
-    display: flex;
-    position: relative;
-} */
-
-/* .imagem_login label{
-    display: flex;
-    width: 105px;
-    height: 105px;
-    left: 85%;
-    top: 2%;
-    position: absolute;
-} */
 
 #validar{
     color: white;
