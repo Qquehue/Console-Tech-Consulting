@@ -14,80 +14,150 @@
 
 @media screen and (min-width: 821px){
 
-#cadastro_card{
-    margin: 8.5% 10% 5% 10%;
-    border: 3px solid var(--branco);
-    border-radius: 50px;
+body {
     display: flex;
+    width: 100%;
+    height: 100vh;
     flex-direction: row;
-    background: var(--preto);
-    box-shadow: 1px 1px 40px var(--aqua);
+}
+
+#imagem_cadastro {
+    display: flex;
+    width: 60%;
+    height: 100vh;
+    position: relative;
+}
+
+#imagem_cadastro img {
+    position: relative;
+}
+
+#imagem_cadastro label {
+    color: var(--branco);
+    font-family: var(--letra);
+    font-size: 25px;
+    top: 34%;
+    left: 19%;
+    position: absolute;
+}
+
+#cadastro_card{
+    display: flex;
+    width: 40%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--branco);
 }
 
 .imagem_card{
     display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    background: var(--preto);
-    border-radius: 50px;
-    width: 50%;
+    width: 100%;
+    height: 20vh;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .imagem{
-    width: 100%;
-    border-radius: 50px;
-    margin-top: 9%;
+    display: flex;
+    width: 105px;
+    height: 105px;
+    margin-left: 5%;
+    margin-top: 2%;
+}
 
+.imagem_card a{
+    display: flex;
+    text-decoration: none;
+    font-family: var(--letra);
+    font-size: 25px;
+    color: var(--preto2);
+    margin-right: 5%;
+    margin-top: 2%;
 }
 
 .inputs_card{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 100%;
+    height: 80vh;
+}
+
+.inputs_cpf_telefone, .inputs_senha_confirSenha{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 62%;
 }
 
 .ipt_cadastro{
     width: 300px;
-    text-align: center;
+    height: 26px;
+    text-align: left;
     background-color: transparent;
-    color: var(--branco);
-    border: transparent;
-    border-bottom: 1px solid var(--aqua);
+    color: var(--preto2);
+    border-radius: 4px;
+    border: 2px solid var(--preto2);
     margin: 10px 0;
 }
 
-.texto_card{
-    color: var(--aqua);
-    font-family: var(--fonte);
-    margin: 0;
+#select_cargos {
+    width: 309px;
+    height: 33px;
+    text-align: left;
+    background-color: transparent;
+    color: var(--corselectbox);
+    border-radius: 4px;
+    border: 2px solid var(--preto2);
+    margin: 10px 0;
 }
 
-h1{
-    color: var(--letra);
-    font-family: monospace;
+#ipt_cpf, #ipt_tel, #ipt_senha, #ipt_confirmar{
+    width: 140px;
+    height: 26px;
+    text-align: left;
+    background-color: transparent;
+    color: var(--preto2);
+    border-radius: 4px;
+    border: 2px solid var(--preto2);
+    margin: 10px 0;
+}
+
+.texto_card{    
+    font-size: 16px;
+    color: black;
+    font-family: var(--letra);
+    margin-top: 2;
+    margin-bottom: 10vh;
+}
+
+h2{
+    color: var(--preto);
+    font-family: var(--letra);
     padding: 0;
-    font-size: 30px;
-    text-shadow: 1px 1px 0px var(--branco);
+    font-size: 25px;
 }
 
 .btn_cadastrar{
-    color: var(--aqua);
-    width: 200px;
-    font-size: 20px;
-    background-color: transparent;
-    border: 2px solid rgb(0, 168, 246);
-    border-radius: 100px 0 100px 0;
-    margin: 10px;
-    font-family: monospace;
-    padding: 5px;
+    width: 12vw;
+    height: 6vh;
+    border-radius: 10vw;
+    background-color: var(--preto2);
+    color: var(--branco);
+    font-size: 1.4vw;
+    border-color: transparent;
+    font-family: var(--letra);
+    text-align: center;
+    transition: 0.3s;
 }
 
 .btn_cadastrar:hover{
-    background: var(--branco);
-    color: black;
-    border: 2px solid var(--aqua);
-    text-shadow: 1px 1px 3px black;
+    font-size: 1.5vw;
+    background-color: var(--preto2);
+    color: var(--branco);
     cursor: pointer;
 }
 
