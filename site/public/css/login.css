@@ -44,7 +44,6 @@
     
     .container_cardLogin{
         display: flex;
-        background-color: var(--branco);
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -151,7 +150,6 @@
 .container_cardLogin{
     display: flex;
     width: 100%;
-    background-color: var(--branco);
     flex-direction: column;
     justify-content: center;
     align-items: center;
