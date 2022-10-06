@@ -1,0 +1,56 @@
+body{
+    background: var(--preto2);
+}
+.maquinas{
+    /* border: 1px solid white; */
+    height: 65vh;
+    width: 64vw;
+    margin: 3vh 18vw 0 18vw;
+}
+.legenda{
+    /* border: 1px solid white; */
+    position: fixed;
+    height: 7vh;
+    left: 18vw;
+    bottom: 2vh;
+    width: 64vw;
+    background-color: var(--branco);
+}
+.itens_legenda{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.alerta{
+    /* background-color: black; */
+    width: 3vw;
+    height: 6vh;
+    border-radius: 100%;
+}
+.kpi{
+    display: flex;
+    align-items: center;
+    text-indent: 1vw;
+}
+.bom{
+    background-color: green;
+}
+.atencao{
+    background-color: rgb(233, 184, 25);
+}
+.ruim{
+    background-color: red;
+}
+.inativo{
+    background-color: gray;
+}
+h1{
+    text-align: center;
+    color: var(--branco);
+    font-size: 130%;
+    font-weight: bold;
+    font-family: var(--letra);
+}
