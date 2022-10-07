@@ -25,9 +25,8 @@ body{
     height: 100%;
 }
 .alerta{
-    /* background-color: black; */
-    width: 3vw;
-    height: 6vh;
+    width: 2vw;
+    height: 2vw;
     border-radius: 100%;
 }
 .kpi{
@@ -50,7 +49,62 @@ body{
 h1{
     text-align: center;
     color: var(--branco);
-    font-size: 130%;
-    font-weight: bold;
+    font-size: 180%;
     font-family: var(--letra);
+    margin-bottom: 3vh;
+}
+.totens{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.cards_totens{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw;
+    width: 10vw;
+    height: 10vw;
+    background-color: var(--branco);
+    border-radius: 20%;
+}
+.botao_totem{
+    width: 60%;
+    height: 60%;
+    background-color: transparent;
+    background-size: cover;
+    cursor: pointer;
+    border: transparent;
+}
+
+.botao_totem:hover{  
+    width: 66%;
+    height: 66%;
+}
+.pc_bom{
+    background-image: url(img/pc_verde.png);
+}
+.pc_atencao{
+    background-image: url(img/pc_amarelo.png);
+}
+.pc_ruim{
+    background-image: url(img/pc_vermelho.png);
+}
+.pc_inativo{
+    background-image: url(img/pc_cinza.png);
+}
+.texto_legenda{
+    font-size: 1vw;
+    font-family: var(--letra);
+}
+#help{
+    position: absolute;
+    right: 7%;
+    border: transparent;
+    background-size: cover;
+    width: 3vw;
+    bottom: 2.4vh;
 }

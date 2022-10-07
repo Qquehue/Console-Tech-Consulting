@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/cabecalho_dash.css">
-    <title>CTC</title>
+    <link rel="icon" href="css/img/icon.png">
+    <title>Dashboard</title>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
                 <a href="home.html"><img src="css/img/logo branco.png" alt="Logo do Site" class="logo_cabecalho"></a>
                 <p class="texto" id="nome"></p>
                 <img src="css/img/victor.png" alt="" id="foto_dash">
-                <a href="home.html"><img src="css/img/saida.jpg" alt="" id="exit"></a>
+                <a href="home.html"><img src="css/img/saida.png" alt="" id="exit"></a>
             </div>
         </div>
     </div>
@@ -35,6 +36,14 @@
 
     <div class="maquinas">
         <h1>Linha Azul - Estação Sé</h1>
+        <div class="totens">
+            <div class="cards_totens"> <button class="botao_totem pc_bom" onclick="btn_totem()"></button> </div>
+            <div class="cards_totens"> <button class="botao_totem pc_ruim" onclick="btn_totem()"></button> </div>
+            <div class="cards_totens"> <button class="botao_totem pc_atencao" onclick="btn_totem()"></button> </div>
+            <div class="cards_totens"> <button class="botao_totem pc_inativo" onclick="btn_totem()"></button> </div>
+            <div class="cards_totens"> <button class="botao_totem pc_bom" onclick="btn_totem()"></button> </div>
+        </div>
+       
     </div>
 <!-- Fim máquinas -->
 
@@ -43,12 +52,21 @@
 <!-- Início legenda -->
     <div class="legenda">
         <div class="itens_legenda">
-            <div class="kpi"><div class="alerta bom"></div>Bom</div>
-            <div class="kpi"><div class="alerta atencao"></div>Atenção</div>
-            <div class="kpi"><div class="alerta ruim"></div>Ruim</div>
-            <div class="kpi"><div class="alerta inativo"></div>Inativo</div>
+            <div class="kpi"><div class="alerta bom"></div>
+                <p class="texto_legenda">Bom</p>
+            </div>
+            <div class="kpi"><div class="alerta atencao"></div>
+                <p class="texto_legenda">Atenção</p>
+            </div>
+            <div class="kpi"><div class="alerta ruim"></div>
+                <p class="texto_legenda">Crítico</p>
+            </div>
+            <div class="kpi"><div class="alerta inativo"></div>
+                <p class="texto_legenda">Inativo</p>
+            </div>
         </div>
     </div>
+    <a href="help.html"> <img src="css/img/help.png" id="help"></img> </a>
 <!-- Fim legenda -->
 
 <!-- --------------------------------------------------------------------------------------------------------- -->
@@ -62,4 +80,8 @@
         nome.innerHTML = "Olá " + usuario
     }
     mostrarNome()
+    
+    function btn_totem() {
+        window.open('maquina.html')
+    }
 </script>
