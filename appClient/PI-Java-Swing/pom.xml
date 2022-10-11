@@ -29,7 +29,7 @@
 </descriptorRefs>
 <archive>
 <manifest>
-<mainClass>com.mycompany.pi.java.swing</mainClass> 
+<mainClass>com.mycompany.pi.java.swing.TeladeLogin</mainClass> 
 </manifest>
 </archive>
 </configuration>
