@@ -4,6 +4,12 @@
  */
 package com.mycompany.pi.java.swing;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author FP594HT
@@ -28,11 +34,11 @@ public class TeladeLogin extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jTextField2 = new javax.swing.JTextField();
+        emailUsuario = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        senhaUsuario = new javax.swing.JPasswordField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
@@ -59,19 +65,24 @@ public class TeladeLogin extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 780, -1));
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+        emailUsuario.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        emailUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        emailUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        emailUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jTextField2MouseReleased(evt);
+                emailUsuarioMouseReleased(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 400, 210, 40));
+        getContentPane().add(emailUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 400, 210, 40));
 
         jButton1.setText("Login");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 550, 90, 40));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -82,14 +93,14 @@ public class TeladeLogin extends javax.swing.JFrame {
         jLabel2.setText("Senha:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 450, 60, 34));
 
-        jPasswordField1.setText("jPasswordField1");
-        jPasswordField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        senhaUsuario.setText("jPasswordField1");
+        senhaUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        senhaUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                senhaUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 490, 210, 40));
+        getContentPane().add(senhaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 490, 210, 40));
 
         jScrollPane3.setBorder(null);
 
@@ -123,13 +134,46 @@ public class TeladeLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void senhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_senhaUsuarioActionPerformed
 
-    private void jTextField2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseReleased
+    private void emailUsuarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailUsuarioMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2MouseReleased
+    }//GEN-LAST:event_emailUsuarioMouseReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CTC?useSSL=false", "root", "senha");
+                    String username = emailUsuario.getText();
+                    String passwd = senhaUsuario.getText();
+                    Statement executor = con.createStatement();
+                    String login = "SELECT * FROM Funcionario WHERE nomeFuncionario = '"+username+"' and senha = '"+passwd+"'";
+                    ResultSet isAvaliable = executor.executeQuery(login);
+                    
+                    if (isAvaliable.next()) {
+                dispose();
+                //Seria a home com hardwares listados e dados;
+                //homepage(novaPagina)Hpage = new homepage();
+                //hPage.show();
+            } else {
+                        JOptionPane.showMessageDialog(this, "Email ou senha inválido");
+                        emailUsuario.setText("");                        
+                        senhaUsuario.setText("");
+
+                    }
+                    
+                    con.close();
+                   
+                    
+                    
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,17 +211,17 @@ public class TeladeLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField emailUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField senhaUsuario;
     // End of variables declaration//GEN-END:variables
 }
