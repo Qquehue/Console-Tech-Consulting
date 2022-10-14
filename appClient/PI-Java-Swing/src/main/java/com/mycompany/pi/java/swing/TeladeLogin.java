@@ -157,8 +157,8 @@ public class TeladeLogin extends javax.swing.JFrame {
                     if (isAvaliable.next()) {
                 dispose();
                 //Seria a home com hardwares listados e dados;
-                //homepage(novaPagina)Hpage = new homepage();
-                //hPage.show();
+                amostraDados Hpage = new amostraDados();
+                Hpage.show();
             } else {
                         JOptionPane.showMessageDialog(this, "Email ou senha inválido");
                         emailUsuario.setText("");                        
