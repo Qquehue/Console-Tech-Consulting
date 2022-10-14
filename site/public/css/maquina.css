@@ -60,10 +60,36 @@ body{
     padding-left: 10%;
     margin-top: 6%;
 }
+
+.info{
+    font-weight: bold;
+    font-size: 120%;
+    font-family: var(--letra);
+}
+
 b{
-    font-size: 100%;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 90%;
+    font-family: var(--letra);
 }
 .info1{
- margin-top: 8%;   
+    margin-top: 8%;   
+}
+#graficos_cima{
+    /* border: 1px solid yellow; */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+}
+#graficos_baixo{
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+}
+.grafico{
+    border: 1px solid black;
+    height: 100%;
+    width: 50%;
 }
