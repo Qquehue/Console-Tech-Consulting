@@ -17,3 +17,25 @@ body{
     width: 3vw;
     bottom: 2.4vh;
 }
+#dados{
+    /* border: 1px solid white; */
+    height: 65vh;
+    width: 84vw;
+    margin: 3vh 8vw 0 8vw;
+    display: flex;
+    flex-direction: row;
+}
+#especificacoes{
+    /* border: 1px solid white; */
+    height: 100%;
+    width: 30%;
+    background-color: var(--branco);
+    margin-right: 1%;
+}
+#graficos{
+    /* border: 1px solid white; */
+    height: 100%;
+    width: 68%;
+    background-color: var(--branco);
+    margin-left: 1%;
+}
