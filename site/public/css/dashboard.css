@@ -38,10 +38,10 @@ body{
     background-color: green;
 }
 .atencao{
-    background-color: rgb(233, 184, 25);
+    background-color: #F24726;
 }
 .ruim{
-    background-color: red;
+    background-color: #9F0303;
 }
 .inativo{
     background-color: gray;

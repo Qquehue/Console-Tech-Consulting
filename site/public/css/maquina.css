@@ -31,6 +31,9 @@ body{
     width: 30%;
     background-color: var(--branco);
     margin-right: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 #graficos{
     /* border: 1px solid white; */
@@ -38,4 +41,29 @@ body{
     width: 68%;
     background-color: var(--branco);
     margin-left: 1%;
+}
+#pc{
+    /* border: 1px solid black; */
+    height: 14vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.estado{
+    width: 20%;
+}
+#informacoes{
+    /* border: 1px solid yellowgreen; */
+    height: 100%;
+    width: 98%;
+    padding-left: 10%;
+    margin-top: 6%;
+}
+b{
+    font-size: 100%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.info1{
+ margin-top: 8%;   
 }
