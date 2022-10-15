@@ -12,7 +12,6 @@ import com.github.britooo.looca.api.group.sistema.Sistema;
 import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-
 /**
  *
  * @author UL334AW
@@ -20,40 +19,37 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class TesteSistema {
 
     public static void main(String[] args) {
-        
-        Conexao conexao = new Conexao(); 
+
+        Conexao conexao = new Conexao();
         Maquina maquina = new Maquina();
         Looca looca = new Looca();
-        Cruds cruds = new Cruds();
+
         Processador proc = new Processador();
         /*conexao*/
         conexao.conectar();
         JdbcTemplate database = conexao.getConnection();
-        
+
         List teste = database.queryForList("select * from Funcionario");
-        
+
         String insert = "INSERT INTO testes VALUES (null, ?, null)";
         database.update(insert, proc.getUso());
         System.out.println("dados inseridos");
-        
+
         System.out.println(teste);
-        
-/*      looca.getGrupoDeDiscos();
+
+        /*      looca.getGrupoDeDiscos();
         looca.getGrupoDeProcessos();
         looca.getGrupoDeServicos();
         looca.getMemoria();
         looca.getProcessador();
         looca.getSistema();
         looca.getTemperatura();*/
-        
         //Sistema sistema = looca.getSistema();
-        
-/*      sistema.getPermissao();
+        /*      sistema.getPermissao();
         sistema.getFabricante();
         sistema.getArquitetura();
         sistema.getInicializado();
         sistema.getSistemaOperacional();*/
-
 //      Exemplos pegando grupos com lista:
         /*DiscosGroup grupoDeDiscos = looca.getGrupoDeDiscos();
         List<Disco> discos = grupoDeDiscos.getDiscos();
@@ -62,7 +58,28 @@ public class TesteSistema {
         }
         
         System.out.println(cruds.listarTodos());*/
-           
     }
+
+    public void exec() {
+
+        Conexao conexao = new Conexao();
+        Maquina maquina = new Maquina();
+        Cruds cruds = new Cruds();
+        Looca looca = new Looca();
+
+        Processador proc = new Processador();
+        /*conexao*/
+        conexao.conectar();
+        JdbcTemplate database = conexao.getConnection();
+
+        List teste = database.queryForList("select * from Funcionario");
+
+        String insert = "INSERT INTO testes VALUES (null, ?, null)";
+        database.update(insert, proc.getUso());
+        System.out.println("dados inseridos");
+
+        System.out.println(teste);
+    }
+;
 
 }
