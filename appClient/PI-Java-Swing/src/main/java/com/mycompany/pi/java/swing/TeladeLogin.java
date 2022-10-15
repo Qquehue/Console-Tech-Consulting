@@ -151,7 +151,7 @@ public class TeladeLogin extends javax.swing.JFrame {
                     String username = emailUsuario.getText();
                     String passwd = senhaUsuario.getText();
                     Statement executor = con.createStatement();
-                    String login = "SELECT * FROM Funcionario WHERE nomeFuncionario = '"+username+"' and senha = '"+passwd+"'";
+                    String login = "SELECT * FROM Funcionario WHERE email = '"+username+"' and senha = '"+passwd+"'";
                     ResultSet isAvaliable = executor.executeQuery(login);
                     
                     if (isAvaliable.next()) {
