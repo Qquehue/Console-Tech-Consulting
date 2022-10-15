@@ -118,6 +118,8 @@ public class TeladeLogin extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTextArea3);
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 520, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image5.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 170, 200, 190));
 
         jLabel3.setFont(new java.awt.Font("Viner Hand ITC", 1, 10)); // NOI18N
