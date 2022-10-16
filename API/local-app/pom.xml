@@ -77,11 +77,10 @@
             <!ou versão que já existir na .m2 local>
             
         </dependency> -->
-        <dependency>
-            <groupId>com.mycompany</groupId>
-            <artifactId>PI-Java-Swing</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
+ <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE126</version>
         </dependency>
     </dependencies>
 </project>
