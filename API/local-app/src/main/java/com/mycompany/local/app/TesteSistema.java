@@ -7,9 +7,11 @@ package com.mycompany.local.app;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.Disco;
 import com.github.britooo.looca.api.group.discos.DiscosGroup;
+import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.sistema.Sistema;
 import java.util.List;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
@@ -20,32 +22,30 @@ public class TesteSistema {
 
     public static void main(String[] args) {
 
-        Conexao conexao = new Conexao();
-        Maquina maquina = new Maquina();
-        Looca looca = new Looca();
+        Cruds cruds = new Cruds();
+        /*conexao e inicio do programa*/
+        cruds.programa();
 
-        Processador proc = new Processador();
-        /*conexao*/
-        conexao.conectar();
-        JdbcTemplate database = conexao.getConnection();
+    }
 
-        List teste = database.queryForList("select * from Funcionario");
+    public void exec() {
 
-        String insert = "INSERT INTO testes VALUES (null, ?, null)";
-        database.update(insert, proc.getUso());
-        System.out.println("dados inseridos");
+        Cruds cruds = new Cruds();
+        /*conexao e inicio do programa*/
+        cruds.programa();
 
-        System.out.println(teste);
+    }
 
-        /*      looca.getGrupoDeDiscos();
+}
+/*      looca.getGrupoDeDiscos();
         looca.getGrupoDeProcessos();
         looca.getGrupoDeServicos();
         looca.getMemoria();
         looca.getProcessador();
         looca.getSistema();
         looca.getTemperatura();*/
-        //Sistema sistema = looca.getSistema();
-        /*      sistema.getPermissao();
+//Sistema sistema = looca.getSistema();
+/*      sistema.getPermissao();
         sistema.getFabricante();
         sistema.getArquitetura();
         sistema.getInicializado();
@@ -58,28 +58,3 @@ public class TesteSistema {
         }
         
         System.out.println(cruds.listarTodos());*/
-    }
-
-    public void exec() {
-
-        Conexao conexao = new Conexao();
-        Maquina maquina = new Maquina();
-        Cruds cruds = new Cruds();
-        Looca looca = new Looca();
-
-        Processador proc = new Processador();
-        /*conexao*/
-        conexao.conectar();
-        JdbcTemplate database = conexao.getConnection();
-
-        List teste = database.queryForList("select * from Funcionario");
-
-        String insert = "INSERT INTO testes VALUES (null, ?, null)";
-        database.update(insert, proc.getUso());
-        System.out.println("dados inseridos");
-
-        System.out.println(teste);
-    }
-;
-
-}

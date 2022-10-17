@@ -149,7 +149,7 @@ public class TeladeLogin extends javax.swing.JFrame {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CTC?useSSL=false", "root", "senha");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CTC?useSSL=false", "root", "#Gf24076351835");
                     String username = emailUsuario.getText();
                     String passwd = senhaUsuario.getText();
                     Statement executor = con.createStatement();
@@ -167,7 +167,6 @@ public class TeladeLogin extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, "Email ou senha inválido");
                         emailUsuario.setText("");                        
                         senhaUsuario.setText("");
-
                     }
                     
                     con.close();
