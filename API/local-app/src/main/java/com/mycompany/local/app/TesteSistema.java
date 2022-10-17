@@ -11,6 +11,7 @@ import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.sistema.Sistema;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -20,7 +21,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class TesteSistema {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
 
         Cruds cruds = new Cruds();
         /*conexao e inicio do programa*/
@@ -28,11 +29,14 @@ public class TesteSistema {
 
     }
 
-    public void exec() {
+    public void exec() throws InterruptedException{
 
         Cruds cruds = new Cruds();
         /*conexao e inicio do programa*/
-        cruds.programa();
+        for (int i = 0; i < 5; i++) {
+            cruds.programa();
+            TimeUnit.SECONDS.sleep(2);
+        }
 
     }
 

@@ -43,15 +43,18 @@ public class Cruds {
         List<Maquina> lista = database.query("select * from usoMaquina",
                 new BeanPropertyRowMapper(Maquina.class));
 
-        for (Maquina dados : lista) {
-            System.out.println("ID: " + dados.getIdUso()
+        /*for (Maquina dados : lista) {
+            System.out.println(
+                    "//////////////////////////////////////////////////////////////////////////////////////////////////////////////\n"+
+                    "ID: " + dados.getIdUso()
                     + "\ntemperatura: " + dados.getTemperaturaCPU()
                     + "\nUso CPU: " + dados.getUsoCPU()
                     + "\nUso Memoria: " + dados.getUsoMemoria()
                     + "\nUso Disco: " + dados.getUsoDisco()
                     + "\nUp Time: " + dados.getUpTime()
-                    + "\nMaquina Correspondente: " + dados.getFkMaquina());
-        }
+                    + "\nMaquina Correspondente: " + dados.getFkMaquina()
+                    + "\n//////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+        }*/
 
         System.out.println(lista);
 
@@ -63,13 +66,12 @@ public class Cruds {
 
         System.out.println(looca.getTemperatura());
 
-        List teste = database.queryForList("SELECT * FROM testes");
-
-        System.out.println(teste);
     }
 
     public void insertsBanco() {
-
+        
+        
+        
     }
 
 }
