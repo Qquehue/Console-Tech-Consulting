@@ -50,12 +50,6 @@
                 <option value=2>Verde</option>
                 <option value=3>Vermelha</option>                
             </select> 
-            <select name="estação" id="select_estacao">
-                <option value="">-- selecione a estação --</option>
-                <option value=1>Sé</option>
-                <option value=2>Paraiso</option>
-                <option value=3>Ana Rosa</option>             
-            </select>  
             <input id="ipt_email" class="ipt_cadastro" type="email" placeholder="E-mail">
             <div class="inputs_senha_confirSenha">
                 <input id="ipt_senha" type="password" placeholder="Senha">
@@ -82,7 +76,6 @@
         var telefoneVar = ipt_tel.value;
         var cargosVar = select_cargos.value;
         var linhaVar = select_linha.value;
-        var estacaoVar = select_estacao.value;
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
 
@@ -134,9 +127,6 @@
         else if (linhaVar == "") {
             div_validacao.innerHTML = "Inserir uma linha"
         }
-        else if (estacaoVar == "") {
-            div_validacao.innerHTML = "Inserir uma estação"
-        }
         
         else{
             div_validacao.innerHTML = ""
@@ -154,7 +144,6 @@
                 telefoneServer: telefoneVar,
                 cargosServer: cargosVar,
                 linhaServer: linhaVar,
-                estacaoServer: estacaoVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
