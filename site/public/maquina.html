@@ -23,7 +23,7 @@
             <div class="itens_cabecalho">
                 <a href="dashboard.html"><img src="css/img/logo branco.png" alt="Logo do Site" class="logo_cabecalho"></a>
                 <p class="texto" id="nome"></p>
-                <img src="css/img/victor.png" alt="" id="foto_dash">
+                <img src="css/img/yuri.png" alt="" id="foto_dash">
                 <a href="index.html"><img src="css/img/saida.png" alt="" id="exit"></a>
             </div>
         </div>
@@ -114,10 +114,10 @@
                 label: 'Uso CPU (%)',
                 data: [40, 42, 40, 45, 40, 43],
                 backgroundColor: [
-                    'rgba(255, 0, 0, 0.2)',
+                    'lightblue',
                 ],
                 borderColor: [
-                    'rgba(255, 0, 0, 1)',
+                    'lightskyblue',
                 ],
                 borderWidth: 1
             }]
@@ -137,30 +137,22 @@
     const myChart2 = new Chart(ctx2, {
         type: 'line',
         data: {
-            labels: ['12:00',
-                '13:00',
-                '14:00',
-                '15:00',
-                '16:00',
-                '17:00',],
+            labels: [
+                '18:00',
+                '19:00',
+                '20:00',
+                '21:00',
+                '22:00',
+                '23:00',
+                ],
             datasets: [{
-                label: 'Uso de memória (%)',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Uso de memória Ram(%)',
+                data: [5, 10, 63, 80, 61, 32],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'purple'
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'purple'
                 ],
                 borderWidth: 1
             }]
@@ -168,7 +160,10 @@
         options: {
             scales: {
                 y: {
-                    beginAtZero: false
+                    // beginAtZero: false,
+                    min: 0,
+                    max: 100
+                    
                 }
             }
         }
@@ -183,14 +178,14 @@
                 'Disponível (%)'],
             datasets: [{
                 label: 'Uso de Disco (%)',
-                data: [50, 100 - 50],
+                data: [50, 100 - 85],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
+                    'steelblue',
+                    '#444444',
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
+                    'white',
+                    'white',
                 ],
                 borderWidth: 1
             }]

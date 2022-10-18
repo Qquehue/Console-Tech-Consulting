@@ -89,7 +89,7 @@ b{
     flex-direction: row;
 }
 .grafico{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 100%;
     width: 50%;
 }
