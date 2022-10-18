@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/maquina.css">
     <link rel="stylesheet" href="css/cabecalho_dash.css">
     <link rel="icon" href="css/img/icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Detalhes do totem</title>
 </head>
 <body>
@@ -41,16 +42,16 @@
             <div id="informacoes">
                 <p class="info">Informações:</p>
                 <div class="info1">
-                    <b>ID:</b>
+                    <b>ID: M1</b>
                 </div>
                 <div>
-                    <b>CPU:</b>
+                    <b>CPU: Intel 4790k</b>
                 </div>
                 <div>
-                    <b>RAM:</b>
+                    <b>RAM: 8GB DDR3</b>
                 </div>
                 <div>
-                    <b>CAPACIDADE:</b>
+                    <b>CAPACIDADE: 500GB</b>
                 </div>
             </div>
 
@@ -59,18 +60,18 @@
             <div id="graficos_cima">
                 <!-- GRAFICO CPU -->
                 <div class="grafico" id="graficoCpu">
-
+                    <canvas id="myChart1"></canvas>
                 </div>
                 <!-- GRAFICO HD -->
                 <div class="grafico" id="graficoHd">
-                    
+                    <canvas id="myChart3"></canvas>
                 </div>
             </div>
 
             <div id="graficos_baixo">
                 <!-- GRAFICO RAM -->
                 <div class="grafico" id="graficoRam">
-                    
+                    <canvas id="myChart2"></canvas>
                 </div>
                 <!-- GRAFICO TEMPERATURA -->
                 <div class="grafico" id="graficoTemp">
@@ -97,3 +98,102 @@
 
 </body>
 </html>
+
+<script>
+    const ctx1 = document.getElementById('myChart1').getContext('2d');
+    const myChart1 = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: ['12:00',
+                '13:00',
+                '14:00',
+                '15:00',
+                '16:00',
+                '17:00',],
+            datasets: [{
+                label: 'Uso CPU (%)',
+                data: [40, 42, 40, 45, 40, 43],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 0, 0, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false
+                    
+                }
+            }
+        }
+    });
+</script>
+<script>
+    const ctx2 = document.getElementById('myChart2').getContext('2d');
+    const myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['12:00',
+                '13:00',
+                '14:00',
+                '15:00',
+                '16:00',
+                '17:00',],
+            datasets: [{
+                label: 'Uso de memória (%)',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+</script>
+<script>
+    const ctx3 = document.getElementById('myChart3').getContext('2d');
+    const myChart3 = new Chart(ctx3, {
+        type: 'pie',
+        data: {
+            labels: ['Em uso (%)',
+                'Disponível (%)'],
+            datasets: [{
+                label: 'Uso de Disco (%)',
+                data: [50, 100 - 50],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+    });
+</script>

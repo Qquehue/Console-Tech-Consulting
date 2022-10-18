@@ -60,15 +60,27 @@
             </div> 
             <select name="cargos" id="select_cargos">
                 <option value="">-- selecione o cargo --</option>
-                <option value="">Analista</option>
-                <option value="">Técnico</option>
-            </select>   
+                <option value=1>Analista</option>
+                <option value=2>Técnico</option>
+            </select>  
+            <select name="linha" id="select_linha">
+                <option value="">-- selecione a linha --</option>
+                <option value=1>Azul</option>
+                <option value=2>Verde</option>
+                <option value=3>Vermelha</option>                
+            </select> 
+            <select name="estação" id="select_estacao">
+                <option value="">-- selecione a estação --</option>
+                <option value=1>Sé</option>
+                <option value=2>Paraiso</option>
+                <option value=3>Ana Rosa</option>             
+            </select>  
             <input id="ipt_email" class="ipt_cadastro" type="email" placeholder="E-mail">
             <div class="inputs_senha_confirSenha">
                 <input id="ipt_senha" type="password" placeholder="Senha">
-                <input id="ipt_confirmar" type="password" placeholder="Confirmação da Senha">
+                <!-- <input id="ipt_confirmar" type="password" placeholder="Confirmação da Senha"> -->
             </div>
-            <a href="login.html"><button onclick="btn_cadastrar()" class="btn_cadastrar">Cadastrar</button></a>
+            <button onclick="cadastrar()" class="btn_cadastrar">Cadastrar</button>
             <div id="div_validacao" class="validar"></div>
             <p class="texto_card">Você já possui uma conta? <a href="login.html" class="texto_card"><b><u>Login</u></b></a></p>
         </div>
@@ -100,17 +112,20 @@
 </body>
 </html>
 
-<!-- <script>
-    function btn_cadastrar() {
+<script>
+    function cadastrar() {
 
         var nomeVar = ipt_nome.value;
-        var emailVar = ipt_email.value;
-        var telefoneVar = ipt_tel.value;
         var cpfVar = ipt_cpf.value;
+        var telefoneVar = ipt_tel.value;
+        var cargosVar = ipt_cargos.value;
+        var linhaVar = ipt_linha.value;
+        var estacaoVar = ipt_estacao.value;
+        var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
         var confirmacaoSenhaVar = ipt_confirmar.value;
 
-        if (nomeVar.indexOf(1) !== -1 || nomeVar.indexOf(2) !== -1 || nomeVar.indexOf(3) !== -1 || nomeVar.indexOf(4) !== -1 || nomeVar.indexOf(5) !== -1 || nomeVar.indexOf(6) !== -1 || nomeVar.indexOf(7) !== -1  || nomeVar.indexOf(8) !== -1 || nomeVar.indexOf(9) !== -1 || nomeVar.indexOf(0) !== -1) {
+        if (nomeVar.indexOf(1) != -1 || nomeVar.indexOf(2) != -1 || nomeVar.indexOf(3) != -1 || nomeVar.indexOf(4) != -1 || nomeVar.indexOf(5) != -1 || nomeVar.indexOf(6) != -1 || nomeVar.indexOf(7) != -1  || nomeVar.indexOf(8) != -1 || nomeVar.indexOf(9) != -1 || nomeVar.indexOf(0) != -1) {
         div_validacao.innerHTML = "*Não pode haver números no nome*"
         }
         else if (nomeVar == "") {
@@ -136,7 +151,7 @@
             
         }
 
-        else if (cpfVar.length !== 11 ) {
+        else if (cpfVar.length != 11 ) {
             div_validacao.innerHTML = "*CPF inválido*" 
         }
         
@@ -152,8 +167,16 @@
         else if (senhaVar.indexOf(0) == -1 && senhaVar.indexOf(1) == -1 && senhaVar.indexOf(2) == -1 && senhaVar.indexOf(3) == -1 && senhaVar.indexOf(4) == -1 && senhaVar.indexOf(5) == -1 && senhaVar.indexOf(6) == -1 && senhaVar.indexOf(7) == -1 && senhaVar.indexOf(8) == -1 && senhaVar.indexOf(9) == -1) {
             div_validacao.innerHTML = "*Insira números na sua senha*" 
         }
-
-        else if (confirmacaoSenhaVar !== senhaVar) {
+        else if (cargosVar == "") {
+            div_validacao.innerHTML = "Inserir um cargo"
+        }
+        else if (linhaVar == "") {
+            div_validacao.innerHTML = "Inserir uma linha"
+        }
+        else if (estacaoVar == "") {
+            div_validacao.innerHTML = "Inserir uma estação"
+        }
+        else if (confirmacaoSenhaVar != senhaVar) {
             div_validacao.innerHTML = "*As senhas não coincidem*"
         }
         else{
@@ -168,9 +191,12 @@
             body: JSON.stringify({
 
                 nomeServer: nomeVar,
+                cpfServer: cpfVar,
+                telefoneServer: telefoneVar,
+                cargosServer: cargosVar,
+                linhaServer: linhaVar,
+                estacaoServer: estacaoVar,
                 emailServer: emailVar,
-                telServer: telefoneVar,
-                cpfServer:cpfVar,
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
@@ -201,4 +227,4 @@
     }
 
         }
-</script> -->
+</script>

@@ -220,7 +220,7 @@
     margin: 10px 0;
 }
 
-#select_cargos {
+#select_cargos, #select_linha, #select_estacao {
     width: 23vw;
     height: 33px;
     text-align: left;

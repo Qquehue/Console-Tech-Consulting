@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,45 +13,49 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/root.css">
 </head>
+
 <body>
 
-<!------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------------------->
 
-<!-- Início Login Card -->
-<div class="div_login">
-    <div class="login_card">
-        <div class="home">
-            <a href="home.html"><h2>🠔 Home</h2></a>
-            <img src="css/img/logo azul escuro.png" alt="Logo CTC">
+    <!-- Início Login Card -->
+    <div class="div_login">
+        <div class="login_card">
+            <div class="home">
+                <a href="home.html">
+                    <h2>🠔 Home</h2>
+                </a>
+                <img src="css/img/logo azul escuro.png" alt="Logo CTC">
+            </div>
+            <div class="container_cardLogin">
+                <h2>Login</h2>
+                <input type="text" class="ipt_login" placeholder="E-mail" id="ipt_email">
+                <input type="password" class="ipt_login" placeholder="Senha" id="ipt_senha">
+                <button onclick="logar()" class="btn_logar">Logar</button>
+                <div id="validar"></div>
+                <p class="texto_card">Você não possui uma conta? <a href="cadastro.html"
+                        class="texto_card"><b><u>Cadastre-se</u></b></a></p>
+            </div>
         </div>
-        <div class="container_cardLogin">
-            <h2>Login</h2>
-            <input type="text" class="ipt_login" placeholder="E-mail" id="ipt_email">
-            <input type="password" class="ipt_login" placeholder="Senha" id="ipt_senha">
-            <button onclick="logar()" class="btn_logar">Logar</button>
-            <div id="validar"></div>
-            <p class="texto_card">Você não possui uma conta? <a href="cadastro.html" class="texto_card"><b><u>Cadastre-se</u></b></a></p>
+
+        <!-- Fim Login Card -->
+
+        <!------------------------------------------------------------------------------------------------------------->
+
+        <!-- Início da Imagem Login -->
+
+        <div class="imagem_login">
+            <img src="css/img/imagem login.jpg" alt="Imagem Login">
+            <!-- <label><img src="css/img/logo branco.png" alt="Logo CTC"></label> -->
         </div>
     </div>
+    <!-- Fim da Imagem Login -->
 
-<!-- Fim Login Card -->
+    <!------------------------------------------------------------------------------------------------------------->
 
-<!------------------------------------------------------------------------------------------------------------->
+    <!--Inicio rodapé -->
 
-<!-- Início da Imagem Login -->
-
-    <div class="imagem_login">
-        <img src="css/img/imagem login.jpg" alt="Imagem Login">
-        <!-- <label><img src="css/img/logo branco.png" alt="Logo CTC"></label> -->
-    </div>
-</div>
-<!-- Fim da Imagem Login -->
-
-<!------------------------------------------------------------------------------------------------------------->
-    
-<!--Inicio rodapé -->
-
-    <!-- <div class="rodape">
+    <div class="rodape">
         <img class="logo_rodape" src="css/img/logo.png" alt="">
         <div class="texto_rodape_index">
             <p class="texto_rodape">
@@ -63,77 +68,78 @@
         <img class="logo_facebook" src="css/img/logo face.png" alt="">
         <img class="logo_insta" src="css/img/logo inst.png" alt="">
         <img class="logo_twitter" src="css/img/logo tt.png" alt="">
-    </div>   
+    </div>
 </body>
+
 </html>
 
 <script>
 
 
-//     function logar() {
+    function logar() {
 
-//         var emailVar = ipt_email.value;
-//         var senhaVar = ipt_senha.value;
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
 
-//         if (emailVar == "" || senhaVar == "") {
-            
-//         }
-//         else {
-//             setInterval(sumirMensagem, 5000)
-//         }
+        if (emailVar == "" || senhaVar == "") {
 
-//         console.log("FORM LOGIN: ", emailVar);
-//         console.log("FORM SENHA: ", senhaVar);
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
 
-//         fetch("/usuarios/autenticar", {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             body: JSON.stringify({
-//                 emailServer: emailVar,
-//                 senhaServer: senhaVar
-//             })
-//         }).then(function (resposta) {
-//             console.log("ESTOU NO THEN DO entrar()!")
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
 
-//             if (resposta.ok) {
-//                 console.log(resposta);
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
 
-//                 resposta.json().then(json => {
-//                     console.log(json);
-//                     console.log(JSON.stringify(json));
+            if (resposta.ok) {
+                console.log(resposta);
 
-//                     sessionStorage.EMAIL_USUARIO = json.email;
-//                     sessionStorage.NOME_USUARIO = json.nome;
-//                     sessionStorage.ID_USUARIO = json.idUsuario;
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
 
-//                     setTimeout(function () {
-//                         window.location = "curiosidades.html";
-//                     }, 1000); // apenas para exibir o loading
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
 
-//                 });
+                    setTimeout(function () {
+                        window.location = "curiosidades.html";
+                    }, 1000); // apenas para exibir o loading
 
-//             } else {
+                });
 
-//                 console.log("Houve um erro ao tentar realizar o login!");
-//                 validar.innerHTML = '*Insira seus dados corretamente*'
+            } else {
 
-//                 resposta.text().then(texto => {
-//                     console.error(texto);
-//                     finalizarAguardar(texto);
-//                 });
-//             }
+                console.log("Houve um erro ao tentar realizar o login!");
+                validar.innerHTML = '*Insira seus dados corretamente*'
 
-//         }).catch(function (erro) {
-//             console.log(erro);
-//         })
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
 
-//         return false;
-//     }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
 
-//     function sumirMensagem() {
-//         validar.innerHTML = ""
-//     }
+        return false;
+    }
 
-// </script>
+    function sumirMensagem() {
+        validar.innerHTML = ""
+    }
+
+</script>
