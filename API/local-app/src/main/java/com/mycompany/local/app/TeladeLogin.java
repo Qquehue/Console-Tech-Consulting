@@ -55,7 +55,7 @@ public class TeladeLogin extends javax.swing.JFrame {
         jScrollPane1.setBorder(null);
 
         jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(214, 215, 222));
+        jTextArea1.setBackground(new java.awt.Color(238, 238, 238));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(13, 33, 161));
@@ -65,7 +65,7 @@ public class TeladeLogin extends javax.swing.JFrame {
         jTextArea1.setBorder(null);
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 780, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 800, 320));
 
         emailUsuario.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         emailUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -107,7 +107,7 @@ public class TeladeLogin extends javax.swing.JFrame {
         jScrollPane3.setBorder(null);
 
         jTextArea3.setEditable(false);
-        jTextArea3.setBackground(new java.awt.Color(214, 215, 222));
+        jTextArea3.setBackground(new java.awt.Color(238, 238, 238));
         jTextArea3.setColumns(20);
         jTextArea3.setFont(new java.awt.Font("SansSerif", 3, 24)); // NOI18N
         jTextArea3.setForeground(new java.awt.Color(13, 33, 161));
