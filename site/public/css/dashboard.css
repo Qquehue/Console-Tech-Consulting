@@ -35,7 +35,7 @@ body{
     text-indent: 1vw;
 }
 .bom{
-    background-color: green;
+    background-color: #8FD14F;
 }
 .atencao{
     background-color: #F24726;
@@ -85,16 +85,16 @@ h1{
     height: 66%;
 }
 .pc_bom{
-    background-image: url(img/pc_verde.png);
+    background-image: url(img/computador_bom.png);
 }
 .pc_atencao{
-    background-image: url(img/pc_amarelo.png);
+    background-image: url(img/computador_alerta.png);
 }
 .pc_ruim{
-    background-image: url(img/pc_vermelho.png);
+    background-image: url(img/computador_critico.png);
 }
 .pc_inativo{
-    background-image: url(img/pc_cinza.png);
+    background-image: url(img/computador_inativo.png);
 }
 .texto_legenda{
     font-size: 1vw;
@@ -107,4 +107,37 @@ h1{
     background-size: cover;
     width: 3vw;
     bottom: 2.4vh;
+    cursor: pointer;
+}
+#explicacao{
+    position: absolute;
+    bottom: 13%;
+    right: 9%;
+    width: 25%;
+    height: 25%;
+    background: var(--branco);
+}
+#invi{
+    position: absolute;
+    bottom: 10%;
+    right: 9%;
+    width: 25%;
+    height: 3%;
+    background: var(--branco);
+}
+#btn_invi{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: var(--preto2);
+    border-top-right-radius: 100%;
+}
+
+.explicacao{
+    border: 1px solid black;
+    width: 99%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    padding-left: 1%;
 }

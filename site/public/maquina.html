@@ -21,10 +21,10 @@
     <div class="cabecalho">
         <div class="container_cabecalho">
             <div class="itens_cabecalho">
-                <a href="dashboard.html"><img src="css/img/logo branco.png" alt="Logo do Site" class="logo_cabecalho"></a>
+                <img src="css/img/logo branco.png" alt="Logo do Site" class="logo_cabecalho">
                 <p class="texto" id="nome"></p>
                 <img src="css/img/yuri.png" alt="" id="foto_dash">
-                <a href="index.html"><img src="css/img/saida.png" alt="" id="exit"></a>
+                <!-- <a href="index.html"><img src="css/img/saida.png" alt="" id="exit"></a> -->
             </div>
         </div>
     </div>
@@ -37,21 +37,30 @@
     <div id="dados">
         <div id="especificacoes">
             <div id="pc">
-                <img class="estado" src="css/img/pc_verde.png" alt="Imagem computador">
+                <img class="estado" src="css/img/computador_bom.png" alt="Imagem computador">
             </div>    
             <div id="informacoes">
                 <p class="info">Informações:</p>
                 <div class="info1">
-                    <b>ID: M1</b>
+                    <b>id:</b><span class="dado"> M1</span>
                 </div>
                 <div>
-                    <b>CPU: Intel 4790k</b>
+                    <b>CPU:</b> <span class="dado">  Intel core i3 4790k</span>
                 </div>
                 <div>
-                    <b>RAM: 8GB DDR3</b>
+                    <b>RAM:</b> <span class="dado"> 8GB DDR3</span>
                 </div>
                 <div>
-                    <b>CAPACIDADE: 500GB</b>
+                    <b>Capacidade:</b> <span class="dado"> 500GB</span>
+                </div>
+                <div class="info1">
+                    <b>Data da implantação:</b> <span class="dado"> 10/10/2022</span>
+                </div>
+                <div>
+                    <b>Linha:</b> <span class="dado"> Azul</span>
+                </div>
+                <div>
+                    <b>Estação:</b> <span class="dado"> Sé</span>
                 </div>
             </div>
 
@@ -86,11 +95,9 @@
 
 <!-- Início legenda -->
 
-    <div class="legenda">
-
-    </div>
-    <a href="help.html"> <img src="css/img/help.png" id="help"></img> </a>
-    <a href="dashboard.html"> <img src="css/img/casa.png" id="casa"></img> </a>
+    <button id="btn_relatorio" onclick="btn_relatorio()">Abrir chamado</button>
+    <!-- <a href="help.html"> <img src="css/img/help.png" id="help"></img> </a>
+    <a href="dashboard.html"> <img src="css/img/casa.png" id="casa"></img> </a> -->
 
 <!-- Fim legenda -->
 
@@ -98,21 +105,33 @@
 
 </body>
 </html>
-
+<script>
+    function btn_relatorio() {
+        window.open('chamado.html')
+    }    
+</script>
 <script>
     const ctx1 = document.getElementById('myChart1').getContext('2d');
     const myChart1 = new Chart(ctx1, {
         type: 'line',
         data: {
-            labels: ['12:00',
+            labels: [
+                '12:00',
                 '13:00',
                 '14:00',
                 '15:00',
                 '16:00',
-                '17:00',],
+                '17:00',
+                '18:00',
+                '19:00',
+                '20:00',
+                '21:00',
+                '22:00',
+                '23:00',
+            ],
             datasets: [{
                 label: 'Uso CPU (%)',
-                data: [40, 42, 40, 45, 40, 43],
+                data: [45, 10, 80, 8, 53, 10, 70, 16, 75, 28, 59, 90],
                 backgroundColor: [
                     'lightblue',
                 ],
@@ -125,7 +144,9 @@
         options: {
             scales: {
                 y: {
-                    beginAtZero: false
+                    // beginAtZero: false
+                    min: 0,
+                    max: 100    
                     
                 }
             }
@@ -138,16 +159,22 @@
         type: 'line',
         data: {
             labels: [
+                '12:00',
+                '13:00',
+                '14:00',
+                '15:00',
+                '16:00',
+                '17:00',
                 '18:00',
                 '19:00',
                 '20:00',
                 '21:00',
                 '22:00',
-                '23:00',
+                '23:00'
                 ],
             datasets: [{
                 label: 'Uso de memória Ram(%)',
-                data: [5, 10, 63, 80, 61, 32],
+                data: [5, 30, 10, 80, 20, 50, 89, 54, 78, 20, 50, 38],
                 backgroundColor: [
                     'purple'
                 ],
@@ -178,7 +205,7 @@
                 'Disponível (%)'],
             datasets: [{
                 label: 'Uso de Disco (%)',
-                data: [50, 100 - 85],
+                data: [80, 20],
                 backgroundColor: [
                     'steelblue',
                     '#444444',

@@ -1,5 +1,7 @@
 body{
     background-color: var(--preto2);
+    width: 100%;
+    height: 100%;
 }
 #help{
     position: absolute;
@@ -80,16 +82,38 @@ b{
     flex-direction: row;
     width: 100%;
     height: 50%;
+    padding-left: 1%;
 }
 #graficos_baixo{
     /* border: 1px solid red; */
     width: 100%;
-    height: 50%;
+    height: 10%;
     display: flex;
     flex-direction: row;
+    padding-left: 1%;
 }
 .grafico{
-    /* border: 1px solid black; */
     height: 100%;
     width: 50%;
+}
+.dado{
+    font-size: 90%;
+    font-family: var(--letra);
+}
+#btn_relatorio{
+    width: 20%;
+    height: 10%;
+    position: absolute;
+    bottom: 2%;
+    left: 8%;
+    background-color: var(--amareloescuro);
+    border-radius: 1vw;
+    border-color: transparent;
+    font-family: var(--fonte);
+    font-weight: bold;
+    font-size: 120%;
+}
+#btn_relatorio:hover{
+    cursor: pointer;
+    font-size: 150%;
 }
