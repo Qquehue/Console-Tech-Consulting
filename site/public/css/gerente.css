@@ -51,8 +51,8 @@ h1{
     color: var(--branco);
     font-size: 180%;
     font-family: var(--letra);
-    margin-bottom: 8vh;
-    margin-top: 5vh;
+    margin-bottom: 4vh;
+    margin-top: 2vh;
 }
 .totens{
     display: flex;
