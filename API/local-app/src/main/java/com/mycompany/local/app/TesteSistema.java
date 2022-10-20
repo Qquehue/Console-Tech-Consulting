@@ -21,17 +21,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class TesteSistema {
 
-    public static void main(String[] args) throws InterruptedException{
+    Cruds cruds = new Cruds();
 
-        Cruds cruds = new Cruds();
-        /*conexao e inicio do programa*/
-        cruds.programa();
-
-    }
+//    public void cadastro(){
+//        cruds.cadastroDeMaquina();
+//   }
 
     public void exec() throws InterruptedException{
 
-        Cruds cruds = new Cruds();
         /*conexao e inicio do programa*/
         for (int i = 0; i < 5; i++) {
             cruds.programa();

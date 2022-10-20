@@ -7,6 +7,7 @@ package com.mycompany.local.app;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.sistema.Sistema;
 import java.sql.Time;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,18 +21,48 @@ public class Maquina {
     private Integer idUso;
     private Double temperaturaCPU;
     private Double usoCPU;
-    private Long usoMemoria;
-    private Long usoDisco;
-    private Time upTime;
+    private Double usoMemoria;
     private Integer fkMaquina;
+    
+    private String modeloCpu;
+    private Double totalMemoria;
+    private Double totalDisco;
+    private Integer fkEstacao;
+    
 
-    public Long getUsoDisco() {
-        return usoDisco;
+    public String getModeloCpu() {
+        return modeloCpu;
     }
 
-    public void setUsoDisco(Long usoDisco) {
-        this.usoDisco = usoDisco;
+    public void setModeloCpu(String modeloCpu) {
+        this.modeloCpu = modeloCpu;
     }
+
+    public Double getTotalMemoria() {
+        return totalMemoria;
+    }
+
+    public void setTotalMemoria(Double totalMemoria) {
+        this.totalMemoria = totalMemoria;
+    }
+
+    public Double getTotalDisco() {
+        return totalDisco;
+    }
+
+    public void setTotalDisco(Double totalDisco) {
+        this.totalDisco = totalDisco;
+    }
+
+    public Integer getFkEstacao() {
+        return fkEstacao;
+    }
+
+    public void setFkEstacao(Integer fkEstacao) {
+        this.fkEstacao = fkEstacao;
+    }
+
+    
     
     public Integer getIdUso() {
         return idUso;
@@ -57,20 +88,12 @@ public class Maquina {
         this.usoCPU = usoCPU;
     }
 
-    public Long getUsoMemoria() {
+    public Double getUsoMemoria() {
         return usoMemoria;
     }
 
-    public void setUsoMemoria(Long usoMemoria) {
+    public void setUsoMemoria(Double usoMemoria) {
         this.usoMemoria = usoMemoria;
-    }
-
-    public Time getUpTime() {
-        return upTime;
-    }
-
-    public void setUpTime(Time upTime) {
-        this.upTime = upTime;
     }
 
     public Integer getFkMaquina() {
@@ -81,6 +104,4 @@ public class Maquina {
         this.fkMaquina = fkMaquina;
     }    
     
-    
-
 }

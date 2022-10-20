@@ -15,7 +15,7 @@ public class Conexao {
 
     private JdbcTemplate conexao; 
 
-    public void conectar() {
+    public void conectar() {       
         BasicDataSource dataSource = new BasicDataSource();
 
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
@@ -24,6 +24,10 @@ public class Conexao {
         dataSource.setPassword("#Gf24076351835");
         
         this.conexao = new JdbcTemplate(dataSource);
+    }
+    
+    public void encerrar(){
+        
     }
     
     public JdbcTemplate getConnection() {
