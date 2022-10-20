@@ -209,7 +209,7 @@
     justify-content: space-evenly;
 }
 
-.ipt_cadastro{
+.ipt_cadastro, #ipt_senha{
     width: 22.5vw;
     height: 26px;
     text-align: left;
@@ -232,7 +232,7 @@
     text-align: center;
 }
 
-#ipt_cpf, #ipt_tel, #ipt_senha, #ipt_confirmar{
+#ipt_cpf, #ipt_tel, #ipt_confirmar{
     width: 10.6vw;
     height: 2.3vw;
     text-align: left;

@@ -33,7 +33,41 @@
 <!-- --------------------------------------------------------------------------------------------------------- -->
 
 <!-- Início card -->
+    <div id="card">
+        <h1>Chamado</h1>
+        <p class="label">ID da máquina: XXXX</p>
+        <p class="label">Nome <span class="asterisco">*</span></p>
+        <input class="input" type="text">
+        <p class="label">Email <span class="asterisco">*</span></p>
+        <input class="input" type="text">
+        <p class="label">Título <span class="asterisco">*</span></p>
+        <input class="input" type="text">
+        <p class="label">Problema <span class="asterisco">*</span></p>
+        <select class="input box" name="" onchange="aparecerBox()" id="problema1">
+            <option value="">Selecione um problema</option>
+            <option value="CPU">Consumo da CPU</option>
+            <option value="RAM">Consumo da Ram</option>
+            <option value="HD">Consumo de HD</option>
+        </select>
+        <select class="input box" name="" onchange="aparecerBox()" id="problema2">
+            <option value="">Selecione um problema</option>
+            <option value="CPU">Consumo da CPU</option>
+            <option value="RAM">Consumo da Ram</option>
+            <option value="HD">Consumo de HD</option>
+        </select>
+        <select class="input box" name="" id="problema3">
+            <option value="">Selecione um problema</option>
+            <option value="CPU">Consumo da CPU</option>
+            <option value="RAM">Consumo da Ram</option>
+            <option value="HD">Consumo de HD</option>
+        </select>
+        <p class="label">Descreva <span class="asterisco">*</span></p>
+        <textarea class="input area" name="" id="" cols="30" rows="10"></textarea>
 
+        <button class="btn_enviar">Enviar chamado</button>
+    </div>
+
+    <img class="img_card" src="css/img/boneco.png" alt="">
 <!-- Fim card -->
 
 <!-- --------------------------------------------------------------------------------------------------------- -->
@@ -49,3 +83,19 @@
 
 </body>
 </html>
+
+<script>
+    function aparecerBox() {
+        if (problema1.value != "" && problema2.value != "") {
+            problema2.style.display = "block"
+            problema3.style.display = "block"
+        } else if (problema1.value != "") {
+            problema2.style.display = "block"
+            problema3.style.display = "none"
+        } else if (problema1.value == "" && problema2.value == "") {
+            problema2.style.display = "none"
+            problema3.style.display = "none"   
+        }
+    }
+    aparecerBox() 
+</script>

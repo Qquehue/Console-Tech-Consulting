@@ -134,7 +134,7 @@ h1{
 }
 
 .explicacao{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 99%;
     height: 25%;
     display: flex;
