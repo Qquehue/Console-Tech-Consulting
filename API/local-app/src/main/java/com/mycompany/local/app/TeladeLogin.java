@@ -149,7 +149,7 @@ public class TeladeLogin extends javax.swing.JFrame {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ctc?useSSL=false", "root", "urubu100");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://0.0.0.0:3306/ctc?useSSL=false", "root", "urubu100");
                     String username = emailUsuario.getText();
                     String passwd = senhaUsuario.getText();
                     Statement executor = con.createStatement();
