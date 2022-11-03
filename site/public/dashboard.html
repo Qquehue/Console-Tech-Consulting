@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="css/cabecalho_dash.css">
     <link rel="icon" href="css/img/icon.png">
     <title>Dashboard</title>
+    <script src="js/funcoes.js"></script> -->
 </head>
-<body>
+<body onload="validarSessao()">
 
 <!-- Início cabeçalho -->
 
@@ -23,7 +24,7 @@
                 <a href="index.html"><img src="css/img/logo branco.png" alt="Logo do Site" class="logo_cabecalho"></a>
                 <p class="texto" id="nome"></p>
                 <img src="css/img/yuri.png" alt="" id="foto_dash">
-                <a href="index.html"><img src="css/img/saida.png" alt="" id="exit"></a>
+                <img src="css/img/saida.png" alt="" id="exit" onclick="limparSessao()">
             </div>
         </div>
     </div>
