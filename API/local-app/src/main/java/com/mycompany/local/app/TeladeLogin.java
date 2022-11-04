@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 /**
@@ -24,6 +25,9 @@ public class TeladeLogin extends javax.swing.JFrame {
     public TeladeLogin() {
         initComponents();
     }
+//    Integer IdMaquinaInteger;
+    public Integer idMaquina2;
+    String idMaquina;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,6 +50,8 @@ public class TeladeLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        IdMaquinaField = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -133,6 +139,17 @@ public class TeladeLogin extends javax.swing.JFrame {
         jLabel5.setText("__________________________________________________________________________________________________________________________________________________________________________________________________");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 1130, -1));
 
+        IdMaquinaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IdMaquinaFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(IdMaquinaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 490, 90, 40));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel6.setText("ID Maquina:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 450, 100, 34));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -149,9 +166,16 @@ public class TeladeLogin extends javax.swing.JFrame {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ctc?useSSL=false", "root", "urubu100");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CTC?useSSL=false", "root", "G@briel17022004");
                     String username = emailUsuario.getText();
                     String passwd = senhaUsuario.getText();
+                    idMaquina = IdMaquinaField.getText();
+                    idMaquina2 = Integer.valueOf(idMaquina);
+                    System.out.println(idMaquina2);
+                    
+                    
+                    
+                    
                     Statement executor = con.createStatement();
                     String login = "SELECT * FROM Funcionario WHERE email = '"+username+"' and senha = '"+passwd+"'";
                     ResultSet isAvaliable = executor.executeQuery(login);
@@ -167,6 +191,7 @@ public class TeladeLogin extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, "Email ou senha inválido");
                         emailUsuario.setText("");                        
                         senhaUsuario.setText("");
+                        IdMaquinaField.setText("");
                     }
                     
                     con.close();
@@ -177,6 +202,28 @@ public class TeladeLogin extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+
+    
+      
+    public Integer getIdMaquina2() {
+   
+        System.out.println(idMaquina2);
+        return idMaquina2;
+    }
+
+    private void IdMaquinaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdMaquinaFieldActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_IdMaquinaFieldActionPerformed
+
+ 
+
+   
+
+   
 
     /**
      * @param args the command line arguments
@@ -214,6 +261,7 @@ public class TeladeLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField IdMaquinaField;
     private javax.swing.JTextField emailUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -221,6 +269,7 @@ public class TeladeLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;

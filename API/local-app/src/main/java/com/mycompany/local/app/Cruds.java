@@ -37,6 +37,7 @@ public class Cruds {
     private Memoria memoria = new Memoria();
     private Sistema sistema = new Sistema();
     private DiscosGroup discos = new DiscosGroup();
+    TeladeLogin tl = new TeladeLogin();
 
     public Cruds() {
         BasicDataSource dataSource = new BasicDataSource();
@@ -52,10 +53,12 @@ public class Cruds {
         maquina.setUsoMemoria(memoria.getEmUso().doubleValue());
         maquina.setUsoCPU(proc.getUso());
         maquina.setTemperaturaCPU(20.0);
+        
+        
 
         //maquina.setTemperaturaCPU(looca.getTemperatura().getTemperatura().doubleValue());
-        String insertBanco = "INSERT INTO usoMaquina VALUES (null,?,?,?,CURRENT_TIMESTAMP,null)";
-        database.update(insertBanco, maquina.getTemperaturaCPU(), maquina.getUsoCPU(), maquina.getUsoMemoria());
+        String insertBanco = "INSERT INTO usoMaquina VALUES (null,?,?,?,CURRENT_TIMESTAMP,?)";
+        database.update(insertBanco, maquina.getTemperaturaCPU(), maquina.getUsoCPU(), maquina.getUsoMemoria(),tl.getIdMaquina2());
 
     }
 
@@ -68,18 +71,18 @@ public class Cruds {
         }
 
     }*/
-    public void cadastroDeMaquina() {
-        JdbcTemplate database = conexao.getConnection();
-        conexao.conectar();
-
-        maquina.setModeloCpu(looca.getProcessador().getNome());
-        maquina.setTotalDisco(discos.getTamanhoTotal().doubleValue());
-        maquina.setTotalMemoria((looca.getMemoria().getTotal()).doubleValue());
-
-        String insertCadastro = "INSERT INTO Maquina VALUES (null,?,?,?,CURRENT_TIMESTAMP,null)";
-        database.update(insertCadastro, maquina.getModeloCpu(), maquina.getTotalMemoria(), maquina.getTotalDisco());
-
-    }
+//    public void cadastroDeMaquina() {
+//        JdbcTemplate database = conexao.getConnection();
+//        conexao.conectar();
+//
+//        maquina.setModeloCpu(looca.getProcessador().getNome());
+//        maquina.setTotalDisco(discos.getTamanhoTotal().doubleValue());
+//        maquina.setTotalMemoria((looca.getMemoria().getTotal()).doubleValue());
+//
+//        String insertCadastro = "INSERT INTO Maquina VALUES (null,?,?,?,CURRENT_TIMESTAMP,null)";
+//        database.update(insertCadastro, maquina.getModeloCpu(), maquina.getTotalMemoria(), maquina.getTotalDisco());
+//
+//    }
 
     }
     

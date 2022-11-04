@@ -28,6 +28,12 @@ public class Maquina {
     private Double totalMemoria;
     private Double totalDisco;
     private Integer fkEstacao;
+    private Integer teste = 1;
+
+    public Integer getTeste() {
+        return teste;
+    }
+    
     
 
     public String getModeloCpu() {
