@@ -101,7 +101,7 @@
     }
     
     #validar{
-        color: white;
+        color: var(--preto2);
     }
 }
 
@@ -209,6 +209,6 @@ h2{
 }
 
 #validar{
-    color: white;
+    color: var(--preto2);
 }
 }

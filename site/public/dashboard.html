@@ -14,7 +14,7 @@
     <title>Dashboard</title>
     <script src="js/funcoes.js"></script> -->
 </head>
-<body onload="validarSessao()">
+<body onload="validarSessao(), exibirMuitos()">
 
 <!-- Início cabeçalho -->
 
@@ -38,11 +38,7 @@
     <div class="maquinas">
         <h1>Linha Azul - Estação Sé</h1>
         <div class="totens">
-            <div class="cards_totens"> <button class="botao_totem pc_bom" onclick="btn_totem()"></button> </div>
-            <div class="cards_totens"> <button class="botao_totem pc_ruim" onclick="btn_totem()"></button> </div>
-            <div class="cards_totens"> <button class="botao_totem pc_atencao" onclick="btn_totem()"></button> </div>
-            <div class="cards_totens"> <button class="botao_totem pc_inativo" onclick="btn_totem()"></button> </div>
-            <div class="cards_totens"> <button class="botao_totem pc_bom" onclick="btn_totem()"></button> </div>
+            
         </div>
        
     </div>
@@ -121,4 +117,56 @@
     function btn_help_sair() {
         sumir.style.display = 'none';
     }
+    
+    function exibirMuitos() {
+        fetch("/dash/listarTotem", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+                resposta.json().then(json => {
+                    console.log(json);
+                    // console.log(json.length)
+                    // console.log(JSON.stringify(json));
+                    lista = [];
+                    
+                    for(let i = 0; i < json.length; i ++ ){
+                        lista.push(json[i]);
+                        console.log(`cadastro ${i}`)
+                        // o nome de cada botao retorna assim
+                        console.log(lista[i])
+                    }
+                    mostrarTotem();
+                });
+            } else {
+                console.log("Houve um erro ao tentar realizar o listar!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function mostrarTotem(){
+        if (lista.length != -1) {
+            totens.innerHTML = ``
+
+            for (let i = 0; i < lista.length; i++) {
+                totens.innerHTML += `
+                <div class="cards_totens"> <button class="botao_totem" onclick="mostrar_dash(${lista[i].idMaquina})"></button></div>
+                `
+            }
+        }
+    }
+
 </script>
