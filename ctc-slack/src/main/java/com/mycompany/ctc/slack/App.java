@@ -17,20 +17,16 @@ public class App {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         JSONObject json = new JSONObject();
-        Scanner validacao = new Scanner(System.in);
-
-        System.out.println("Teste1: ");
-        Double x = validacao.nextDouble();
-
-        System.out.println("Teste2: ");
-        Double y = validacao.nextDouble();
-
-        System.out.println("Teste3: ");
-        Double z = validacao.nextDouble();
+        
+        Validação m1 = new Validação(1, 90.0, 50.0, 60.0);
+        
+        Double x = m1.getUsoCPU();
+        Double y = m1.getUsoMemoria();
+        Double z = m1.getUsoDisco();
 
         if (x > 80 || y > 70 || z > 70) {
 
-            json.put("text", "Acho que tá dando ruim, hein? :shrug:");
+            json.put("text", m1.toString());
             Slack.sendMessage(json);
 
         }
