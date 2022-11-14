@@ -38,30 +38,52 @@ public class Cruds {
     private Sistema sistema = new Sistema();
     private DiscosGroup discos = new DiscosGroup();
     TeladeLogin tl = new TeladeLogin();
+    Conversor conversor = new Conversor();
+    
+
+
+    
+    
+    
 
     public Cruds() {
         BasicDataSource dataSource = new BasicDataSource();
         jdbcTemplate = new JdbcTemplate(dataSource);
+
 // configuração do dataSource, como visto antes
     }
 
-    public void programa() {
+    public void programa(Integer id) {
 
         conexao.conectar();
         JdbcTemplate database = conexao.getConnection();
+        
+        
 
         maquina.setUsoMemoria(memoria.getEmUso().doubleValue());
+        String memorias = Conversor.formatarBytes(memoria.getEmUso()).replace("GiB", "").replace(",", ".");
+        Double memoriaAtual = Double.parseDouble(memorias);
         maquina.setUsoCPU(proc.getUso());
+        String cpus = Conversor.formatarBytes(proc.getUso().longValue()).replace("GiB", "").replace(",", ".").replace("bytes", "");
+        Double cpuAtual = Double.parseDouble(cpus);
         maquina.setTemperaturaCPU(20.0);
+        
         
         
 
         //maquina.setTemperaturaCPU(looca.getTemperatura().getTemperatura().doubleValue());
         String insertBanco = "INSERT INTO usoMaquina VALUES (null,?,?,?,CURRENT_TIMESTAMP,?)";
-        database.update(insertBanco, maquina.getTemperaturaCPU(), maquina.getUsoCPU(), maquina.getUsoMemoria(),tl.getIdMaquina2());
+        database.update(insertBanco, maquina.getTemperaturaCPU(), cpuAtual, memoriaAtual, id);
 
     }
 
+    
+//    public Maquina returnBytes() {
+//    Double memorias = maquina.getUsoMemoria();
+//        
+//    };
+    
+    
     /*public static void main(String[] args) {
         DiscosGroup grupoDeDiscos = new DiscosGroup();
         List<Disco> discos = grupoDeDiscos.getDiscos();
@@ -71,18 +93,26 @@ public class Cruds {
         }
 
     }*/
-//    public void cadastroDeMaquina() {
-//        JdbcTemplate database = conexao.getConnection();
+//    public void cadastroDeMaquina(Integer id) {
 //        conexao.conectar();
+//        JdbcTemplate database = conexao.getConnection();;
+//        
+//        
+//    
+//    
 //
 //        maquina.setModeloCpu(looca.getProcessador().getNome());
 //        maquina.setTotalDisco(discos.getTamanhoTotal().doubleValue());
 //        maquina.setTotalMemoria((looca.getMemoria().getTotal()).doubleValue());
 //
-//        String insertCadastro = "INSERT INTO Maquina VALUES (null,?,?,?,CURRENT_TIMESTAMP,null)";
-//        database.update(insertCadastro, maquina.getModeloCpu(), maquina.getTotalMemoria(), maquina.getTotalDisco());
+//        String insertCadastro = "INSERT INTO Maquina VALUES (?,?,?,?,CURRENT_TIMESTAMP,null)";
+//        database.update(insertCadastro,this.programa(id), maquina.getModeloCpu(), maquina.getTotalMemoria(), maquina.getTotalDisco());
 //
-//    }
+//      
+//    
+//    
+//      
+//   }
 
     }
     

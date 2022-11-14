@@ -26,7 +26,7 @@ public class TeladeLogin extends javax.swing.JFrame {
         initComponents();
     }
 //    Integer IdMaquinaInteger;
-    public Integer idMaquina2;
+    amostraDados Hpage = new amostraDados();
     String idMaquina;
 
     /**
@@ -163,6 +163,7 @@ public class TeladeLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+       
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -170,8 +171,9 @@ public class TeladeLogin extends javax.swing.JFrame {
                     String username = emailUsuario.getText();
                     String passwd = senhaUsuario.getText();
                     idMaquina = IdMaquinaField.getText();
-                    idMaquina2 = Integer.valueOf(idMaquina);
-                    System.out.println(idMaquina2);
+                    
+                    
+                    
                     
                     
                     
@@ -183,9 +185,8 @@ public class TeladeLogin extends javax.swing.JFrame {
                     if (isAvaliable.next()) {
                 dispose();
                 //Seria a home com hardwares listados e dados;
-                amostraDados Hpage = new amostraDados();
                 Hpage.show();
-                TesteSistema iniciarDados = new TesteSistema();
+                TesteSistema iniciarDados = new TesteSistema(Integer.valueOf(idMaquina));
                 iniciarDados.exec();
             } else {
                         JOptionPane.showMessageDialog(this, "Email ou senha inválido");
@@ -206,11 +207,7 @@ public class TeladeLogin extends javax.swing.JFrame {
 
     
       
-    public Integer getIdMaquina2() {
-   
-        System.out.println(idMaquina2);
-        return idMaquina2;
-    }
+ 
 
     private void IdMaquinaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdMaquinaFieldActionPerformed
         // TODO add your handling code here:

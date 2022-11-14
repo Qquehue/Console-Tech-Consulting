@@ -10,6 +10,7 @@ import com.github.britooo.looca.api.group.discos.DiscosGroup;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.sistema.Sistema;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -20,18 +21,36 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @author UL334AW
  */
 public class TesteSistema {
-
+    
+  
     Cruds cruds = new Cruds();
+    private Integer id;
+    
+    
+    
+    
+    public TesteSistema(Integer id) {
+    this.id = id;
+        
+    }
 
+    
+    
 //    public void cadastro(){
 //        cruds.cadastroDeMaquina();
 //   }
 
+    
+    
     public void exec() throws InterruptedException{
-
-        /*conexao e inicio do programa*/
+        
+        
+        
+        
+       /*conexao e inicio do programa*/
         for (int i = 0; i < 5; i++) {
-            cruds.programa();
+           
+            cruds.programa(id);
             TimeUnit.SECONDS.sleep(2);
         }
 

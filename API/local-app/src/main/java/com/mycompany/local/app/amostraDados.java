@@ -26,46 +26,21 @@ public class amostraDados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LabelMemoriaUsada = new javax.swing.JLabel();
-        SaidaDadosMemoria = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        SaidaDadosRAM = new javax.swing.JLabel();
-        LabelCPU = new javax.swing.JLabel();
-        SaidaDadosCPU = new javax.swing.JLabel();
-        LabelTemperatura = new javax.swing.JLabel();
-        SaidaDadosTemperatura = new javax.swing.JLabel();
-        Titulo = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LabelMemoriaUsada.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        LabelMemoriaUsada.setText("Memória de massa:");
-        getContentPane().add(LabelMemoriaUsada, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, 30));
-        getContentPane().add(SaidaDadosMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 157, 33));
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(240, 240, 240));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("\n   \n    O recolhimento de dados foi iniciado.\n    Acesse sua dashboard em nosso site!");
+        jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Memória RAM:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 530, 157, 34));
-        getContentPane().add(SaidaDadosRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 160, 31));
-
-        LabelCPU.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        LabelCPU.setText("CPU:");
-        getContentPane().add(LabelCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 150, 129, 36));
-
-        SaidaDadosCPU.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(SaidaDadosCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 190, 129, 21));
-
-        LabelTemperatura.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        LabelTemperatura.setText("Temperatura");
-        getContentPane().add(LabelTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 530, 129, 34));
-
-        SaidaDadosTemperatura.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(SaidaDadosTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 570, 129, 38));
-
-        Titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        Titulo.setText("Recolhimento de Dados");
-        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 230, 46));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 490, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,14 +81,7 @@ public class amostraDados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LabelCPU;
-    private javax.swing.JLabel LabelMemoriaUsada;
-    private javax.swing.JLabel LabelTemperatura;
-    private javax.swing.JLabel SaidaDadosCPU;
-    private javax.swing.JLabel SaidaDadosMemoria;
-    private javax.swing.JLabel SaidaDadosRAM;
-    private javax.swing.JLabel SaidaDadosTemperatura;
-    private javax.swing.JLabel Titulo;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

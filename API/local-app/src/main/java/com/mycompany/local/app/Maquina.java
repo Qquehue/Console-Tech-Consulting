@@ -6,6 +6,7 @@ package com.mycompany.local.app;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.sistema.Sistema;
+import com.github.britooo.looca.api.util.Conversor;
 import java.sql.Time;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -23,52 +24,14 @@ public class Maquina {
     private Double usoCPU;
     private Double usoMemoria;
     private Integer fkMaquina;
-    
-    private String modeloCpu;
-    private Double totalMemoria;
-    private Double totalDisco;
-    private Integer fkEstacao;
-    private Integer teste = 1;
-
-    public Integer getTeste() {
-        return teste;
-    }
-    
+    Conversor conversor = new Conversor();
+            
     
 
-    public String getModeloCpu() {
-        return modeloCpu;
-    }
-
-    public void setModeloCpu(String modeloCpu) {
-        this.modeloCpu = modeloCpu;
-    }
-
-    public Double getTotalMemoria() {
-        return totalMemoria;
-    }
-
-    public void setTotalMemoria(Double totalMemoria) {
-        this.totalMemoria = totalMemoria;
-    }
-
-    public Double getTotalDisco() {
-        return totalDisco;
-    }
-
-    public void setTotalDisco(Double totalDisco) {
-        this.totalDisco = totalDisco;
-    }
-
-    public Integer getFkEstacao() {
-        return fkEstacao;
-    }
-
-    public void setFkEstacao(Integer fkEstacao) {
-        this.fkEstacao = fkEstacao;
-    }
+   
 
     
+   
     
     public Integer getIdUso() {
         return idUso;
@@ -108,6 +71,12 @@ public class Maquina {
 
     public void setFkMaquina(Integer fkMaquina) {
         this.fkMaquina = fkMaquina;
-    }    
+    }
+
+//    public Double returnMemoria (Double memorias) {
+//       Long memorias2 = Conversor.formatarBytes(memorias);
+//        
+//        return 
+//    };    
     
 }
