@@ -7,8 +7,8 @@ router.get("/", function (req, res) {
     dashController.testar(req, res);
 });
 
-router.get("/listarTotem", function (req, res) {
-    dashController.listarTotem(req, res);
+router.get("/listarCaminhao", function (req, res) {
+    dashController.listarCaminhao(req, res);
 });
 
 module.exports = router;

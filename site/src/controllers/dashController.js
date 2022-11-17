@@ -7,8 +7,8 @@ function testar(req, res) {
     res.json("ESTAMOS FUNCIONANDO!");
 }
 
-function listarTotem(req, res){
-    dashModel.listarTotem()
+function listarCaminhao(req, res){
+    dashModel.listarCaminhao()
     .then(function (resultado){
         if(resultado.length > 0){
             res.status(200).json(resultado);
@@ -27,7 +27,7 @@ function listarTotem(req, res){
 }
 
 module.exports = {
-    listarTotem,
+    listarCaminhao,
     testar
 
 }
