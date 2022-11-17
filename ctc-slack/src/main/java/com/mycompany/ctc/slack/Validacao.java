@@ -3,20 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.ctc.slack;
+import java.io.IOException;
 import org.json.JSONObject;
 
 /**
  *
  * @author Victor
  */
-public class Validação {
+public class Validacao {
     
     private Integer idMaquina;
     private Double usoCPU;
     private Double usoMemoria;
     private Double usoDisco;
 
-    public Validação(Integer idMaquina, Double usoCPU, Double usoMemoria, Double usoDisco) {
+    public Validacao(Integer idMaquina, Double usoCPU, Double usoMemoria, Double usoDisco) {
         
         this.idMaquina = idMaquina;
         this.usoCPU = usoCPU;
@@ -56,33 +57,23 @@ public class Validação {
         this.usoDisco = usoDisco;
     }
     
-    /*public  validarMaquina () {
-        
-        Double x = usoCPU;
-        Double y = usoMemoria;
-        Double z = usoDisco;
+    public void validarMaquina (JSONObject json) throws IOException, InterruptedException {
 
-        if (x > 80 || y > 70 || z > 70) {
+        if (usoCPU > 80 || usoMemoria > 70 || usoDisco > 70) {
 
-            json.put("text", m1.toString());
-            Slack.sendMessage(json);
-
-        } 
-        
-    } */
-
-    @Override
-    public String toString() {
-        return String.format("\nId da Máquina: %d"
+            json.put("text", String.format("\nId da Máquina: %d"
                 + "\nUso CPU: %.2f"
                 + "\nUso Memória: %.2f"
                 + "\nUso Disco: %.2f"
-                + "\nEstá com problema na máquina %d", 
+                + "\nFazer manutenção na máquina %d", 
                 idMaquina,
                 usoCPU,
                 usoMemoria,
                 usoDisco,
-                idMaquina);
+                idMaquina));
+            Slack.sendMessage(json);
+
+        } 
+        
     }
-    
 }

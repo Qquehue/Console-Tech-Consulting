@@ -1,7 +1,6 @@
 package com.mycompany.ctc.slack;
 
 import java.io.IOException;
-import java.util.Scanner;
 import org.json.JSONObject;
 
 /*
@@ -18,18 +17,16 @@ public class App {
 
         JSONObject json = new JSONObject();
         
-        Validação m1 = new Validação(1, 90.0, 50.0, 60.0);
+        Validacao m1 = new Validacao(1, 90.0, 30.0, 40.0);
+        Validacao m2 = new Validacao(2, 50.0, 80.0, 40.0);
+        Validacao m3 = new Validacao(3, 60.0, 40.0, 30.0);
+        Validacao m4 = new Validacao(4, 90.0, 50.0, 60.0);
+        Validacao m5 = new Validacao(5, 70.0, 30.0, 60.0);
         
-        Double x = m1.getUsoCPU();
-        Double y = m1.getUsoMemoria();
-        Double z = m1.getUsoDisco();
-
-        if (x > 80 || y > 70 || z > 70) {
-
-            json.put("text", m1.toString());
-            Slack.sendMessage(json);
-
-        }
-
+        m1.validarMaquina(json);
+        m2.validarMaquina(json);
+        m3.validarMaquina(json);
+        m4.validarMaquina(json);
+        m5.validarMaquina(json);
     }
 }
