@@ -72,6 +72,8 @@ public class Maquina {
     public void setFkMaquina(Integer fkMaquina) {
         this.fkMaquina = fkMaquina;
     }
+    
+    
 
 //    public Double returnMemoria (Double memorias) {
 //       Long memorias2 = Conversor.formatarBytes(memorias);

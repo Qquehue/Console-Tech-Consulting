@@ -9,5 +9,6 @@ com\mycompany\local\app\TeladeLogin$2.class
 com\mycompany\local\app\TeladeLogin$1.class
 com\mycompany\local\app\amostraDados$1.class
 com\mycompany\local\app\amostraDados.class
+com\mycompany\local\app\Log.class
 com\mycompany\local\app\Maquina.class
 com\mycompany\local\app\Conexao.class

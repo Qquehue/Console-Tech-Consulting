@@ -37,8 +37,10 @@ public class Cruds {
     private Memoria memoria = new Memoria();
     private Sistema sistema = new Sistema();
     private DiscosGroup discos = new DiscosGroup();
-    TeladeLogin tl = new TeladeLogin();
+    
     Conversor conversor = new Conversor();
+    
+    
     
 
 
