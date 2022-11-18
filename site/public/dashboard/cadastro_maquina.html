@@ -74,22 +74,24 @@
 
     function cadastrar() {
 
-    var cpuVar = modelo_cpu.value;
-    var hdVar = ipt_hd.value;
-    var ramVar = ipt_ram.value;
+    var modeloCPUVar = modelo_cpu.value;
+    var totalDiscoVar = ipt_hd.value;
+    var totalMemoriaVar = ipt_ram.value;
 
-    if (modelo_cpu.value == "") {
+    if (modeloCPUVar.value == "") {
     div_validacao.innerHTML = "* Selecione um modelo de CPU *"
     }
-    else if (hdVar == "") {
-        div_validacao.innerHTML = "* Adicione um valor no HD *"
+    else if (totalDiscoVar == "") {
+        div_validacao.innerHTML = "* Adicione um valor em HD *"
     }
-    else if (hdVar.indexOf(",") == -1) {
-        div_validacao.innerHTML = "* Adicione uma vírgula no HD *"
-        
+    else if (totalDiscoVar.indexOf(",") == -1) {
+        div_validacao.innerHTML = "* Adicione uma vírgula em HD *"  
     }
-    else if (condition) {
-        
+    else if (totalMemoriaVar == "") {
+        div_validacao.innerHTML = "* Adicione um valor em Ram *"
+    }
+    else if (totalMemoriaVar.indexOf(",") == -1) {
+        div_validacao.innerHTML = "* Adicione uma vírgula em Ram*"  
     }
     else{
         div_validacao.innerHTML = ""
