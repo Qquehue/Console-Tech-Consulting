@@ -13,6 +13,7 @@ var usuarioRouter = require("./src/routes/usuarios");
 var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require("./src/routes/medidas");
 var dashRouter = require("./src/routes/dash");
+var totemRouter = require("./src/routes/totem");
 
 
 app.use(express.json());
@@ -26,6 +27,7 @@ app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
 app.use("/dash", dashRouter)
+app.use("/dash", totemRouter)
 
 
 app.listen(PORTA, function () {
