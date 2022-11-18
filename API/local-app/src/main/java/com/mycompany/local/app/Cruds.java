@@ -11,11 +11,13 @@ import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.sistema.Sistema;
 import com.github.britooo.looca.api.util.Conversor;
+import java.io.IOException;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.json.JSONObject;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import oshi.driver.linux.proc.CpuInfo;
@@ -30,17 +32,13 @@ public class Cruds {
     private JdbcTemplate jdbcTemplate;
     private Looca looca = new Looca();
     private Conexao conexao = new Conexao();
-
+    private AppSlack slack = new AppSlack();
     private Maquina maquina = new Maquina();
-
     private Processador proc = new Processador();
     private Memoria memoria = new Memoria();
     private Sistema sistema = new Sistema();
     private DiscosGroup discos = new DiscosGroup();
-    
     Conversor conversor = new Conversor();
-    
-    
     
 
 
@@ -55,13 +53,12 @@ public class Cruds {
 // configuração do dataSource, como visto antes
     }
 
-    public void programa(Integer id) {
+    public void programa(Integer id) throws IOException, InterruptedException {
 
         conexao.conectar();
         JdbcTemplate database = conexao.getConnection();
         
         
-
         maquina.setUsoMemoria(memoria.getEmUso().doubleValue());
         String memorias = Conversor.formatarBytes(memoria.getEmUso()).replace("GiB", "").replace(",", ".");
         Double memoriaAtual = Double.parseDouble(memorias);
@@ -76,6 +73,21 @@ public class Cruds {
         //maquina.setTemperaturaCPU(looca.getTemperatura().getTemperatura().doubleValue());
         String insertBanco = "INSERT INTO usoMaquina VALUES (null,?,?,?,CURRENT_TIMESTAMP,?)";
         database.update(insertBanco, maquina.getTemperaturaCPU(), cpuAtual, memoriaAtual, id);
+        
+        String memoria2 = Conversor.formatarBytes(memoria.getTotal()).replace("GiB", "").replace(",", ".");
+        Double memoriaTotal = Double.parseDouble(memoria2);
+        
+        Double x = (memoriaAtual / memoriaTotal) * 100;
+        
+        System.out.println(x);
+        
+        if (cpuAtual > 40 || x > 50) {
+            
+            JSONObject json = new JSONObject();
+            Validacao maquinaSlack = new Validacao(id, cpuAtual, x, 50.0);
+            maquinaSlack.validarMaquina(json);
+            
+        }
 
     }
 

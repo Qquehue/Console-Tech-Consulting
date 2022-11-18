@@ -10,35 +10,41 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
-        <build>
-<plugins>
-<plugin>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-assembly-plugin</artifactId>
-<version>2.4.1</version>
-<configuration>
-<descriptorRefs>
-<descriptorRef>jar-with-dependencies</descriptorRef>
-</descriptorRefs>
-<archive>
-<manifest>
-<mainClass>com.mycompany.local.app.app</mainClass> 
-</manifest>
-</archive>
-</configuration>
-<executions>
-<execution>
-<id>make-assembly</id>
-<phase>package</phase>
-<goals>
-<goal>single</goal>
-</goals>
-</execution>
-</executions>
-</plugin>
-</plugins>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.mycompany.local.app.app</mainClass> 
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
     <dependencies>
+        
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20201115</version>
+        </dependency>
         
         <dependency>        
             <groupId>com.github.britooo</groupId>
@@ -77,7 +83,7 @@
             <!ou versão que já existir na .m2 local>
             
         </dependency> -->
- <dependency>
+        <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE126</version>

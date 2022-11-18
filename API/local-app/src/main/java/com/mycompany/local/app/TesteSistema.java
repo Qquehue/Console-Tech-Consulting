@@ -10,6 +10,7 @@ import com.github.britooo.looca.api.group.discos.DiscosGroup;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.sistema.Sistema;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -42,7 +43,7 @@ public class TesteSistema {
 
     
     
-    public void exec() throws InterruptedException{
+    public void exec() throws IOException, InterruptedException{
         
         
         
