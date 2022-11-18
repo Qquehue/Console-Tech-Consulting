@@ -18,7 +18,7 @@
     <script src="../js/funcoes.js"></script> -->
 </head>
 </head>
-<!-- <body> -->
+<body onload="exibirMuitos(), validarSessao()">
 <!-- <body onload="exibirMuitos(), validarSessao(), atualizacaoPeriodica()"> -->
 
     <main>
@@ -35,7 +35,7 @@
 
         <div id="estrutura">
             <div class="maquinas">
-                <h1 id= "linha">Linha Azul - Estação Sé</h1>
+                <h1 id= "linha"></h1>
                 <div class="totens" id="div_muitos_botoes" >
                 </div>
             </div>
@@ -98,13 +98,13 @@
     exibirMuitos();
     atualizacaoPeriodica();
 
-    linha.innerHTML= `Linha ${sessionStorage.COR_LINHA} - Estação ${sessionStorage. NOME_ESTACAO}`
-    nome.innerHTML = `Olá ${sessionStorage.NOME_USUARIO}`
     var lista = []
     var ultimaTemp =[];
 
     // mostrar e plotar totens
     function exibirMuitos() {
+        nome.innerHTML = `Olá ${sessionStorage.NOME_USUARIO}`;
+        linha.innerHTML= `Linha ${sessionStorage.COR_LINHA} - Estação ${sessionStorage. NOME_ESTACAO}`;
         fetch("/dash/listarCaminhao", {
             method: "GET",
             headers: {

@@ -30,27 +30,37 @@
     <div id="cadastro_card">
         <div class="imagem_card">
             <a href="index.html"><img src="css/img/logo azul escuro.png" alt="" class="imagem"></a>
+        </div>
+        <div class="div_home">
             <a href="index.html"><h2>🠔 Home</h2></a>
         </div>
+
         <div class="inputs_card">
             <h2>Crie uma conta</h2>
             <input id="ipt_nome" class="ipt_cadastro" type="text" placeholder="Nome">
             <div class="inputs_cpf_telefone">
                 <input id="ipt_cpf" type="number" placeholder="CPF" >
                 <input id="ipt_tel" type="number" placeholder="Telefone">
-            </div> 
-            <select name="cargos" id="select_cargos">
-                <option value="">-- selecione o cargo --</option>
-                <option value=1>Analista</option>
-                <option value=2>Gerente</option>
-                <option value=3>Técnico</option>
-            </select>  
-            <select name="linha" id="select_linha">
-                <option value="">-- selecione a linha --</option>
-                <option value=1>Azul</option>
-                <option value=2>Verde</option>
-                <option value=3>Vermelha</option>                
-            </select> 
+            </div>
+
+            <select name="cargos" id="select_cargos" onchange="comboCargo()">
+                <option value="">-- Selecione o cargo --</option>
+                <option value="1">Analista</option>
+                <option value="2">Gerente</option>
+            </select>
+  
+            <select name="linha" id="select_linha" onchange="comboLinha()">
+                <option value="">-- Selecione a linha --</option>
+                <option value="1">Azul</option>
+                <option value="2">Verde</option>
+                <option value="3">Vermelha</option>                
+            </select>
+
+            <div id="div_estacao">
+                <select name="estacao" id="select_estacao" style="display: flex">
+                    <option value="">-- Selecione a estação --</option>
+                </select>
+            </div>
             <input id="ipt_email" class="ipt_cadastro" type="email" placeholder="E-mail">
             <div class="inputs_senha_confirSenha">
                 <input id="ipt_senha" type="password" placeholder="Senha">
@@ -63,13 +73,51 @@
     </div>
 </div>
 <!-- Fim Cadastro Card -->
-
-<!-- ------------------------------------------------------------------------------------------------------------>
-
 </body>
 </html>
 
 <script>
+
+    function comboCargo() {
+        if (select_cargos.value == "2") {
+            div_estacao.style.display = "none";
+        }else{
+            div_estacao.style.display = "block";
+        }
+    }
+
+    function comboLinha() {
+        if (select_linha.value == "") {
+            select_estacao.innerHTML = `
+            <option value="">-- Selecione a estação --</option>
+            `
+        }
+        else if (select_linha.value == "1") {             
+            select_estacao.innerHTML = `
+            <option value="">-- Selecione a estação --</option>
+            <option value="tucuruvi"> Tucuruvi </option>
+            <option value="paraiso"> Paraíso </option>
+            <option value="se">Sé</option>
+            `
+        } 
+        else if (select_linha.value == "2") {             
+            select_estacao.innerHTML = `
+            <option value="">-- Selecione a estação --</option>
+            <option value="vila_madalena"> Vila Madalena </option>
+            <option value="tamanduatei"> Tamanduateí </option>
+            <option value="vila_prudente">Vila Prudente</option>
+            `
+        }
+        else if (select_linha.value == "3") {             
+            select_estacao.innerHTML = `
+            <option value="">-- Selecione a estação --</option>
+            <option value="republica"> República </option>
+            <option value="tatuape"> Tatuapé </option>
+            <option value="carrao"> Carrão </option>
+            `
+        }
+    }
+
     function cadastrar() {
 
         var nomeVar = ipt_nome.value;
@@ -77,6 +125,7 @@
         var telefoneVar = ipt_tel.value;
         var cargosVar = select_cargos.value;
         var linhaVar = select_linha.value;
+        var estacaoVar = select_estacao.value
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
 
@@ -128,7 +177,6 @@
         else if (linhaVar == "") {
             div_validacao.innerHTML = "Inserir uma linha"
         }
-        
         else{
             div_validacao.innerHTML = ""
             alert('* Cadastrado com sucesso *')
@@ -172,7 +220,7 @@
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
+        cardErro.style.display = "none";
     }
 
         }

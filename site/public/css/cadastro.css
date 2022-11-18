@@ -164,18 +164,30 @@
 
 #cadastro_card{
     display: flex;
-    width: 40vw;
+    width: 50vw;
     flex-direction: column;
     justify-content: center;
     background: var(--branco);
-    padding: 1vw;
 }
 
 .imagem_card{
+    position: absolute;
+    top: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+}
+
+.div_home a{
+    position: absolute;
+    top: 0;
+    right: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-decoration: none;
 }
 
 .imagem{

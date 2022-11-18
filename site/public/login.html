@@ -91,8 +91,10 @@
                     console.log(JSON.stringify(json));
 
                     sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.NOME_USUARIO = json.nomeFuncionario;
                     sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.COR_LINHA =json.nomeLinha;
+                    sessionStorage.NOME_ESTACAO =json.nomeEstacao;
 
                     setTimeout(function () {
                         window.location = "/dashboard/caminhoes.html";
