@@ -10,11 +10,13 @@ import com.github.britooo.looca.api.group.discos.DiscosGroup;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.sistema.Sistema;
+import com.github.britooo.looca.api.group.processos.ProcessosGroup;
 import com.github.britooo.looca.api.util.Conversor;
 import java.io.IOException;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.json.JSONObject;
@@ -38,6 +40,7 @@ public class Cruds {
     private Memoria memoria = new Memoria();
     private Sistema sistema = new Sistema();
     private DiscosGroup discos = new DiscosGroup();
+    private ProcessosGroup processos = new ProcessosGroup();
     Conversor conversor = new Conversor();
     
 
@@ -66,13 +69,15 @@ public class Cruds {
         String cpus = Conversor.formatarBytes(proc.getUso().longValue()).replace("GiB", "").replace(",", ".").replace("bytes", "");
         Double cpuAtual = Double.parseDouble(cpus);
         maquina.setTemperaturaCPU(20.0);
+        Integer processosAtual = processos.getTotalProcessos();
+        
         
         
         
 
         //maquina.setTemperaturaCPU(looca.getTemperatura().getTemperatura().doubleValue());
         String insertBanco = "INSERT INTO usoMaquina VALUES (null,?,?,?,CURRENT_TIMESTAMP,?)";
-        database.update(insertBanco, maquina.getTemperaturaCPU(), cpuAtual, memoriaAtual, id);
+        database.update(insertBanco, processosAtual, cpuAtual, memoriaAtual, id);
         
         String memoria2 = Conversor.formatarBytes(memoria.getTotal()).replace("GiB", "").replace(",", ".");
         Double memoriaTotal = Double.parseDouble(memoria2);
@@ -81,7 +86,7 @@ public class Cruds {
         
         System.out.println(x);
         
-        if (cpuAtual > 40 || x > 50) {
+        if (cpuAtual > 90 || x > 90) {
             
             JSONObject json = new JSONObject();
             Validacao maquinaSlack = new Validacao(id, cpuAtual, x, 50.0);

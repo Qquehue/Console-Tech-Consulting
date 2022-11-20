@@ -4,6 +4,8 @@
  */
 package com.mycompany.local.app;
 
+import java.io.IOException;
+
 /**
  *
  * @author FP594HT
@@ -15,6 +17,11 @@ public class amostraDados extends javax.swing.JFrame {
      */
     public amostraDados() {
         initComponents();
+    }
+    
+    public void iniciarColeta(Integer id) throws IOException,  InterruptedException{
+    TesteSistema iniciarDados = new TesteSistema(Integer.valueOf(id));
+    iniciarDados.exec();
     }
 
     /**

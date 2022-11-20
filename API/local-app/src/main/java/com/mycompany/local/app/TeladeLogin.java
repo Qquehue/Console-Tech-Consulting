@@ -9,8 +9,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Timer;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 
 
 /**
@@ -167,10 +169,11 @@ public class TeladeLogin extends javax.swing.JFrame {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CTC?useSSL=false", "root", "urubu100");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CTC?useSSL=false", "root", "G@briel17022004");
                     String username = emailUsuario.getText();
                     String passwd = senhaUsuario.getText();
                     idMaquina = IdMaquinaField.getText();
+                    
                     
                     
                     
@@ -186,8 +189,9 @@ public class TeladeLogin extends javax.swing.JFrame {
                 dispose();
                 //Seria a home com hardwares listados e dados;
                 Hpage.show();
-                TesteSistema iniciarDados = new TesteSistema(Integer.valueOf(idMaquina));
-                iniciarDados.exec();
+                Hpage.iniciarColeta(Integer.valueOf(idMaquina));
+                
+                
             } else {
                         JOptionPane.showMessageDialog(this, "Email ou senha inválido");
                         emailUsuario.setText("");                        
