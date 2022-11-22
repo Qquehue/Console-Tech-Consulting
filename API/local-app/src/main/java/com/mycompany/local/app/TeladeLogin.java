@@ -30,6 +30,7 @@ public class TeladeLogin extends javax.swing.JFrame {
 //    Integer IdMaquinaInteger;
     amostraDados Hpage = new amostraDados();
     String idMaquina;
+    Log log = new Log();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -189,6 +190,7 @@ public class TeladeLogin extends javax.swing.JFrame {
                 dispose();
                 //Seria a home com hardwares listados e dados;
                 Hpage.show();
+                log.gerarLog(username, Integer.valueOf(idMaquina));
                 Hpage.iniciarColeta(Integer.valueOf(idMaquina));
                 
                 

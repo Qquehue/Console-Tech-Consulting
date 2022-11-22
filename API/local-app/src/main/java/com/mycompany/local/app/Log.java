@@ -23,7 +23,7 @@ import oshi.driver.linux.proc.CpuStat;
  */
 public class Log {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public void gerarLog(String email, Integer id) throws IOException, InterruptedException {
 
         //Instanciando uma máquina para exemplo
         Looca looca = new Looca();
@@ -39,7 +39,7 @@ public class Log {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         DateFormat dateHoursFormat = new SimpleDateFormat("dd-MM-yyyy HH'h'mm'm'ss'ss'");
 
-        for (int b = 0; b < 10; b++) {
+        for (int b = 0; b < 1; b++) {
             Date dateHours = new Date();
             Date date = new Date();
 
@@ -50,19 +50,28 @@ public class Log {
 
             gravarArqLog.print("Log iniciado em " + dateFormat.format(date) + " gravando...");
 
-            for (int i = 1; i <= 5; i++) {
+            for (int i = 0; i < 1; i++) {
                 Date hours = new Date();
-
+// Iremos fazer um log de instalação/login, nele terá email e id da maquina do login, e dados do hardware atual da máquina pós iniciação ou manutenção
+// total do HD, total da RAM, numero de CPUS, fabricante, nome do processador, frequencia e SO do sistema.
                 System.out.println(i);
-                maquina.setUsoMemoria(memoria.getEmUso().doubleValue());
-                String memorias = Conversor.formatarBytes(memoria.getEmUso()).replace("GiB", "").replace(",", ".");
+                
+                
+                String memoriasHD = Conversor.formatarBytes(discos.getTamanhoTotal()).replace("GiB", "").replace(",", ".");
+                Double memoriaHDAtual = Double.parseDouble(memoriasHD);
+                String memorias = Conversor.formatarBytes(memoria.getTotal()).replace("GiB", "").replace(",", ".");
                 Double memoriaAtual = Double.parseDouble(memorias);
-                maquina.setUsoCPU(proc.getUso());
-                String cpus = Conversor.formatarBytes(proc.getUso().longValue()).replace("GiB", "").replace(",", ".").replace("bytes", "");
-                Double cpuAtual = Double.parseDouble(cpus);
-                gravarArqLog.print(String.format("\n CPU: %.1f | RAM: %.2f GB | %s ", cpuAtual,
-                memoriaAtual,
-                hoursFormat.format(hours)));
+                Integer cpusFisicos = proc.getNumeroCpusFisicas();
+                Integer cpusLogicas = proc.getNumeroCpusLogicas();
+                String fabricante = proc.getFabricante();
+                String nomeProc = proc.getNome();
+                String frequencia = Conversor.formatarBytes(proc.getFrequencia()).replace("GiB", "").replace(",", ".");
+                String so = sistema.getSistemaOperacional();
+                //exemplo
+                System.out.println("HD =" + memoriaHDAtual + "RAM =" + memoriaAtual + "cpuFisico =" + cpusFisicos + "cpuLogico =" + cpusLogicas + "fabricante =" + fabricante + "nomeProcessador" + nomeProc + "frequencia =" + frequencia + "so =" + so + "email =" + email + "idMaquina =" + id);
+//                gravarArqLog.print(String.format("\n CPU: %.1f | RAM: %.0f GB | %s ", cpuAtual,
+//                memoriaAtual,
+//                hoursFormat.format(hours)));
 
                 TimeUnit.SECONDS.sleep(1);
             }
