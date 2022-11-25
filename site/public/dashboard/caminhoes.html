@@ -18,7 +18,7 @@
     <script src="../js/funcoes.js"></script> -->
 </head>
 </head>
-<body onload="exibirMuitos(), validarSessao()">
+<!-- <body onload="exibirMuitos(), validarSessao()"> -->
 <!-- <body onload="exibirMuitos(), validarSessao(), atualizacaoPeriodica()"> -->
 
     <main>
@@ -68,15 +68,15 @@
             <div id="explicacao">
                 <div class="explicacao">
                     <div class="alerta bom"></div>
-                    <p class="texto_legenda"> - Todos os hardwares em bom estado!</p>
+                    <p class="texto_legenda"> - Consumo de Memoria Ram < X% - Consumo de HD < X% da capacidade - Consumo de CPU < X%</p>
                 </div>
                 <div class="explicacao">
                     <div class="alerta atencao"></div>
-                    <p class="texto_legenda"> - 1 dos hardwares está com problemas!</p>
+                    <p class="texto_legenda"> - Consumo de Memoria Ram > X% e < X% ou Consumo de HD > X% e < X% ou Consumo de CPU > X% e < X%</p>
                 </div>
                 <div class="explicacao">
                     <div class="alerta ruim"></div>
-                    <p class="texto_legenda"> - 2 ou mais hardwares estão com problemas!</p>
+                    <p class="texto_legenda"> - Consumo de Memoria Ram > X% ou Consumo de HD > X% da capacidade ou Consumo de CPU > X%</p>
                 </div>
                 <div class="explicacao">
                     <div class="alerta inativo"></div>
@@ -148,15 +148,15 @@
 
             for (let i = 0; i < lista.length; i++) {
                 div_muitos_botoes.innerHTML += `
-                <button class="botao_totem" onclick="mostrar_dash(${lista[i].idMaquina})"><img id="caminhao${lista[i].idMaquina}" class="" src="../css/img/computador_inativo.png"></button>
+                <div class="cards_totens"> <button class="botao_totem" onclick="mostrar_dash(${lista[i].idMaquina})"></button></div>
                 `
             }
         }
     }
 
-    function mostrar_dash(idCaminhao){
-        window.open("http://localhost:3333/dashboard/cards.html");
-        localStorage.idCaminhao = idCaminhao;
+    function mostrar_dash(idMaquina){
+        window.open("http://localhost:3333/dashboard/maquina.html");
+        localStorage.idMaquina = idMaquina;
     }
 
     // buscar dados e alterar kpis

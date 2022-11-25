@@ -12,7 +12,7 @@ function validarSessao() {
 
         // finalizarAguardar();
     } else {
-        window.location = "../public/login.html";
+        window.location = "../login.html";
     }
 }
 
