@@ -43,12 +43,12 @@ public class Log {
             Date dateHours = new Date();
             Date date = new Date();
 
-            System.out.print("Captando log das máquinas...\n");
+            
 
             FileWriter arqLog = new FileWriter(String.format("C:\\Users\\FP594HT\\Downloads\\Logs\\log %s.txt", dateHoursFormat.format(dateHours)));
             PrintWriter gravarArqLog = new PrintWriter(arqLog);
 
-            gravarArqLog.print("Log iniciado em " + dateFormat.format(date) + " gravando...");
+           
 
             for (int i = 0; i < 1; i++) {
                 Date hours = new Date();
@@ -68,10 +68,29 @@ public class Log {
                 String frequencia = Conversor.formatarBytes(proc.getFrequencia()).replace("GiB", "").replace(",", ".");
                 String so = sistema.getSistemaOperacional();
                 //exemplo
-                System.out.println("HD =" + memoriaHDAtual + "RAM =" + memoriaAtual + "cpuFisico =" + cpusFisicos + "cpuLogico =" + cpusLogicas + "fabricante =" + fabricante + "nomeProcessador" + nomeProc + "frequencia =" + frequencia + "so =" + so + "email =" + email + "idMaquina =" + id);
-//                gravarArqLog.print(String.format("\n CPU: %.1f | RAM: %.0f GB | %s ", cpuAtual,
-//                memoriaAtual,
-//                hoursFormat.format(hours)));
+                
+                gravarArqLog.print(String.format("Log de instalação gerado às %s horário de Brasília no dia %s\n\n"
+                        + "Seja bem vindo(a): %s\n\n"
+                        + "--- Informações ---\n"
+                        + "ID máquina:   %d \n"
+                        + "Processador:  %s \n"
+                        + "Fabricante:   %s \n"
+                        + "CPU - física: %s \n"
+                        + "CPU - lógica: %s \n"
+                        + "Memória HD:   %.0f \n"
+                        + "Memória RAM:  %.0f \n"
+                        + "SO:           %s",
+                        hoursFormat.format(hours),
+                        dateFormat.format(date),
+                        email,
+                        id,
+                        nomeProc,
+                        fabricante,
+                        cpusFisicos,
+                        cpusLogicas,
+                        memoriaHDAtual,
+                        memoriaAtual,
+                        so));
 
                 TimeUnit.SECONDS.sleep(1);
             }
