@@ -53,9 +53,6 @@
                 <div>
                     <b>RAM:</b> <span class="dado"> 8GB DDR3</span>
                 </div>
-                <div>
-                    <b>Capacidade:</b> <span class="dado"> 500GB</span>
-                </div>
                 <div class="info1">
                     <b>Data da implantação:</b> <span class="dado"> 10/10/2022</span>
                 </div>
@@ -64,6 +61,29 @@
                 </div>
                 <div>
                     <b>Estação:</b> <span class="dado"> Sé</span>
+                </div>
+            </div>
+
+            <div id="legenda">
+                <div class="itens_legenda">
+                    <div class="kpi">
+                        <div class="alerta bom" onmouseover="mostrarBom()" onmouseleave="sumirDiv()"></div>
+                    </div>
+                    <div class="kpi">
+                        <div class="alerta atencao" id="atencao" onmouseover="mostrarAtencao()" onmouseleave="sumirDiv()"></div>
+                    </div>
+                    <div class="kpi">
+                        <div class="alerta ruim" id="ruim" onmouseover="mostrarRuim()" onmouseleave="sumirDiv()"></div>
+                    </div>
+                    <div class="kpi">
+                        <div class="alerta inativo" id="inativo" onmouseover="mostrarInativo()" onmouseleave="sumirDiv()"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="estados" style="display: block;">
+                <div id="p_estados">
+
                 </div>
             </div>
 
@@ -82,8 +102,7 @@
 
             <div id="graficos_baixo">
                 <!-- GRAFICO RAM -->
-                <div class="grafico" id="graficoHd">
-                    <canvas id="myChart3"></canvas>
+                <div class="grafico" id="processos">
                 </div>
                 </div>
             </div>
@@ -108,9 +127,28 @@
 <script>
     function btn_relatorio() {
         window.open('chamado.html')
-    }    
+    }
 </script>
 <script>
+    function mostrarBom() {
+        estados.style.display = 'block';
+        p_estados.innerHTML = "Consumo cpu < 60% e Consumo de Ram < 60%"
+    }
+    function mostrarAtencao() {
+        estados.style.display = 'block';
+        p_estados.innerHTML = "Consumo cpu entre 61% e 70% Consumo de Ram < 60%"
+    }
+    function mostrarRuim() {
+        estados.style.display = 'block';
+        p_estados.innerHTML = ""
+    }
+    function mostrarInativo() {
+        estados.style.display = 'block';
+        p_estados.innerHTML = ""
+    }
+    function sumirDiv() {
+        estados.style.display = 'none';
+    }
     const ctx1 = document.getElementById('myChart1').getContext('2d');
     const myChart1 = new Chart(ctx1, {
         type: 'line',
