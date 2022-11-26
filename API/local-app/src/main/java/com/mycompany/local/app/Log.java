@@ -7,6 +7,7 @@ import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.sistema.Sistema;
 import com.github.britooo.looca.api.util.Conversor;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,7 +26,7 @@ public class Log {
 
     public void gerarLog(String email, Integer id) throws IOException, InterruptedException {
 
-        //Instanciando uma máquina para exemplo
+        //Instanciando classes
         Looca looca = new Looca();
         Maquina maquina = new Maquina();
         Processador proc = new Processador();
@@ -34,7 +35,7 @@ public class Log {
         DiscosGroup discos = new DiscosGroup();
         Conversor conversor = new Conversor();
 
-        //Classe reponsável em formatar a data
+        //Classe reponsável em formatar a data e horário
         DateFormat hoursFormat = new SimpleDateFormat("HH:mm:ss");
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         DateFormat dateHoursFormat = new SimpleDateFormat("dd-MM-yyyy HH'h'mm'm'ss'ss'");
@@ -43,43 +44,59 @@ public class Log {
             Date dateHours = new Date();
             Date date = new Date();
 
+            System.out.print("Captando log das máquinas...\n");
             
-
-            FileWriter arqLog = new FileWriter(String.format("C:\\Users\\FP594HT\\Downloads\\Logs\\log %s.txt", dateHoursFormat.format(dateHours)));
+            //Cria um novo diretório
+//            File myDir = new File ("/home/ubuntu/Desktop/Logs");
+            File myDir = new File ("C:\\Users\\FP594HT\\Downloads\\LogsAtual");
+            myDir.mkdir();
+            
+            //Cria um arquivo .txt no caminhos destinado
+//            FileWriter arqLog = new FileWriter
+//            (String.format("/home/ubuntu/Desktop/Logs/log %s.txt", 
+//            dateHoursFormat.format(dateHours)));
+            FileWriter arqLog = new FileWriter
+            (String.format("C:\\Users\\FP594HT\\Downloads\\LogsAtual\\log %s.txt", 
+            dateHoursFormat.format(dateHours)));
+            
+            //Faz gravação dos arquivos
             PrintWriter gravarArqLog = new PrintWriter(arqLog);
-
-           
 
             for (int i = 0; i < 1; i++) {
                 Date hours = new Date();
-// Iremos fazer um log de instalação/login, nele terá email e id da maquina do login, e dados do hardware atual da máquina pós iniciação ou manutenção
-// total do HD, total da RAM, numero de CPUS, fabricante, nome do processador, frequencia e SO do sistema.
-                System.out.println(i);
-                
                 
                 String memoriasHD = Conversor.formatarBytes(discos.getTamanhoTotal()).replace("GiB", "").replace(",", ".");
                 Double memoriaHDAtual = Double.parseDouble(memoriasHD);
+                
                 String memorias = Conversor.formatarBytes(memoria.getTotal()).replace("GiB", "").replace(",", ".");
                 Double memoriaAtual = Double.parseDouble(memorias);
-                Integer cpusFisicos = proc.getNumeroCpusFisicas();
-                Integer cpusLogicas = proc.getNumeroCpusLogicas();
-                String fabricante = proc.getFabricante();
-                String nomeProc = proc.getNome();
-                String frequencia = Conversor.formatarBytes(proc.getFrequencia()).replace("GiB", "").replace(",", ".");
-                String so = sistema.getSistemaOperacional();
-                //exemplo
                 
-                gravarArqLog.print(String.format("Log de instalação gerado às %s horário de Brasília no dia %s\n\n"
-                        + "Seja bem vindo(a): %s\n\n"
-                        + "--- Informações ---\n"
+                Integer cpusFisicos = proc.getNumeroCpusFisicas();
+                
+                Integer cpusLogicas = proc.getNumeroCpusLogicas();
+                
+                String fabricante = proc.getFabricante();
+                
+                String nomeProc = proc.getNome();
+                
+                String frequencia = Conversor.formatarBytes(proc.getFrequencia()).replace("GiB", "").replace(",", ".");
+                
+                String so = sistema.getSistemaOperacional();
+                                
+                gravarArqLog.print(String.format("Log de instalação gerado às %s horário de Brasília no dia %s \n\n"
+                        + "Seja bem vindo(a): %s \n\n"
+                        + "--- Informações --- \n\n"
                         + "ID máquina:   %d \n"
                         + "Processador:  %s \n"
                         + "Fabricante:   %s \n"
-                        + "CPU - física: %s \n"
-                        + "CPU - lógica: %s \n"
+                        + "CPU - físico: %s \n"
+                        + "CPU - lógico: %s \n"
                         + "Memória HD:   %.0f \n"
                         + "Memória RAM:  %.0f \n"
-                        + "SO:           %s",
+                        + "Frequência:   %s \n"
+                        + "SO:           %s \n\n"
+                        + "Em caso de dúvidas entre em contato conosco a CTC - Console Tech Consulting!\n"
+                        + "Email: consoletechconsulting@gmail.com",
                         hoursFormat.format(hours),
                         dateFormat.format(date),
                         email,
@@ -90,15 +107,13 @@ public class Log {
                         cpusLogicas,
                         memoriaHDAtual,
                         memoriaAtual,
+                        frequencia,
                         so));
-
-                TimeUnit.SECONDS.sleep(1);
+//                TimeUnit.SECONDS.sleep(1);
             }
             arqLog.close();
         }
-
-        System.out.println("Seu log foi gravado com sucesso :)\n");
-
+        System.out.println("Seu log foi gravado com sucesso :)");
     }
 
 }
