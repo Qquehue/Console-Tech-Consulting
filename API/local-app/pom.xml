@@ -72,17 +72,16 @@
             <version>8.0.29</version>
         </dependency>
         
-        <!-- <dependency>
+         <dependency>
         
-             SQL Server
+             
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
             <version>7.2.2.jre8</version>
             
-            <!ou versão 7.2.2.jre11, se sua JDK for a 11>
-            <!ou versão que já existir na .m2 local>
+           
             
-        </dependency> -->
+        </dependency> 
         <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>

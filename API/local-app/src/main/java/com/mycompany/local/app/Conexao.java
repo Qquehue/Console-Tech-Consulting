@@ -26,9 +26,7 @@ public class Conexao {
         this.conexao = new JdbcTemplate(dataSource);
     }
     
-    public void encerrar(){
-        
-    }
+
     
     public JdbcTemplate getConnection() {
         return conexao;
