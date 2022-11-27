@@ -28,6 +28,7 @@ public class TeladeLogin extends javax.swing.JFrame {
         initComponents();
     }
 //    Integer IdMaquinaInteger;
+    
     amostraDados Hpage = new amostraDados();
     String idMaquina;
     Log log = new Log();
@@ -191,7 +192,9 @@ public class TeladeLogin extends javax.swing.JFrame {
                 //Seria a home com hardwares listados e dados;
                 Hpage.show();
                 log.gerarLog(username, Integer.valueOf(idMaquina));
-                Hpage.iniciarColeta(Integer.valueOf(idMaquina));
+                TesteSistema iniciarDados = new TesteSistema(Integer.valueOf(idMaquina));
+                iniciarDados.exec();
+                
                 
                 
             } else {

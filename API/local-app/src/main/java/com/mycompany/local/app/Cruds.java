@@ -34,6 +34,7 @@ public class Cruds {
     private JdbcTemplate jdbcTemplate;
     private Looca looca = new Looca();
     private Conexao conexao = new Conexao();
+    private ConexaoAzure conexaoAzure = new ConexaoAzure();
     private AppSlack slack = new AppSlack();
     private Maquina maquina = new Maquina();
     private Processador proc = new Processador();
@@ -58,9 +59,11 @@ public class Cruds {
 
     public void programa(Integer id) throws IOException, InterruptedException {
 
+        
+        // Parte de inserção banco local
+        
         conexao.conectar();
         JdbcTemplate database = conexao.getConnection();
-        
         
         maquina.setUsoMemoria(memoria.getEmUso().doubleValue());
         String memorias = Conversor.formatarBytes(memoria.getEmUso()).replace("GiB", "").replace(",", ".");
@@ -68,28 +71,45 @@ public class Cruds {
         maquina.setUsoCPU(proc.getUso());
         String cpus = Conversor.formatarBytes(proc.getUso().longValue()).replace("GiB", "").replace(",", ".").replace("bytes", "");
         Double cpuAtual = Double.parseDouble(cpus);
-        maquina.setTemperaturaCPU(20.0);
         Integer processosAtual = processos.getTotalProcessos();
-        
-        
-        
-        
-
-        //maquina.setTemperaturaCPU(looca.getTemperatura().getTemperatura().doubleValue());
-        String insertBanco = "INSERT INTO usoMaquina VALUES (null,?,?,?,CURRENT_TIMESTAMP,?)";
-        database.update(insertBanco, processosAtual, cpuAtual, memoriaAtual, id);
-        
         String memoria2 = Conversor.formatarBytes(memoria.getTotal()).replace("GiB", "").replace(",", ".");
         Double memoriaTotal = Double.parseDouble(memoria2);
+        Double porcentagemSlack = (memoriaAtual / memoriaTotal) * 100;
+        String x = String.valueOf(porcentagemSlack);
+        Float porcentagemAzure = Float.valueOf(x);
         
-        Double x = (memoriaAtual / memoriaTotal) * 100;
+        
+        
+        
+        String insertBanco = "INSERT INTO usoMaquinaReal VALUES (null,?,?,?,CURRENT_TIMESTAMP,?)";
+        database.update(insertBanco, processosAtual, cpuAtual, memoriaAtual, id);
+        
+        
+        
+        // parte de inserção banco Azure
+        
+        conexaoAzure.conectarAzure();
+        JdbcTemplate databaseAzure = conexaoAzure.getConnectionAzure();
+        
+        Float cpuAzure = Float.valueOf(cpus);
+        
+        String insertBancoAzure = "INSERT INTO UsoMaquina VALUES (?,?,?,CURRENT_TIMESTAMP,?)";
+        databaseAzure.update(insertBancoAzure, processosAtual, cpuAzure, porcentagemAzure, id);
+        
+        
+        
+        
+        
+        // Parte de conexao slack
+        
+        
         
         System.out.println(x);
         
-        if (cpuAtual > 90 || x > 90) {
+        if (cpuAtual > 90 || porcentagemSlack > 90) {
             
             JSONObject json = new JSONObject();
-            Validacao maquinaSlack = new Validacao(id, cpuAtual, x, 50.0);
+            Validacao maquinaSlack = new Validacao(id, cpuAtual, porcentagemSlack, 50.0);
             maquinaSlack.validarMaquina(json);
             
         }
