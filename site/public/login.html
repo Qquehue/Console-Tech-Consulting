@@ -95,10 +95,17 @@
                     sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.COR_LINHA =json.nomeLinha;
                     sessionStorage.NOME_ESTACAO =json.nomeEstacao;
+                    sessionStorage.CARGO_USUARIO =json.fkCargo;
 
-                    setTimeout(function () {
+                    if (CARGO_USUARIO == 1) {
+                        setTimeout(function () {
                         window.location = "/dashboard/caminhoes.html";
                     }, 1000); // apenas para exibir o loading
+                    } else{
+                    setTimeout(function () {
+                        window.location = "/dashboard/gerente.html";
+                    }, 1000); // apenas para exibir o loading
+                    }
 
                 });
 
