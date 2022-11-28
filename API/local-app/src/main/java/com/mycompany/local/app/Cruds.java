@@ -85,7 +85,7 @@ public class Cruds {
         // Parte de conexao slack
         System.out.println(x);
 
-        if (cpuAtual > 1 || porcentagemSlack > 1 || processosAtual > 1) {
+        if (cpuAtual > 20 || porcentagemSlack > 65) {
 
             JSONObject json = new JSONObject();
             Validacao maquinaSlack = new Validacao(id, cpuAtual, porcentagemSlack, processosAtual);
@@ -93,12 +93,12 @@ public class Cruds {
 
         }
 
-        if (cpuAtual > 1 && porcentagemSlack > 1 && processosAtual > 1) {
-
-            JSONObject json = new JSONObject();
-            Validacao maquinaSlack = new Validacao(id, cpuAtual, porcentagemSlack, processosAtual);
-            maquinaSlack.validarMaquinaDois(json, id);
-        }
+//        if (cpuAtual > 1 && porcentagemSlack > 1 && processosAtual > 1) {
+//
+//            JSONObject json = new JSONObject();
+//            Validacao maquinaSlack = new Validacao(id, cpuAtual, porcentagemSlack, processosAtual);
+//            maquinaSlack.validarMaquinaDois(json, id);
+//        }
 
     }
 
