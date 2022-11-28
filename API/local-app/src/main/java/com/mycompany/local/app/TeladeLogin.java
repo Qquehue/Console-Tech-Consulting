@@ -9,9 +9,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Timer;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 
 
@@ -170,24 +172,18 @@ public class TeladeLogin extends javax.swing.JFrame {
        
         
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CTC?useSSL=false", "root", "G@briel17022004");
+                 ConexaoAzure conexaoAzure = new ConexaoAzure();
+            conexaoAzure.conectarAzure();
+           
                     String username = emailUsuario.getText();
                     String passwd = senhaUsuario.getText();
                     idMaquina = IdMaquinaField.getText();
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    Statement executor = con.createStatement();
                     String login = "SELECT * FROM Funcionario WHERE email = '"+username+"' and senha = '"+passwd+"'";
-                    ResultSet isAvaliable = executor.executeQuery(login);
                     
-                    if (isAvaliable.next()) {
+                    List<validacaoLogin> emailSenha = conexaoAzure.getConnectionAzure().query("SELECT * FROM Funcionario WHERE email = '"+username+"' and senha = '"+passwd+"'", new BeanPropertyRowMapper(validacaoLogin.class));
+                    
+                    
+                    if (!emailSenha.isEmpty()) {
                 dispose();
                 //Seria a home com hardwares listados e dados;
                 Hpage.show();
@@ -203,14 +199,10 @@ public class TeladeLogin extends javax.swing.JFrame {
                         senhaUsuario.setText("");
                         IdMaquinaField.setText("");
                     }
-                    
-                    con.close();
-                   
-                    
-                    
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
