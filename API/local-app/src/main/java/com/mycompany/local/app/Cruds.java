@@ -66,8 +66,8 @@ public class Cruds {
         Integer processosAtual = processos.getTotalProcessos();
         String memoria2 = Conversor.formatarBytes(memoria.getTotal()).replace("GiB", "").replace(",", ".");
         Double memoriaTotal = Double.parseDouble(memoria2);
-        Double porcentagemSlack = (memoriaAtual / memoriaTotal) * 100;
-        String x = String.valueOf(porcentagemSlack);
+        Double memoriaEmUso = (memoriaAtual / memoriaTotal) * 100;
+        String x = String.valueOf(memoriaEmUso);
         Float porcentagemAzure = Float.valueOf(x);
 
         String insertBanco = "INSERT INTO usoMaquinaReal VALUES (null,?,?,?,CURRENT_TIMESTAMP,?)";
@@ -85,28 +85,46 @@ public class Cruds {
         // Parte de conexao slack
         System.out.println(x);
 
-        if (cpuAtual > 20 || porcentagemSlack > 65) {
+        if (cpuAtual > 50.0) {
 
             JSONObject json = new JSONObject();
-            Validacao maquinaSlack = new Validacao(id, cpuAtual, porcentagemSlack, processosAtual);
-            maquinaSlack.validarMaquina(json);
+            Validacao maquinaSlack = new Validacao(id, cpuAtual, memoriaEmUso, processosAtual);
+            maquinaSlack.validarCPU(json);
 
         }
 
-//        if (cpuAtual > 1 && porcentagemSlack > 1 && processosAtual > 1) {
-//
-//            JSONObject json = new JSONObject();
-//            Validacao maquinaSlack = new Validacao(id, cpuAtual, porcentagemSlack, processosAtual);
-//            maquinaSlack.validarMaquinaDois(json, id);
-//        }
+        if (memoriaEmUso > 60.0) {
+
+            JSONObject json = new JSONObject();
+            Validacao maquinaSlack = new Validacao(id, cpuAtual, memoriaEmUso, processosAtual);
+            maquinaSlack.validarMemoria(json);
+
+        }
+
+        if (processosAtual > 150) {
+
+            JSONObject json = new JSONObject();
+            Validacao maquinaSlack = new Validacao(id, cpuAtual, memoriaEmUso, processosAtual);
+            maquinaSlack.validarProcessos(json);
+
+        }
+
+        if (cpuAtual > 50.0 && memoriaEmUso > 60.0 && processosAtual > 150) {
+
+            JSONObject json = new JSONObject();
+            Validacao maquinaSlack = new Validacao(id, cpuAtual, memoriaEmUso, processosAtual);
+            maquinaSlack.validarMaquina(json, id);
+
+        }
 
     }
+}
 
 //    public Maquina returnBytes() {
 //    Double memorias = maquina.getUsoMemoria();
 //        
 //    };
-    /*public static void main(String[] args) {
+/*public static void main(String[] args) {
         DiscosGroup grupoDeDiscos = new DiscosGroup();
         List<Disco> discos = grupoDeDiscos.getDiscos();
 
@@ -135,4 +153,4 @@ public class Cruds {
 //    
 //      
 //   }
-}
+
