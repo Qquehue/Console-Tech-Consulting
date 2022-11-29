@@ -4,14 +4,12 @@ USE CTC;
 
 CREATE TABLE Linha (
 idLinha INT PRIMARY KEY AUTO_INCREMENT,  
-nomeLinha VARCHAR(45),  
-situacaoLinha CHAR(10)
+nomeLinha VARCHAR(45)
 );  
 
 CREATE TABLE Estacao (  
 idEstacao INT PRIMARY KEY AUTO_INCREMENT,  
 nomeEstacao VARCHAR(45),  
-situacaoEstacao CHAR(10),  
 fkLinha INT,  
 FOREIGN KEY (fkLinha) REFERENCES Linha(idLinha)  
 );  
@@ -51,15 +49,17 @@ senha VARCHAR(45),
 fkLinha INT,  
 FOREIGN KEY (fkLinha) REFERENCES Linha(idLinha),  
 fkCargo INT,  
-FOREIGN KEY (fkCargo) REFERENCES Cargo(idCargo)  
+FOREIGN KEY (fkCargo) REFERENCES Cargo(idCargo),
+fkEstacao INT,
+FOREIGN KEY (fkEstacao) REFERENCES Estacao(idEstacao) 
 ); 
 
 INSERT INTO Cargo (nomeCargo) VALUES 
 ("Analista"), 
-("Tecnico"); 
+("Gerente");
 
 INSERT INTO Linha (nomeLinha) VALUES 
-("Azul"), 
+("Azul"),
 ("Verde"), 
 ("Vermelha"); 
 

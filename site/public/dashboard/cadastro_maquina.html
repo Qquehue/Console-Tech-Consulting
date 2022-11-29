@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/cabecalho_dash.css">
     <link rel="icon" href="../css/img/icon.png">
     <title>Chamado</title>
+    <script src="../js/funcoes.js"></script>
 
 </head>
 
@@ -24,7 +25,7 @@
             <div class="itens_cabecalho">
                 <img src="../css/img/logo branco.png" alt="Logo do Site" class="logo_cabecalho">
                 <p class="texto" id="nome"></p>
-                <img src="../css/img/yuri.png" alt="" id="foto_dash">
+                <img src="../css/img/gerente.png" alt="" id="foto_dash">
                 <!-- <a href="index.html"><img src="css/img/saida_azul.png" alt="" id="exit"></a> -->
             </div>
         </div>
@@ -44,8 +45,6 @@
             <option value="i3">Intel core i3</option>
             <option value="i5">Intel core i5</option>
         </select>
-        <p class="label">Capacidade de memória HD (Em GB):  <span class="asterisco">*</span></p>
-        <input class="input" type="number" placeholder="Ex: 500,0 Certifique-se da vírgula" id="ipt_hd">
         <p class="label">Capacidade de memória Ram (Em GB):  <span class="asterisco">*</span></p>
         <input class="input" type="number" placeholder="Ex: 8,0 Certifique-se da vírgula" id="ipt_ram">
 
@@ -75,17 +74,10 @@
     function cadastrar() {
 
     var modeloCPUVar = modelo_cpu.value;
-    var totalDiscoVar = ipt_hd.value;
     var totalMemoriaVar = ipt_ram.value;
 
     if (modeloCPUVar.value == "") {
     div_validacao.innerHTML = "* Selecione um modelo de CPU *"
-    }
-    else if (totalDiscoVar == "") {
-        div_validacao.innerHTML = "* Adicione um valor em HD *"
-    }
-    else if (totalDiscoVar.indexOf(",") == -1) {
-        div_validacao.innerHTML = "* Adicione uma vírgula em HD *"  
     }
     else if (totalMemoriaVar == "") {
         div_validacao.innerHTML = "* Adicione um valor em Ram *"
@@ -106,7 +98,6 @@
 
             modeloCPUServer: modeloCPUVar,
             totalMemoriaServer: totalMemoriaVar,
-            totalDiscoServer: totalDiscoVar,
         })
     }).then(function (resposta) {
 
@@ -115,7 +106,7 @@
         if (resposta.ok) {
 
             setTimeout(() => {
-                window.location = "caminhoes.html";
+                window.location = "../caminhoes.html";
             }, "2000")
             
             limparFormulario();
