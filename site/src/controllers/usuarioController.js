@@ -69,6 +69,7 @@ function cadastrar(req, res) {
     var senha = req.body.senhaServer;
     var fkLinha = req.body.linhaServer;
     var fkCargo = req.body.cargosServer;
+    var fkEstacao = req.body.estacaoServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -85,10 +86,12 @@ function cadastrar(req, res) {
         res.status(400).send("Seu cargo está undefined!");
     } else if (fkCargo == undefined) {
         res.status(400).send("Sua linha está undefined!");
+    } else if (fkEstacao == undefined) {
+        res.status(400).send("Sua estação está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, cpf, telefone, email, senha, fkLinha, fkCargo)
+        usuarioModel.cadastrar(nome, cpf, telefone, email, senha, fkLinha, fkCargo, fkEstacao)
             .then(
                 function (resultado) {
                     res.json(resultado);

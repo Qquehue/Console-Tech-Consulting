@@ -95,29 +95,33 @@
         else if (select_linha.value == "1") {             
             select_estacao.innerHTML = `
             <option value="">-- Selecione a estação --</option>
-            <option value="tucuruvi"> Tucuruvi </option>
-            <option value="paraiso"> Paraíso </option>
-            <option value="se">Sé</option>
+            <option value="1"> Jabaquara </option>
+            <option value="2"> Conceição </option>
+            <option value="3"> São Judas</option>
             `
         } 
         else if (select_linha.value == "2") {             
             select_estacao.innerHTML = `
             <option value="">-- Selecione a estação --</option>
-            <option value="vila_madalena"> Vila Madalena </option>
-            <option value="tamanduatei"> Tamanduateí </option>
-            <option value="vila_prudente">Vila Prudente</option>
+            <option value="4"> Vila Prudente </option>
+            <option value="5"> Tamanduateí </option>
+            <option value="6"> Sacomã</option>
             `
         }
         else if (select_linha.value == "3") {             
             select_estacao.innerHTML = `
             <option value="">-- Selecione a estação --</option>
-            <option value="republica"> República </option>
-            <option value="tatuape"> Tatuapé </option>
-            <option value="carrao"> Carrão </option>
+            <option value="7"> Itaquera </option>
+            <option value="8"> Artur Alvim </option>
+            <option value="9"> Patriarca </option>
             `
         }
     }
 
+    function sumirMensagem() {
+        cardErro.style.display = "none";
+    }
+    
     function cadastrar() {
 
         var nomeVar = ipt_nome.value;
@@ -177,6 +181,9 @@
         else if (linhaVar == "") {
             div_validacao.innerHTML = "Inserir uma linha"
         }
+        else if (estacaoVar == "" && cargosVar == "1") {
+            div_validacao.innerHTML = "Inserir uma estação"
+        }
         else{
             div_validacao.innerHTML = ""
             alert('* Cadastrado com sucesso *')
@@ -218,10 +225,6 @@
         });
 
         return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none";
     }
 
         }
