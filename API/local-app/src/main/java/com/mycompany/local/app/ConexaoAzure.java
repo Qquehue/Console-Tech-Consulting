@@ -18,8 +18,7 @@ public class ConexaoAzure {
         BasicDataSource dataSource = new BasicDataSource();
 
         dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSource.setUrl("jdbc:sqlserver://bd-CTC.database.windows.net:1433;"
-                + "database=bd-CTC;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;");
+        dataSource.setUrl("jdbc:sqlserver://console-tech-consulting.database.windows.net:1433;database=bd-CTC;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;");
         dataSource.setUsername("admin-ctc");
         dataSource.setPassword("#Gfgrupo5");
         
