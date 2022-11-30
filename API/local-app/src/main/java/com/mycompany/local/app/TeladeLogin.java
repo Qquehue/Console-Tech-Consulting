@@ -187,7 +187,7 @@ public class TeladeLogin extends javax.swing.JFrame {
                 dispose();
                 //Seria a home com hardwares listados e dados;
                 Hpage.show();
-//                log.gerarLog(username, Integer.valueOf(idMaquina));
+                log.gerarLog(username, Integer.valueOf(idMaquina));
                 TesteSistema iniciarDados = new TesteSistema(Integer.valueOf(idMaquina));
                 iniciarDados.exec();
                 
