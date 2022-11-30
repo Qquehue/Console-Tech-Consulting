@@ -257,6 +257,70 @@
             // setTimeout(() => atualizarGrafico(idCaminhao, dados), 2000);
         }
 
+        function plotarGrafico(resposta, idCaminhao) {
+            console.log('iniciando plotagem do gráfico...');
+
+            var dados = {
+                labels: [],
+                datasets: [
+                    {
+                        // joga as temperaturas
+                        yAxisID: 'y-temperatura',
+                        label: 'Uso Ram',
+                        borderColor: '#FFF',
+                        backgroundColor: '#32b9cd8f',
+                        fill: true,
+                        // dados da temperatura
+                        data: []
+                    }
+                ]
+            };
+
+            for (i = 0; i < resposta.length; i++) {
+                var registro = resposta[i];
+                let horario = (registro.upTime).toString();
+                let horarioModificado = horario.slice(11,19);
+                console.log(horarioModificado)
+                // verificar se esta referenciado
+                // console.log(registro)
+                dados.labels.push(horarioModificado);
+                dados.datasets[0].data.push(registro.usoCPU);
+            }
+
+            console.log(JSON.stringify(dados));
+
+            //  verificar nome ctx
+            var ctx = document.querySelector("#myChart2");
+            var grafico_linha3 = new Chart(ctx, {
+                type: 'line',
+                data: dados,
+                // options: {
+                //     responsive: true,
+                //     animation: { duration: 500 },
+                //     hoverMode: 'index',
+                //     stacked: false,
+                //     title: {
+                //         display: false,
+                //         text: 'Dados capturados'
+                //     },
+                //     scales: {
+                //         yAxes: [{
+                //             // type: 'linear',
+                //             // display: true,
+                //             // position: 'left',
+                //             // ticks: {
+                //             //     beginAtZero: true,
+                //             //     max: 25,
+                //             //     min: -25
+                //             // }
+                //         }],
+                //     }
+                // }
+            });
+
+            // setTimeout(() => atualizarGrafico(idCaminhao, dados), 2000);
+        }
+
 
         function atualizarGrafico(idCaminhao, dados) {
 
@@ -297,101 +361,18 @@
     }
     function mostrarAtencao() {
         estados.style.display = 'block';
-        p_estados.innerHTML = "Consumo cpu entre 61% e 70% Consumo de Ram < 60%"
+        p_estados.innerHTML = "Consumo cpu entre 61% e 70% Consumo de Ram entre 50% e 70%"
     }
     function mostrarRuim() {
         estados.style.display = 'block';
-        p_estados.innerHTML = ""
+        p_estados.innerHTML = "Consumo de cpu e/ou ram entre maior que 60%"
     }
     function mostrarInativo() {
         estados.style.display = 'block';
-        p_estados.innerHTML = ""
+        p_estados.innerHTML = "Maquina desativada"
     }
     function sumirDiv() {
         estados.style.display = 'none';
     }
 
-    // const ctx1 = document.getElementById('myChart1').getContext('2d');
-    // const myChart1 = new Chart(ctx1, {
-    //     type: 'line',
-    //     data: {
-    //         labels: [
-    //             '12:00',
-    //             '13:00',
-    //             '14:00',
-    //             '15:00',
-    //             '16:00',
-    //             '17:00',
-    //             '18:00',
-    //             '19:00',
-    //             '20:00',
-    //             '21:00',
-    //             '22:00',
-    //             '23:00',
-    //         ],
-    //         datasets: [{
-    //             label: 'Uso CPU (%)',
-    //             data: [45, 10, 80, 8, 53, 10, 70, 16, 75, 28, 59, 90],
-    //             backgroundColor: [
-    //                 'lightblue',
-    //             ],
-    //             borderColor: [
-    //                 'lightskyblue',
-    //             ],
-    //             borderWidth: 1
-    //         }]
-    //     },
-    //     options: {
-    //         scales: {
-    //             y: {
-    //                 // beginAtZero: false
-    //                 min: 0,
-    //                 max: 100    
-                    
-    //             }
-    //         }
-    //     }
-    // });
-
-    // const ctx2 = document.getElementById('myChart2').getContext('2d');
-    // const myChart2 = new Chart(ctx2, {
-    //     type: 'line',
-    //     data: {
-    //         labels: [
-    //             '12:00',
-    //             '13:00',
-    //             '14:00',
-    //             '15:00',
-    //             '16:00',
-    //             '17:00',
-    //             '18:00',
-    //             '19:00',
-    //             '20:00',
-    //             '21:00',
-    //             '22:00',
-    //             '23:00'
-    //             ],
-    //         datasets: [{
-    //             label: 'Uso de memória Ram(%)',
-    //             data: [5, 30, 10, 80, 20, 50, 89, 54, 78, 20, 50, 38],
-    //             backgroundColor: [
-    //                 'purple'
-    //             ],
-    //             borderColor: [
-    //                 'purple'
-    //             ],
-    //             borderWidth: 1
-    //         }]
-    //     },
-    //     options: {
-    //         scales: {
-    //             y: {
-    //                 // beginAtZero: false,
-    //                 min: 0,
-    //                 max: 100
-                    
-    //             }
-    //         }
-    //     }
-    // });
 </script>

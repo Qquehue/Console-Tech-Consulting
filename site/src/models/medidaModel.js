@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAquario, limite_linhas, maquina) {
+function buscarUltimasMedidas(maquina) {
 
     instrucaoSql = ''
 
