@@ -49,7 +49,7 @@ public class TesteSistema {
         
         
        /*conexao e inicio do programa*/
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
            
             cruds.programa(id);
             TimeUnit.SECONDS.sleep(10);
