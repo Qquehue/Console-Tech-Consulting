@@ -25,7 +25,6 @@ FOREIGN KEY (fkEstacao) REFERENCES Estacao(idEstacao)
 
 CREATE TABLE UsoMaquina (  
 idUso INT PRIMARY KEY AUTO_INCREMENT, 
-temperaturaCPU DOUBLE, 
 usoCPU DOUBLE, 
 usoMemoria DOUBLE, 
 upTime DATETIME, 

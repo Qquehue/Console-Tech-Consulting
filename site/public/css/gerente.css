@@ -167,3 +167,20 @@ h1{
     width: 30%;
     margin-left: 15%;
 }
+
+#div_botao{
+    position: absolute;
+    left: 45%;
+    bottom: 13%;
+}
+
+.botao_cadastrar{
+    background-color: var(--amareloescuro);
+    color: white;
+    font-weight: bold;
+    border: transparent;
+    border-radius: 500px;
+    width: 10vw;
+    height: 5vh;
+    cursor: pointer;
+}

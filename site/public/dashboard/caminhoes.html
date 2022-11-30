@@ -96,17 +96,22 @@
 
 
 <script>
-    exibirMuitos();
+
+    var idEstacao = `${sessionStorage.ID_ESTACAO}`;
+    var idMaquinas = 0;
+    exibirMuitos(idEstacao);
     atualizacaoPeriodica();
 
     var lista = []
     var ultimaTemp =[];
-
     // mostrar e plotar totens
-    function exibirMuitos() {
+    function exibirMuitos(idEstacao) {
+        
+        console.log(idEstacao)
+
         nome.innerHTML = `Olá ${sessionStorage.NOME_USUARIO}`;
         linha.innerHTML= `Linha ${sessionStorage.COR_LINHA} - Estação ${sessionStorage. NOME_ESTACAO}`;
-        fetch("/dash/listarCaminhao", {
+        fetch(`/dash/listarCaminhao/${idEstacao}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -128,7 +133,7 @@
                         // o nome de cada botao retorna assim
                         console.log(lista[i])
                     }
-                    mostrarCaminhao();
+                    mostrarCaminhao(idEstacao);
                 });
             } else {
                 console.log("Houve um erro ao tentar realizar o listar!");
@@ -143,7 +148,8 @@
 
         return false;
     }
-    function mostrarCaminhao(){
+    
+    function mostrarCaminhao(idEstacao){
         if (lista.length != -1) {
             div_muitos_botoes.innerHTML = ``
 
@@ -156,10 +162,16 @@
     }
 
     function mostrar_dash(idMaquina){
+
         window.open("http://localhost:3333/dashboard/maquina.html");
         localStorage.idMaquina = idMaquina;
-        localStorage.linha = linha;
+        idMaquinas = localStorage.idMaquina;
+        console.log(idMaquinas)
     }
+        
+    
+        
+
 
     // buscar dados e alterar kpis
 
