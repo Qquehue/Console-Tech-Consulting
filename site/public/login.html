@@ -97,7 +97,7 @@
                     sessionStorage.NOME_ESTACAO =json.nomeEstacao;
                     sessionStorage.CARGO_USUARIO =json.fkCargo;
 
-                    if (CARGO_USUARIO == 1) {
+                    if (sessionStorage.CARGO_USUARIO == 1) {
                         setTimeout(function () {
                         window.location = "/dashboard/caminhoes.html";
                     }, 1000); // apenas para exibir o loading

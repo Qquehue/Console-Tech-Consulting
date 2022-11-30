@@ -17,7 +17,7 @@
     <title>Detalhes do totem</title>
 </head>
 
-<!-- <body onload="validarSessao()"> -->
+<body onload="validarSessao(), mostrarInfos()">
 
 <!-- Início cabeçalho -->
 
@@ -45,22 +45,22 @@
             <div id="informacoes">
                 <p class="info">Informações:</p>
                 <div class="info1">
-                    <b>id:</b><span class="dado"> M1</span>
+                    <b>id: </b><span class="dado" id="idMaquina"> </span>
                 </div>
                 <div>
-                    <b>CPU:</b> <span class="dado">  Intel core i3 4790k</span>
+                    <b>CPU: </b> <span class="dado" id="modeloCpu">  </span>
                 </div>
                 <div>
-                    <b>RAM:</b> <span class="dado"> 8GB DDR3</span>
+                    <b>RAM: </b> <span class="dado" id="ram"> </span>
                 </div>
                 <div class="info1">
-                    <b>Data da implantação:</b> <span class="dado"> 10/10/2022</span>
+                    <b>Data da implantação: </b> <span class="dado" id="data"> </span>
                 </div>
                 <div>
-                    <b>Linha:</b> <span class="dado"> Azul</span>
+                    <b>Linha: </b> <span class="dado" id="linha"> </span>
                 </div>
                 <div>
-                    <b>Estação:</b> <span class="dado"> Sé</span>
+                    <b>Estação: </b> <span class="dado" id="estacao"> </span>
                 </div>
             </div>
 
@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-            <div id="estados" style="display: block;">
+            <div id="estados" style="display: none;">
                 <div id="p_estados">
 
                 </div>
@@ -127,6 +127,14 @@
 <script>
     function btn_relatorio() {
         window.open('chamado.html')
+    }
+    function mostrarInfos() {
+        idMaquina.innerHTML = localStorage.idMaquina;
+        modeloCpu.innerHTML = sessionStorage.MODELO_CPU;
+        ram.innerHTML = sessionStorage.RAM;
+        data.innerHTML = sessionStorage.DATA;
+        linha.innerHTML = sessionStorage.COR_LINHA;
+        estacao.innerHTML = sessionStorage.NOME_ESTACAO;
     }
 </script>
 <script>

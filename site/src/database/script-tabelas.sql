@@ -61,8 +61,31 @@ INSERT INTO Cargo (nomeCargo) VALUES
 INSERT INTO Linha (nomeLinha) VALUES 
 ("Azul"),
 ("Verde"), 
-("Vermelha"); 
+("Vermelha");
+
+INSERT INTO Linha (idLinha, nomeLinha) VALUES 
+(1000,"Linha Gerente");
+
+INSERT INTO Estacao (idEstacao, nomeEstacao, fkLinha) VALUES
+(1000, "Gerente",1000);
+
+INSERT INTO Estacao (nomeEstacao, fkLinha) VALUES
+("Jabaquara",1),
+("Conceição",1),
+("São Judas",1),
+("Vila Prudente",2),
+("Tamanduateí",2),
+("Sacomã",2),
+("Itaquera",3),
+("Artur Alvim",3),
+("Patriarca",3);
 
 SELECT * FROM Cargo; 
 
 SELECT * FROM Linha; 
+
+SELECT * FROM Estacao;
+
+SELECT * FROM Funcionario;
+
+INSERT INTO Maquina (modeloCPU, totalMemoria, dataCadastro, fkEstacao) VALUES ('i3',1.1 , current_timestamp, 1);

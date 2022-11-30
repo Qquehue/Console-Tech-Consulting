@@ -19,13 +19,13 @@ function entrar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(modeloCPU, totalMemoria, totalDisco) {
+function cadastrarTotem(modeloCPU, totalMemoria) {
     console.log("ACESSEI O TOTEM MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, cpf, telefone, email, senha, fkLinha, fkCargo);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO Maquina (modeloCPU, totalMemoria, totatalDisco, dataCadastro) VALUES ('${modeloCPU}','${totalMemoria}' ,'${totalDisco}', current_timestamp);
+        INSERT INTO Maquina (modeloCPU, totalMemoria, dataCadastro) VALUES ('${modeloCPU}','${totalMemoria}' , current_timestamp);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -33,6 +33,6 @@ function cadastrar(modeloCPU, totalMemoria, totalDisco) {
 
 module.exports = {
     entrar,
-    cadastrar,
+    cadastrarTotem,
     listar,
 };

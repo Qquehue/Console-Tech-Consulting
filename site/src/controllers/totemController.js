@@ -60,23 +60,20 @@ function entrar(req, res) {
 
 }
 
-function cadastrar(req, res) {
+function cadastrarTotem(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro_maquina.html
     var modeloCPU = req.body.modeloCPUServer;
     var totalMemoria = req.body.totalMemoriaServer;
-    var totalDisco = req.body.totalDiscoServer;
 
     // Faça as validações dos valores
     if (modeloCPU == undefined) {
         res.status(400).send("Seu Modelo Cpu está undefined!");
     } else if (totalMemoria == undefined) {
         res.status(400).send("Seu Total Memoria está undefined!");
-    } else if (totalDisco == undefined) {
-        res.status(400).send("Seu Total Disco está undefined!");
     }else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(modeloCPU, totalMemoria, totalDisco)
+        totemModel.cadastrarTotem(modeloCPU, totalMemoria)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -96,7 +93,7 @@ function cadastrar(req, res) {
 
 module.exports = {
     entrar,
-    cadastrar,
+    cadastrarTotem,
     listar,
     testar
 }

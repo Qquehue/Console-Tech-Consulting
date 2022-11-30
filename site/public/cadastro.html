@@ -17,7 +17,7 @@
 <!-- Início Imagem Cadastro -->
 <div class="div_cadastro">
     <div id="imagem_cadastro">
-        <img src="css/img/imagem cadastro.jpg" alt="Imagem do cadastro">
+        <img src="css/img/imagem cadastro.jpg" alt="Imagem do cadastro" class="img_cadastro">
         <label>Venha fazer parte da<br>Console Tech Consulting</label>
     </div>
 
@@ -129,9 +129,14 @@
         var telefoneVar = ipt_tel.value;
         var cargosVar = select_cargos.value;
         var linhaVar = select_linha.value;
-        var estacaoVar = select_estacao.value
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
+
+        if (select_cargos.value == "2") {
+            var estacaoVar = "1000";
+        } else if (select_cargos.value == "1") {
+            var estacaoVar = select_estacao.value;
+        }
 
         if (nomeVar.indexOf(1) != -1 || nomeVar.indexOf(2) != -1 || nomeVar.indexOf(3) != -1 || nomeVar.indexOf(4) != -1 || nomeVar.indexOf(5) != -1 || nomeVar.indexOf(6) != -1 || nomeVar.indexOf(7) != -1  || nomeVar.indexOf(8) != -1 || nomeVar.indexOf(9) != -1 || nomeVar.indexOf(0) != -1) {
         div_validacao.innerHTML = "*Não pode haver números no nome*"

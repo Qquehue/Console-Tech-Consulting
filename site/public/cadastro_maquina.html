@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/cabecalho_dash.css">
     <link rel="icon" href="../css/img/icon.png">
     <title>Chamado</title>
-    <script src="../js/funcoes.js"></script>
+    <script src="js/funcoes.js"></script>
 
 </head>
 
@@ -23,7 +23,7 @@
     <div class="cabecalho">
         <div class="container_cabecalho">
             <div class="itens_cabecalho">
-                <img src="../css/img/logo branco.png" alt="Logo do Site" class="logo_cabecalho">
+                <a href="dashboard/gerentes.html"><img src="../css/img/logo branco.png" alt="Logo do Site" class="logo_cabecalho"></a>
                 <p class="texto" id="nome"></p>
                 <img src="../css/img/gerente.png" alt="" id="foto_dash">
                 <!-- <a href="index.html"><img src="css/img/saida_azul.png" alt="" id="exit"></a> -->
@@ -48,7 +48,7 @@
         <p class="label">Capacidade de memória Ram (Em GB):  <span class="asterisco">*</span></p>
         <input class="input" type="number" placeholder="Ex: 8,0 Certifique-se da vírgula" id="ipt_ram">
 
-        <button class="btn_enviar" onclick="cadastrar()">Cadastrar</button>
+        <button class="btn_enviar" onclick="cadastrarMaquina()">Cadastrar</button>
         <div id="div_validacao" style="color:red; text-align: center; margin-top: 3%;"></div>
     </div>
 
@@ -71,7 +71,7 @@
 
 <script>
 
-    function cadastrar() {
+    function cadastrarMaquina() {
 
     var modeloCPUVar = modelo_cpu.value;
     var totalMemoriaVar = ipt_ram.value;
@@ -82,14 +82,11 @@
     else if (totalMemoriaVar == "") {
         div_validacao.innerHTML = "* Adicione um valor em Ram *"
     }
-    else if (totalMemoriaVar.indexOf(",") == -1) {
-        div_validacao.innerHTML = "* Adicione uma vírgula em Ram*"  
-    }
     else{
         div_validacao.innerHTML = ""
         alert('* Cadastrado com sucesso *')
         setInterval(sumirMensagem, 5000)
-    fetch("/totem/cadastrar", {
+    fetch("/totem/cadastrarTotem", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -106,7 +103,7 @@
         if (resposta.ok) {
 
             setTimeout(() => {
-                window.location = "../caminhoes.html";
+                window.location = "caminhoes.html";
             }, "2000")
             
             limparFormulario();

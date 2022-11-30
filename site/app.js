@@ -27,7 +27,7 @@ app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
 app.use("/dash", dashRouter)
-app.use("/dash", totemRouter)
+app.use("/totem", totemRouter)
 
 
 app.listen(PORTA, function () {

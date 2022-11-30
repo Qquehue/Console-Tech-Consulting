@@ -16,7 +16,7 @@
 
 </head>
 
-<!-- <body onload="validarSessao()"> -->
+<body onload="validarSessao(), mostrarNome()">
 
 <!-- Início cabeçalho -->
 
@@ -144,10 +144,8 @@
 
 <script>
     function mostrarNome() {
-        var usuario = "Undefined"
-        nome.innerHTML = "Olá " + usuario
+        nome.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}`;
     }
-    mostrarNome()
     
     function btn_totem() {
         window.open('maquina.html')
