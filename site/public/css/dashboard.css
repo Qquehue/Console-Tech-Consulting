@@ -141,3 +141,8 @@ h1{
     align-items: center;
     padding-left: 1%;
 }
+
+.img_cards{
+    height: 100%;
+    margin-left: -10%;
+}

@@ -85,6 +85,7 @@
             </div>
             <div id="invi">
                 <button id="btn_invi"></button>
+                
             </div>
         </div>
 
@@ -148,7 +149,7 @@
 
             for (let i = 0; i < lista.length; i++) {
                 div_muitos_botoes.innerHTML += `
-                <div class="cards_totens"> <button class="botao_totem" onclick="mostrar_dash(${lista[i].idMaquina})"></button></div>
+                <div class="cards_totens"> <button class="botao_totem" onclick="mostrar_dash(${lista[i].idMaquina})"><img src="../css/img/computador_inativo.png" alt="" class="img_cards"></button></div>
                 `
             }
         }

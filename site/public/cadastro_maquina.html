@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../css/img/logo2.png">
-    <link rel="stylesheet" href="../css/body.css">
-    <link rel="stylesheet" href="../css/root.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/chamado.css">
-    <link rel="stylesheet" href="../css/cabecalho_dash.css">
-    <link rel="icon" href="../css/img/icon.png">
+    <link rel="icon" href="css/img/logo2.png">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/chamado.css">
+    <link rel="stylesheet" href="css/cabecalho_dash.css">
+    <link rel="icon" href="css/img/icon.png">
     <title>Chamado</title>
     <script src="js/funcoes.js"></script>
 
 </head>
 
-<body onload="validarSessao()" style="background-color: var(--preto2);">
+<body style="background-color: var(--preto2);">
 
 <!-- Início cabeçalho -->
 
@@ -48,6 +48,10 @@
         <p class="label">Capacidade de memória Ram (Em GB):  <span class="asterisco">*</span></p>
         <input class="input" type="number" placeholder="Ex: 8,0 Certifique-se da vírgula" id="ipt_ram">
 
+        <select name="" id="select_estacao" class="input box">
+            
+        </select>
+
         <button class="btn_enviar" onclick="cadastrarMaquina()">Cadastrar</button>
         <div id="div_validacao" style="color:red; text-align: center; margin-top: 3%;"></div>
     </div>
@@ -71,16 +75,45 @@
 
 <script>
 
-    function cadastrarMaquina() {
+    mostrarCombo();
 
+    function mostrarCombo() {
+        if (sessionStorage.COR_LINHA == "Azul") {
+            select_estacao.innerHTML = `
+            <option value="">-- Selecione a estação --</option>
+            <option value="1"> Jabaquara </option>
+            <option value="2"> Conceição </option>
+            <option value="3"> São Judas</option>
+            `
+        }else if (sessionStorage.COR_LINHA == "Verde") {
+            select_estacao.innerHTML = `
+            <option value="">-- Selecione a estação --</option>
+            <option value="4"> Vila Prudente </option>
+            <option value="5"> Tamanduateí </option>
+            <option value="6"> Sacomã</option>
+            `
+        }else if (sessionStorage.COR_LINHA == "Vermelha") {
+            select_estacao.innerHTML = `
+            <option value="">-- Selecione a estação --</option>
+            <option value="7"> Itaquera </option>
+            <option value="8"> Artur Alvim </option>
+            <option value="9"> Patriarca </option>
+            `
+        }
+    }
+
+    function cadastrarMaquina() {
+    var estacaoVar = select_estacao.value;
     var modeloCPUVar = modelo_cpu.value;
     var totalMemoriaVar = ipt_ram.value;
 
-    if (modeloCPUVar.value == "") {
+    if (modeloCPUVar == "") {
     div_validacao.innerHTML = "* Selecione um modelo de CPU *"
     }
     else if (totalMemoriaVar == "") {
         div_validacao.innerHTML = "* Adicione um valor em Ram *"
+    }else if (estacaoVar == "") {
+        div_validacao.innerHTML = "* Adicione uma estação *"
     }
     else{
         div_validacao.innerHTML = ""
@@ -93,6 +126,7 @@
         },
         body: JSON.stringify({
 
+            estacaoServer: estacaoVar,
             modeloCPUServer: modeloCPUVar,
             totalMemoriaServer: totalMemoriaVar,
         })
@@ -103,7 +137,7 @@
         if (resposta.ok) {
 
             setTimeout(() => {
-                window.location = "caminhoes.html";
+                window.location = "dashboard/gerente.html";
             }, "2000")
             
             limparFormulario();

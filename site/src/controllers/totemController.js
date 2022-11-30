@@ -1,4 +1,4 @@
-var usuarioModel = require("../models/totemModel");
+var totemModel = require("../models/totemModel");
 
 var sessoes = [];
 
@@ -34,7 +34,7 @@ function entrar(req, res) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
         
-        usuarioModel.entrar(email, senha)
+        totemmModel.entrar(email, senha)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
@@ -64,16 +64,20 @@ function cadastrarTotem(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro_maquina.html
     var modeloCPU = req.body.modeloCPUServer;
     var totalMemoria = req.body.totalMemoriaServer;
+    var estacao = req.body.estacaoServer;
 
     // Faça as validações dos valores
     if (modeloCPU == undefined) {
         res.status(400).send("Seu Modelo Cpu está undefined!");
     } else if (totalMemoria == undefined) {
         res.status(400).send("Seu Total Memoria está undefined!");
-    }else {
+    } else if (estacao == undefined) {
+        res.status(400).send("Sua estação está undefined!");
+    }
+    else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        totemModel.cadastrarTotem(modeloCPU, totalMemoria)
+        totemModel.cadastrarTotem(modeloCPU, totalMemoria, estacao)
             .then(
                 function (resultado) {
                     res.json(resultado);

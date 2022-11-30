@@ -18,7 +18,6 @@ CREATE TABLE Maquina (
 idMaquina INT PRIMARY KEY AUTO_INCREMENT,  
 modeloCPU VARCHAR(45),  
 totalMemoria DOUBLE,  
-totalDisco DOUBLE,  
 dataCadastro DATETIME, 
 fkEstacao INT,  
 FOREIGN KEY (fkEstacao) REFERENCES Estacao(idEstacao)  
@@ -87,5 +86,7 @@ SELECT * FROM Linha;
 SELECT * FROM Estacao;
 
 SELECT * FROM Funcionario;
+
+SELECT  modeloCPU, totalMemoria, dataCadastro from Maquina;
 
 INSERT INTO Maquina (modeloCPU, totalMemoria, dataCadastro, fkEstacao) VALUES ('i3',1.1 , current_timestamp, 1);
