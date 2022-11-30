@@ -5,10 +5,10 @@ function buscarUltimasMedidas(idAquario, limite_linhas, maquina) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select usoMemoria, usoCPU from UsoMaquina where fkMaquina = ${maquina}
+        instrucaoSql = `select usoMemoria, usoCPU, upTime, fkMaquina from UsoMaquina where fkMaquina = ${maquina}
                     order by idUso desc limit 7`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select usoMemoria, usoCPU from UsoMaquina where fkMaquina = ${maquina}
+        instrucaoSql = `select usoMemoria, usoCPU upTime, fkMaquina from UsoMaquina where fkMaquina = ${maquina}
         order by idUso desc limit 7`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");

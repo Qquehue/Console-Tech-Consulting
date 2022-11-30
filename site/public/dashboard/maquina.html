@@ -214,9 +214,12 @@
 
             for (i = 0; i < resposta.length; i++) {
                 var registro = resposta[i];
+                let horario = (registro.upTime).toString();
+                let horarioModificado = horario.slice(11,19);
+                console.log(horarioModificado)
                 // verificar se esta referenciado
-                console.log(registro)
-                dados.labels.push(registro.usoMemoria);
+                // console.log(registro)
+                dados.labels.push(horarioModificado);
                 dados.datasets[0].data.push(registro.usoCPU);
             }
 
