@@ -5,7 +5,7 @@ function buscarUltimasMedidas(maquina) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top 7 usoMemoria, usoCPU, upTime, fkMaquina from UsoMaquina where fkMaquina = ${maquina}
+        instrucaoSql = `select top 7 usoMemoria, usoCPU, upTime, processos, fkMaquina from UsoMaquina where fkMaquina = ${maquina}
                     order by idUso desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select usoMemoria, usoCPU upTime, fkMaquina from UsoMaquina where fkMaquina = 7
@@ -24,7 +24,7 @@ function buscarMedidasEmTempoReal(idCaminhao) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `SELECT top 1 usoCpu, usoMemoria, fkMaquina, FORMAT(upTime, 'HH:mm:ss') as momento_grafico  from usoMaquina join 
+        instrucaoSql = `SELECT top 1 usoCpu, usoMemoria, fkMaquina, processos, FORMAT(upTime, 'HH:mm:ss') as momento_grafico  from usoMaquina join 
         maquina on UsoMaquina.fkMaquina = maquina.idMaquina where fkMaquina = ${idCaminhao} ORDER BY idUso DESC;`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {

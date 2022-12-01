@@ -41,7 +41,7 @@
     <div id="dados">
         <div id="especificacoes">
             <div id="pc">
-                <img class="estado" src="../css/img/computador_inativo.png" alt="Imagem computador">
+                
             </div>
             <div id="informacoes">
                 <p class="info">Informações:</p>
@@ -105,7 +105,9 @@
 
             <div id="graficos_baixo">
                 <!-- GRAFICO RAM -->
-                <div class="grafico" id="processos">
+                <div class="grafico">
+                    <h1 class="titulo_processos">Processos:</h1>
+                    <h1 id="qtd_processos">0</h1>
                 </div>
             </div>
         </div>
@@ -142,7 +144,7 @@
         fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
                     mostrarEspecificacao(idAquario)
                     plotarGrafico(resposta, idAquario);
@@ -166,7 +168,7 @@
         }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     var memoriaRam = resposta[0].totalMemoria
                     var modeloCpu = resposta[0].modeloCPU
                     var dataCadastro = resposta[0].dataCadastro
@@ -196,7 +198,7 @@
     }
 
     function plotarGrafico(resposta, idCaminhao) {
-        console.log('iniciando plotagem do gráfico...');
+        // console.log('iniciando plotagem do gráfico...');
 
         var dados = {
             labels: [],
@@ -223,9 +225,20 @@
             // console.log(registro)
             dados.labels.push(horarioModificado);
             dados.datasets[0].data.push(registro.usoCPU);
+            qtd_processos.innerHTML= registro.processos;
+
+            if (registro.usoCPU < 50 && registro.usoMemoria < 50) {
+                pc.innerHTML = `<img class="estado" src="../css/img/computador_bom.png" alt="Imagem computador">`
+            } else if (registro.usoCPU >= 50 && registro.usoCPU < 70 ||registro.usoMemoria >= 50 && registro.usoMemoria < 70 ) {
+                pc.innerHTML = `<img class="estado" src="../css/img/computador_alerta.png" alt="Imagem computador">`
+            }else if (registro.usoCPU > 70 || registro.usoMemoria < 70) {
+                pc.innerHTML = `<img class="estado" src="../css/img/computador_critico.png" alt="Imagem computador">`
+            }else{
+                pc.innerHTML = `<img class="estado" src="../css/img/computador_inativo.png" alt="Imagem computador">`
+            }
         }
 
-        console.log(JSON.stringify(dados));
+        // console.log(JSON.stringify(dados));
 
         //  verificar nome ctx
         var ctx = document.querySelector("#myChart1");
@@ -260,7 +273,7 @@
     }
 
     function plotarGrafico2(resposta, idCaminhao) {
-        console.log('iniciando plotagem do gráfico...');
+        // console.log('iniciando plotagem do gráfico...');
 
         var dados = {
             labels: [],
@@ -289,7 +302,7 @@
             dados.datasets[0].data.push(registro.usoMemoria);
         }
 
-        console.log(JSON.stringify(dados));
+        // console.log(JSON.stringify(dados));
 
         //  verificar nome ctx
         var ctx = document.querySelector("#myChart2");
@@ -320,18 +333,50 @@
             }
         });
 
-        setTimeout(() => atualizarGrafico(idCaminhao, dados), 2000);
+        setTimeout(() => atualizarGrafico2(idCaminhao, dados), 2000);
     }
 
 
     function atualizarGrafico(idCaminhao, dados) {
 
         fetch(`/medidas/tempo-real/${idCaminhao}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (novoRegistro) {
+
+                // console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                // console.log(`Dados atuais do gráfico: ${dados}`);
+
+                // tirando e colocando valores no gráfico
+                dados.labels.shift(); // apagar o primeiro
+                dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+
+                dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
+                dados.datasets[0].data.push(novoRegistro[0].usoCpu); // incluir uma nova medida de temperatura
+
+                window.grafico_linha2.update();
+
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idCaminhao, dados), 3000);
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(idCaminhao, dados), 3000);
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+
+    }
+    function atualizarGrafico2(idCaminhao, dados) {
+
+        fetch(`/medidas/tempo-real/${idCaminhao}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico: ${dados}`);
+                    // console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    // console.log(`Dados atuais do gráfico: ${dados}`);
 
                     // tirando e colocando valores no gráfico
                     dados.labels.shift(); // apagar o primeiro
@@ -357,38 +402,6 @@
 
     }
 
-    // function atualizarGrafico(idCaminhao, dados) {
-
-    //     fetch(`/medidas/tempo-real/${idCaminhao}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (novoRegistro) {
-
-    //                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-    //                 console.log(`Dados atuais do gráfico: ${dados}`);
-
-    //                 // tirando e colocando valores no gráfico
-    //                 dados.labels.shift(); // apagar o primeiro
-    //                 dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-    //                 dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
-    //                 dados.datasets[0].data.push(novoRegistro[0].usoMemoria); // incluir uma nova medida de temperatura
-
-    //                 window.grafico_linha3.update();
-
-    //                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idCaminhao, dados), 3000);
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //             proximaAtualizacao = setTimeout(() => atualizarGrafico(idCaminhao, dados), 3000);
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-
-    // }
 
     function mostrarBom() {
         estados.style.display = 'block';

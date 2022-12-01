@@ -30,7 +30,7 @@ function listar(idMaquina) {
 function buscarDados(idMaquina) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-    SELECT top 1 usoCpu, usoMemoria, fkMaquina  from usoMaquina join 
+    SELECT top 1 usoCpu, usoMemoria, processos, fkMaquina  from usoMaquina join 
     maquina on UsoMaquina.fkMaquina = maquina.idMaquina where fkMaquina = ${idMaquina} ORDER BY idUso DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);

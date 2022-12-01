@@ -172,3 +172,21 @@ b{
     padding: 8% 1%;
     font-family: var(--letra);
 }
+
+.titulo_processos{
+    text-align: center;
+    margin-top: 15%;
+    font-weight: bold;
+    font-family: var(--letra);
+    font-size: 250%;
+    color: var(--preto2);
+}
+
+#qtd_processos{
+    text-align: center;
+    margin-top: 20%;
+    font-weight: bold;
+    font-family: var(--letra);
+    font-size: 500%;
+    color: var(--preto2);
+}

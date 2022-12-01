@@ -186,6 +186,31 @@
             div_estacoes.innerHTML = ``
 
             for (let i = 0; i < lista.length; i++) {
+
+                if (lista[i].nomeEstacao == 'Jabaquara') {
+                    div_estacoes.innerHTML += `
+                <div class="cards_totens">
+                <div class="metro_e_nome">
+                    <img class="metro" src="../css/img/metro.png" alt="">
+                    <p class = "nomeEstacao"> ${lista[i].nomeEstacao} </p>
+                </div>
+                    <div class="num_e_pcs">
+                        <div class="pcs">
+                            <img class="pc_totem" src="../css/img/computador_bom.png"></img>
+                            <img class="pc_totem" src="../css/img/computador_alerta.png"></img>
+                            <img class="pc_totem" src="../css/img/computador_critico.png"></img>
+                            <img class="pc_totem" src="../css/img/computador_inativo.png"></img>
+                        </div>
+                        <div class="num_pc">
+                            <p id="pc_bom">1</p>
+                            <p id="pc_alerta">1</p>
+                            <p id="pc_critico">1</p>
+                            <p id="pc_inativo">0</p>
+                        </div>
+                </div>
+            </div>
+                `
+                }else{
                 div_estacoes.innerHTML += `
                 <div class="cards_totens">
                 <div class="metro_e_nome">
@@ -200,15 +225,15 @@
                             <img class="pc_totem" src="../css/img/computador_inativo.png"></img>
                         </div>
                         <div class="num_pc">
-                            <p id="pc_bom"></p>
-                            <p id="pc_alerta"></p>
-                            <p id="pc_critico"></p>
-                            <p id="pc_inativo"></p>
+                            <p id="pc_bom">0</p>
+                            <p id="pc_alerta">0</p>
+                            <p id="pc_critico">0</p>
+                            <p id="pc_inativo">0</p>
                         </div>
                 </div>
             </div>
                 `
-            }
+            }}
         }
     }
 
