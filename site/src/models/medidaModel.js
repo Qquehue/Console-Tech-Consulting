@@ -19,27 +19,17 @@ function buscarUltimasMedidas(maquina) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+function buscarMedidasEmTempoReal(idCaminhao) {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top 1
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        CONVERT(varchar, momento, 108) as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc`;
+        instrucaoSql = `SELECT top 1 usoCpu, usoMemoria, fkMaquina, FORMAT(upTime, 'HH:mm:ss') as momento_grafico  from usoMaquina join 
+        maquina on UsoMaquina.fkMaquina = maquina.idMaquina where fkMaquina = ${idCaminhao} ORDER BY idUso DESC;`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc limit 1`;
+        instrucaoSql = `SELECT top 1 usoCpu, usoMemoria, fkMaquina, FORMAT(upTime, 'HH:mm:ss') as momento_grafico from usoMaquina join 
+        maquina on UsoMaquina.fkMaquina = maquina.idMaquina where fkMaquina = ${idCaminhao} ORDER BY idUso DESC;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

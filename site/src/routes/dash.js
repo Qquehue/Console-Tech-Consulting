@@ -15,4 +15,12 @@ router.get("/listar/:idMaquina", function (req, res) {
     dashController.listar(req, res);
 });
 
+router.get("/buscarDados/:idMaquina", function (req, res) {
+    dashController.buscarDadosTotem(req, res);
+});
+
+router.get("/buscarTotens/:idEstacao", function (req, res) {
+    dashController.buscarTotensEstacao(req, res);
+});
+
 module.exports = router;

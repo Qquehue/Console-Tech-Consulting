@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
@@ -21,119 +22,121 @@
 <!-- <body onload="exibirMuitos(), validarSessao()"> -->
 <!-- <body onload="exibirMuitos(), validarSessao(), atualizacaoPeriodica()"> -->
 
-    <main>
-        <div class="cabecalho">
-            <div class="container_cabecalho">
-                <div class="itens_cabecalho">
-                    <a href="../index.html"><img src="../css/img/logo branco.png" alt="Logo do Site" class="logo_cabecalho"></a>
-                    <p class="texto" id="nome"></p>
-                    <img src="../css/img/analista.png" alt="" id="foto_dash">
-                    <img src="../css/img/saida.png" alt="" id="exit" onclick="limparSessao()">
-                </div>
+<main>
+    <div class="cabecalho">
+        <div class="container_cabecalho">
+            <div class="itens_cabecalho">
+                <a href="../index.html"><img src="../css/img/logo branco.png" alt="Logo do Site"
+                        class="logo_cabecalho"></a>
+                <p class="texto" id="nome"></p>
+                <img src="../css/img/analista.png" alt="" id="foto_dash">
+                <img src="../css/img/saida.png" alt="" id="exit" onclick="limparSessao()">
             </div>
         </div>
+    </div>
 
-        <div id="estrutura">
-            <div class="maquinas">
-                <h1 id= "linha"></h1>
-                <div class="totens" id="div_muitos_botoes" >
-                </div>
+    <div id="estrutura">
+        <div class="maquinas">
+            <h1 id="linha"></h1>
+            <div class="totens" id="div_muitos_botoes">
             </div>
         </div>
+    </div>
 
-        <div class="legenda">
-            <div class="itens_legenda">
-                <div class="kpi">
-                    <div class="alerta bom"></div>
-                    <p class="texto_legenda">Bom</p>
-                </div>
-                <div class="kpi">
-                    <div class="alerta atencao"></div>
-                    <p class="texto_legenda">Atenção</p>
-                </div>
-                <div class="kpi">
-                    <div class="alerta ruim"></div>
-                    <p class="texto_legenda">Crítico</p>
-                </div>
-                <div class="kpi">
-                    <div class="alerta inativo"></div>
-                    <p class="texto_legenda">Inativo</p>
-                </div>
+    <div class="legenda">
+        <div class="itens_legenda">
+            <div class="kpi">
+                <div class="alerta bom"></div>
+                <p class="texto_legenda">Bom</p>
+            </div>
+            <div class="kpi">
+                <div class="alerta atencao"></div>
+                <p class="texto_legenda">Atenção</p>
+            </div>
+            <div class="kpi">
+                <div class="alerta ruim"></div>
+                <p class="texto_legenda">Crítico</p>
+            </div>
+            <div class="kpi">
+                <div class="alerta inativo"></div>
+                <p class="texto_legenda">Inativo</p>
             </div>
         </div>
+    </div>
 
-        <img src="../css/img/help.png" id="help" onmouseover="btn_help()" onmouseleave="btn_help_sair()"></img>
+    <img src="../css/img/help.png" id="help" onmouseover="btn_help()" onmouseleave="btn_help_sair()"></img>
 
-        <div id="sumir" style="display: none;">
-            <div id="explicacao">
-                <div class="explicacao">
-                    <div class="alerta bom"></div>
-                    <p class="texto_legenda"> - Consumo de Memoria Ram menor que 50% e Consumo de CPU menor que 50%</p>
-                </div>
-                <div class="explicacao">
-                    <div class="alerta atencao"></div>
-                    <p class="texto_legenda"> - Consumo de Memoria Ram entre 50% e 70% ou Consumo de CPU entre 50% e 70%</p>
-                </div>
-                <div class="explicacao">
-                    <div class="alerta ruim"></div>
-                    <p class="texto_legenda"> - Consumo de Memoria Ram maior que 70% ou Consumo de CPU > 70%</p>
-                </div>
-                <div class="explicacao">
-                    <div class="alerta inativo"></div>
-                    <p class="texto_legenda"> - Nenhum hardware está funcionando!</p>
-                </div>
+    <div id="sumir" style="display: none;">
+        <div id="explicacao">
+            <div class="explicacao">
+                <div class="alerta bom"></div>
+                <p class="texto_legenda"> - Consumo de Memoria Ram menor que 50% e Consumo de CPU menor que 50%</p>
             </div>
-            <div id="invi">
-                <button id="btn_invi"></button>
-                
+            <div class="explicacao">
+                <div class="alerta atencao"></div>
+                <p class="texto_legenda"> - Consumo de Memoria Ram entre 50% e 70% ou Consumo de CPU entre 50% e 70%</p>
+            </div>
+            <div class="explicacao">
+                <div class="alerta ruim"></div>
+                <p class="texto_legenda"> - Consumo de Memoria Ram maior que 70% ou Consumo de CPU > 70%</p>
+            </div>
+            <div class="explicacao">
+                <div class="alerta inativo"></div>
+                <p class="texto_legenda"> - Nenhum hardware está funcionando!</p>
             </div>
         </div>
+        <div id="invi">
+            <button id="btn_invi"></button>
+        </div>
+    </div>
 
-    </main>
+</main>
 
 </body>
-</html>
 
+</html>
 
 <script>
 
     var idEstacao = `${sessionStorage.ID_ESTACAO}`;
+    // var idMaquina = localStorage.idMaquina;
     var idMaquinas = 0;
+
     exibirMuitos(idEstacao);
-    atualizacaoPeriodica();
+    // atualizacaoPeriodica();
 
     var lista = []
-    var ultimaTemp =[];
+    var ultimaTemp = [];
     // mostrar e plotar totens
     function exibirMuitos(idEstacao) {
-        
-        console.log(idEstacao)
+        // console.log(idEstacao)
 
         nome.innerHTML = `Olá ${sessionStorage.NOME_USUARIO}`;
-        linha.innerHTML= `Linha ${sessionStorage.COR_LINHA} - Estação ${sessionStorage. NOME_ESTACAO}`;
+        linha.innerHTML = `Linha ${sessionStorage.COR_LINHA} - Estação ${sessionStorage.NOME_ESTACAO}`;
         fetch(`/dash/listarCaminhao/${idEstacao}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             }
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO listar()!")
+            // console.log("ESTOU NO THEN DO listar()!")
 
             if (resposta.ok) {
-                console.log(resposta);
+                // console.log(resposta);
                 resposta.json().then(json => {
-                    console.log(json);
-                    // console.log(json.length)
-                    // console.log(JSON.stringify(json));
+                    // console.log(json);
                     lista = [];
-                    
-                    for(let i = 0; i < json.length; i ++ ){
+
+                    for (let i = 0; i < json.length; i++) {
                         lista.push(json[i]);
-                        console.log(`cadastro ${i}`)
+                        // console.log(`cadastro ${i}`)
                         // o nome de cada botao retorna assim
-                        console.log(lista[i])
+                        // var idMaquina = json[i].idMaquina
+                        // console.log(idMaquina)
+                        mostrarCaminhao(idEstacao);
                     }
-                    mostrarCaminhao(idEstacao);
+
+                    buscarTotensEstacao(idEstacao);
                 });
             } else {
                 console.log("Houve um erro ao tentar realizar o listar!");
@@ -148,30 +151,112 @@
 
         return false;
     }
-    
-    function mostrarCaminhao(idEstacao){
+
+    function buscarTotensEstacao(idEstacao) {
+        fetch(`/dash/buscarTotens/${idEstacao}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (response) {
+
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    for (let index = 0; index < resposta.length; index++) {
+                        var idMaquina = resposta[index].idMaquina
+                        buscarDadosTotem(idMaquina)
+                    }
+                });
+            } else {
+                console.log("Houve um erro ao tentar realizar o listar!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function buscarDadosTotem(idMaquina) {
+        fetch(`/dash/buscarDados/${idMaquina}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (response) {
+
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    preencherAnalytics(resposta)
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar realizar o listar!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+            setTimeout(() => buscarDadosTotem(idMaquina), 10000);
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function mostrarCaminhao(idEstacao) {
         if (lista.length != -1) {
             div_muitos_botoes.innerHTML = ``
 
             for (let i = 0; i < lista.length; i++) {
                 div_muitos_botoes.innerHTML += `
-                <div class="cards_totens"> <button class="botao_totem" onclick="mostrar_dash(${lista[i].idMaquina})"><img src="../css/img/computador_inativo.png" alt="" class="img_cards"></button></div>
+                <div class="cards_totens" id="totem${lista[i].idMaquina}"> <button class="botao_totem" onclick="mostrar_dash(${lista[i].idMaquina})"><img id="imagemInativo" src="../css/img/computador_inativo.png" alt="" class="img_cards"></button></button></div>
                 `
             }
         }
     }
 
-    function mostrar_dash(idMaquina){
+    var idMaquina = 0
+    var processadorUso = 0
+    var memoriaRam = 0
 
+    function preencherAnalytics(resposta) {
+
+        for (let index = 0; index < resposta.length; index++) {
+            idMaquina = resposta[index].fkMaquina;
+            processadorUso = resposta[index].usoCpu;
+            memoriaRam = resposta[index].usoMemoria;
+
+            if (processadorUso < 50 && memoriaRam < 50) {
+                document.getElementById(`totem${idMaquina}`).innerHTML = `<button class="botao_totem" onclick="mostrar_dash(${idMaquina})"><img id="imagemBom" src="../css/img/computador_bom.png" alt="" class="img_cards"></button>`
+            } else if (processadorUso >= 50 && processadorUso < 70 || memoriaRam >= 50 && memoriaRam < 70) {
+                document.getElementById(`totem${idMaquina}`).innerHTML = `<button class="botao_totem" onclick="mostrar_dash(${idMaquina})"><img id="imagemAlerta" src="../css/img/computador_alerta.png" alt="" class="img_cards"></button>`
+            } else if (processadorUso >= 70 || memoriaRam >= 70) {
+                document.getElementById(`totem${idMaquina}`).innerHTML = `<button class="botao_totem" onclick="mostrar_dash(${idMaquina})"><img id="imagemCritico" src="../css/img/computador_critico.png" alt="" class="img_cards"></button>`
+            } else {
+                document.getElementById(`totem${idMaquina}`).innerHTML = `<button class="botao_totem" onclick="mostrar_dash(${idMaquina})"><img id="imagemInativo" src="../css/img/computador_inativo.png" alt="" class="img_cards"></button>`
+            }
+        }
+    }
+
+    function validandoTotem(idMaquina) {
+
+    }
+
+    function mostrar_dash(idMaquina) {
         window.open("http://localhost:8080/dashboard/maquina.html");
         localStorage.idMaquina = idMaquina;
         idMaquinas = localStorage.idMaquina;
-        console.log(idMaquinas)
+        // console.log(idMaquinas)
     }
-        
-    
-        
-
 
     // buscar dados e alterar kpis
 
@@ -179,15 +264,15 @@
     //     var idEmpresa = sessionStorage.FK_EMPRESA;
     //     obterdados(idEmpresa);
     //     function sendData() {
-	// 		var http = new XMLHttpRequest();
-	// 		http.open('POST', 'http://localhost:3000/api/sendData', false);
-	// 		http.send(null);
+    // 		var http = new XMLHttpRequest();
+    // 		http.open('POST', 'http://localhost:3000/api/sendData', false);
+    // 		http.send(null);
     //         KPI();
-	// 	}
+    // 	}
     //     setInterval(() => {
-	// 		sendData();
+    // 		sendData();
     //         KPI();
-	// 	}, 100000);
+    // 	}, 100000);
     //     setTimeout(atualizacaoPeriodica, 100000);
     // }
     // function obterdados(idEmpresa) {
@@ -281,4 +366,4 @@
     function btn_help_sair() {
         sumir.style.display = 'none';
     }
-</script> 
+</script>

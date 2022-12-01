@@ -27,6 +27,49 @@ function listarCaminhao(req, res){
     );
 }
 
+function buscarDadosTotem(req, res){
+    var idMaquina = req.params.idMaquina;
+
+    dashModel.buscarDados(idMaquina)
+    .then(function (resultado){
+        if(resultado.length > 0){
+            res.status(200).json(resultado);
+        }else {
+            res.status(204).send("Nenhum resultado encontrado")
+        }
+    }).catch(
+        function (erro){
+            console.log(erro);{
+                console.log(erro);
+                console.log("Houve um erro ao tentar realizar a consulta Erro:", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        }
+    );
+}
+
+function buscarTotensEstacao(req, res){
+    var idEstacao = req.params.idEstacao;
+
+    dashModel.listarCaminhao(idEstacao)
+    .then(function (resultado){
+        if(resultado.length > 0){
+            res.status(200).json(resultado);
+        }else {
+            res.status(204).send("Nenhum resultado encontrado")
+        }
+    }).catch(
+        function (erro){
+            console.log(erro);{
+                console.log(erro);
+                console.log("Houve um erro ao tentar realizar a consulta Erro:", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        }
+    );
+}
+
+
 function listar(req, res){
     var idMaquina = req.params.idMaquina;
     dashModel.listar(idMaquina)
@@ -50,6 +93,7 @@ function listar(req, res){
 module.exports = {
     listarCaminhao,
     listar,
-    testar
-
+    testar,
+    buscarDadosTotem,
+    buscarTotensEstacao
 }
