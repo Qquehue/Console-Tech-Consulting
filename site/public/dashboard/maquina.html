@@ -17,7 +17,7 @@
     <title>Detalhes do totem</title>
 </head>
 
-<body onload="validarSessao(), mostrarInfos(), mostrarEspecificacao, obterDadosGrafico(1)">
+<body onload="validarSessao(), mostrarInfos(), mostrarEspecificacao, obterDadosGrafico(maquina)">
 
 <!-- Início cabeçalho -->
 
@@ -114,7 +114,7 @@
 
 <!-- Início legenda -->
 
-    <button id="btn_relatorio" onclick="btn_relatorio()">Abrir chamado</button>
+    <!-- <button id="btn_relatorio" onclick="btn_relatorio()">Abrir chamado</button>:? -->
     <!-- <a href="help.html"> <img src="css/img/help.png" id="help"></img> </a>
     <a href="dashboard.html"> <img src="css/img/casa.png" id="casa"></img> </a> -->
 
@@ -125,6 +125,7 @@
 </body>
 </html>
 <script>
+    var maquina = localStorage.idMaquina;
 
     function mostrarEspecificacao(idMaquina) {
         fetch(`/dash/listar/${idMaquina}`, {
@@ -138,6 +139,7 @@
 
             if (resposta.ok) {
                 console.log(resposta[0].totalMemoria);
+                sessionStorage.setItem("ram",resposta[0].totalMemoria)
                 localStorage.ram = resposta[0].totalMemoria;   
                 localStorage.modeloCPU = resposta[0].modeloCPU;
                 localStorage.dataCadastro = resposta[0].dataCadastro;
@@ -163,7 +165,7 @@
     function mostrarInfos() {
         idMaquina.innerHTML = localStorage.idMaquina;
         modeloCpu.innerHTML = localStorage.modeloCpu;
-        ram.innerHTML = localStorage.ram;
+        ram.innerHTML = sessionStorage.getItem("ram");
         data.innerHTML = localStorage.dataCadastro;
         linha.innerHTML = sessionStorage.COR_LINHA;
         estacao.innerHTML = sessionStorage.NOME_ESTACAO;
@@ -183,6 +185,7 @@
                         resposta.reverse();
 
                         plotarGrafico(resposta, idAquario);
+                        plotarGrafico2(resposta, idAquario);
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
@@ -257,7 +260,7 @@
             // setTimeout(() => atualizarGrafico(idCaminhao, dados), 2000);
         }
 
-        function plotarGrafico(resposta, idCaminhao) {
+        function plotarGrafico2(resposta, idCaminhao) {
             console.log('iniciando plotagem do gráfico...');
 
             var dados = {
@@ -284,7 +287,7 @@
                 // verificar se esta referenciado
                 // console.log(registro)
                 dados.labels.push(horarioModificado);
-                dados.datasets[0].data.push(registro.usoCPU);
+                dados.datasets[0].data.push(registro.usoMemoria);
             }
 
             console.log(JSON.stringify(dados));
