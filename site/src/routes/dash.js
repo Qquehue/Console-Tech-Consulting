@@ -11,6 +11,10 @@ router.get("/listarCaminhao/:idEstacao", function (req, res) {
     dashController.listarCaminhao(req, res);
 });
 
+router.get("/listarEstacao/:idLinha", function (req, res) {
+    dashController.listarEstacao(req, res);
+});
+
 router.get("/listar/:idMaquina", function (req, res) {
     dashController.listar(req, res);
 });

@@ -9,6 +9,15 @@ function listarCaminhao(idEstacao) {
     return database.executar(instrucao);
 }
 
+function listarEstacao(idLinha) {
+    console.log("ACESSEI O DASH MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+        SELECT idEstacao, nomeEstacao FROM Estacao where fkLinha = '${idLinha}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function listar(idMaquina) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
@@ -39,6 +48,7 @@ function buscarTotensEstacao(idEstacao) {
 
 module.exports = {
     listarCaminhao,
+    listarEstacao,
     listar,
     buscarDados,
     buscarTotensEstacao

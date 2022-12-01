@@ -184,3 +184,7 @@ h1{
     height: 5vh;
     cursor: pointer;
 }
+
+.nomeEstacao{
+    font-size: 70%;
+}
